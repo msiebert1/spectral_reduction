@@ -1,0 +1,206 @@
+tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 14:17 Trim data section is [1:2048,1:350]
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:17:42 06-Nov-2017
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:17:42 06-Nov-2017
+  Reference image = db1007.ms.fits, New image = db1007.ms, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+db1007.ms - Ap 1       16/16   16/16    5.65E-4    -1.98E-8  1.3E-11    0.632
+db1007.ms - Ap 1       16/16   16/16         0.          0.       0.    0.632
+
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:17:42 06-Nov-2017
+  Longslit coordinate fit name is db1007.ms.
+  Longslit database is database.
+  Features from images:
+    db1007.ms
+tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 14:51 Trim data section is [1:2048,1:350]
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:52:04 06-Nov-2017
+tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 14:52 Trim data section is [1:2048,1:350]
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:54:31 06-Nov-2017
+tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 14:56 Trim data section is [1:2048,1:350]
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:00:39 06-Nov-2017
+tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 15:01 Trim data section is [1:2048,1:350]
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:01:34 06-Nov-2017
+tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 15:02 Trim data section is [1:2048,1:350]
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:03 06-Nov-2017
+tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 15:02 Trim data section is [1:2048,1:350]
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:38 06-Nov-2017
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:38 06-Nov-2017
+  Reference image = b1008.fits, New image = b1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+b1008[*,165]            9/9     9/9     -0.0704     -0.0718  -1.0E-4     175.
+b1008[*,155]            9/9     9/9     -0.0469     -0.0469  -1.1E-5     175.
+b1008[*,145]            9/9     9/9     -0.0543     -0.0543  -1.2E-5     175.
+b1008[*,135]            9/9     9/9     -0.0549     -0.0549  -1.2E-5     175.
+b1008[*,125]            9/9     9/9     -0.0576     -0.0576  -1.3E-5     175.
+b1008[*,115]            9/9     9/9     -0.0586     -0.0586  -1.3E-5     175.
+b1008[*,105]            9/9     9/9     -0.0607     -0.0607  -1.4E-5     175.
+b1008[*,95]             9/9     9/9     -0.0633     -0.0633  -1.5E-5     175.
+b1008[*,85]             9/9     9/9     -0.0729     -0.0729  -1.7E-5     175.
+b1008[*,75]             9/9     9/9     -0.0719     -0.0719  -1.7E-5     175.
+b1008[*,65]             9/9     9/9     -0.0859     -0.0859  -2.0E-5     175.
+b1008[*,55]             9/9     9/9      -0.058      -0.058  -1.4E-5     175.
+b1008[*,45]             9/9     9/9     -0.0776     -0.0776  -1.8E-5     175.
+b1008[*,35]             9/9     9/9     -0.0922     -0.0922  -2.1E-5     175.
+b1008[*,25]             9/9     9/9     -0.0822     -0.0822  -1.9E-5     175.
+b1008[*,15]             9/9     9/9      -0.103      -0.103  -2.4E-5     175.
+b1008[*,5]              9/9     9/9      -0.384      -0.384  -8.5E-5     175.
+b1008[*,185]            9/9     9/9      0.0604       0.059  9.35E-5     175.
+b1008[*,195]            9/9     9/9      0.0439      0.0439  9.94E-6     175.
+b1008[*,205]            9/9     9/9      0.0672      0.0672  1.53E-5     175.
+b1008[*,215]            9/9     9/9      0.0504      0.0504  1.11E-5     175.
+b1008[*,225]            9/9     9/9      0.0601      0.0601  1.38E-5     175.
+b1008[*,235]            9/9     9/9      0.0469      0.0469  1.06E-5     175.
+b1008[*,245]            9/9     9/9      0.0547      0.0547  1.25E-5     175.
+b1008[*,255]            9/9     9/9      0.0505      0.0505  1.13E-5     175.
+b1008[*,265]            9/9     9/9      0.0556      0.0556  1.27E-5     175.
+b1008[*,275]            9/9     9/9      0.0366      0.0366  8.77E-6     175.
+b1008[*,285]            9/9     9/9      0.0479      0.0479  1.14E-5     175.
+b1008[*,295]            9/9     9/9      0.0411      0.0411  9.84E-6     175.
+b1008[*,305]            9/9     9/9        0.03        0.03  7.28E-6     175.
+b1008[*,315]            9/9     9/9      0.0184      0.0184  4.83E-6     175.
+b1008[*,325]            9/9     9/9     -0.0805     -0.0805  -1.7E-5     175.
+b1008[*,335]            9/9     9/9     0.00728     0.00728  -4.5E-7     175.
+b1008[*,345]            8/9     8/8       0.515       0.515  1.08E-4     184.
+
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:38 06-Nov-2017
+  Longslit coordinate fit name is b1008.
+  Longslit database is database.
+  Features from images:
+    b1008
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 314
+  Mapping function = legendre
+    X order = 6
+    Y order = 4
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 3232.891  (2112, 1) = 6214.897
+    (1, 350) = 3215.115  (2112, 350) = 6376.903
+
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:39 06-Nov-2017
+  Transform tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits to tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+    b1008
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      3215., x2 =      6377., dx =      1.498, nx = 2112, xlog = no
+    y1 =         1., y2 =       350., dy =         1., ny =  350, ylog = no
+
+SFIT: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:39 06-Nov-2017
+
+Line 1 of new3.fits:
+
+      coeff           value
+	1	    2.5167E2
+	2	   3.7636E-1
+	3	  -4.8319E-3
+	4	   3.1911E-5
+	5	  -1.0053E-7
+	6	  1.1758E-10
+
+
+END: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:39 06-Nov-2017
+
+
+SFIT: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:39 06-Nov-2017
+
+
+END: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:39 06-Nov-2017
+
+tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 15:21 Trim data section is [1:2048,1:350]
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:02 06-Nov-2017
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:02 06-Nov-2017
+  Reference image = b1008.fits, New image = b1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+b1008[*,165]            9/9     9/9     -0.0704     -0.0718  -1.0E-4     175.
+b1008[*,155]            9/9     9/9     -0.0469     -0.0469  -1.1E-5     175.
+b1008[*,145]            9/9     9/9     -0.0543     -0.0543  -1.2E-5     175.
+b1008[*,135]            9/9     9/9     -0.0549     -0.0549  -1.2E-5     175.
+b1008[*,125]            9/9     9/9     -0.0576     -0.0576  -1.3E-5     175.
+b1008[*,115]            9/9     9/9     -0.0586     -0.0586  -1.3E-5     175.
+b1008[*,105]            9/9     9/9     -0.0607     -0.0607  -1.4E-5     175.
+b1008[*,95]             9/9     9/9     -0.0633     -0.0633  -1.5E-5     175.
+b1008[*,85]             9/9     9/9     -0.0729     -0.0729  -1.7E-5     175.
+b1008[*,75]             9/9     9/9     -0.0719     -0.0719  -1.7E-5     175.
+b1008[*,65]             9/9     9/9     -0.0859     -0.0859  -2.0E-5     175.
+b1008[*,55]             9/9     9/9      -0.058      -0.058  -1.4E-5     175.
+b1008[*,45]             9/9     9/9     -0.0776     -0.0776  -1.8E-5     175.
+b1008[*,35]             9/9     9/9     -0.0922     -0.0922  -2.1E-5     175.
+b1008[*,25]             9/9     9/9     -0.0822     -0.0822  -1.9E-5     175.
+b1008[*,15]             9/9     9/9      -0.103      -0.103  -2.4E-5     175.
+b1008[*,5]              9/9     9/9      -0.384      -0.384  -8.5E-5     175.
+b1008[*,185]            9/9     9/9      0.0604       0.059  9.35E-5     175.
+b1008[*,195]            9/9     9/9      0.0439      0.0439  9.94E-6     175.
+b1008[*,205]            9/9     9/9      0.0672      0.0672  1.53E-5     175.
+b1008[*,215]            9/9     9/9      0.0504      0.0504  1.11E-5     175.
+b1008[*,225]            9/9     9/9      0.0601      0.0601  1.38E-5     175.
+b1008[*,235]            9/9     9/9      0.0469      0.0469  1.06E-5     175.
+b1008[*,245]            9/9     9/9      0.0547      0.0547  1.25E-5     175.
+b1008[*,255]            9/9     9/9      0.0505      0.0505  1.13E-5     175.
+b1008[*,265]            9/9     9/9      0.0556      0.0556  1.27E-5     175.
+b1008[*,275]            9/9     9/9      0.0366      0.0366  8.77E-6     175.
+b1008[*,285]            9/9     9/9      0.0479      0.0479  1.14E-5     175.
+b1008[*,295]            9/9     9/9      0.0411      0.0411  9.84E-6     175.
+b1008[*,305]            9/9     9/9        0.03        0.03  7.28E-6     175.
+b1008[*,315]            9/9     9/9      0.0184      0.0184  4.83E-6     175.
+b1008[*,325]            9/9     9/9     -0.0805     -0.0805  -1.7E-5     175.
+b1008[*,335]            9/9     9/9     0.00728     0.00728  -4.5E-7     175.
+b1008[*,345]            8/9     8/8       0.515       0.515  1.08E-4     184.
+
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:02 06-Nov-2017
+  Longslit coordinate fit name is b1008.
+  Longslit database is database.
+  Features from images:
+    b1008
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 314
+  Mapping function = legendre
+    X order = 6
+    Y order = 4
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 3232.891  (2112, 1) = 6214.897
+    (1, 350) = 3215.115  (2112, 350) = 6376.903
+
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:03 06-Nov-2017
+  Transform tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits to test.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+    b1008
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      3215., x2 =      6377., dx =      1.498, nx = 2112, xlog = no
+    y1 =         1., y2 =       350., dy =         1., ny =  350, ylog = no
+
+SFIT: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:03 06-Nov-2017
+
+Line 1 of new3.fits:
+
+      coeff           value
+	1	   5.9431E15
+	2	  -3.4450E15
+	3	   7.9878E14
+	4	  -9.2604E13
+	5	   5.3680E12
+	6	  -1.2446E11
+
+
+END: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:03 06-Nov-2017
+
+
+SFIT: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:03 06-Nov-2017
+
+
+END: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:03 06-Nov-2017
+

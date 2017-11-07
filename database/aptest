@@ -1,0 +1,29 @@
+# Mon 16:34:18 06-Nov-2017
+begin	aperture test 1 1056. 160.3463
+	image	test
+	aperture	1
+	beam	1
+	center	1056. 160.3463
+	low	-1055. -5.
+	high	1056. 5.
+	background
+		xmin -10.
+		xmax 10.
+		function chebyshev
+		order 1
+		sample -10:-6,6:10
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	7
+		2.
+		3.
+		6.
+		1786.
+		1.090509
+		-4.09355
+		1.052214
+
