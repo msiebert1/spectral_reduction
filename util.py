@@ -499,7 +499,8 @@ def searcharc(img, listarc):
     # else:
     #     arcfile = ''
 
-    # arcfile = 'db1007.ms.fits'
+    # arcfile = 'dr1007.ms.fits'
+    # arcfile = 'r1007rot.fits'
     arcfile = 'b1008.fits'
     # arcfile = 'arc_20120825_Gr13_Free_slit1.0_56442_1.fits'
     directory = '/home/msiebert/Documents/UCSC/Research/spectral_reduction'
@@ -511,41 +512,43 @@ def searcharc(img, listarc):
 def searchsens(img, listsens):
     # print "LOGX:: Entering `searchsens` method/function in %(__file__)s" %
     # globals()
-    import ntt
-    import glob
-    import numpy as np
+    # import ntt
+    # import glob
+    # import numpy as np
 
-    hdr = ntt.util.readhdr(img)
-    JD = ntt.util.readkey3(hdr, 'JD')
-    _instrume = ntt.util.readkey3(hdr, 'instrume')
-    grism0 = ntt.util.readkey3(hdr, 'grism')
-    filter0 = ntt.util.readkey3(hdr, 'filter')
-    if not listsens:
-        directory = ntt.__path__[0] + '/archive/' + \
-            str(_instrume) + '/sens/' + grism0 + '/' + filter0
-        listsens = glob.glob(directory + '/*fits')
-    else:
-        directory = ''
-    if listsens:
-        sensfile = ''
-        distance = []
-        goodlist = []
-        for sens in listsens:
-            hdrs = ntt.util.readhdr(sens)
-            JDsens = ntt.util.readkey3(hdrs, 'JD')
-            filter1 = ntt.util.readkey3(hdrs, 'filter') \
-                if ntt.util.readkey3(hdrs, 'filter') else ntt.util.readkey3(hdrs, 'FILTER')
-            grism1 = ntt.util.readkey3(hdrs, 'grism') \
-                if ntt.util.readkey3(hdrs, 'grism') else ntt.util.readkey3(hdrs, 'GRISM')
-            if filter0 == filter1 and grism0 == grism1:
-                goodlist.append(sens)
-                distance.append(np.abs(JD - JDsens))
-        if len(distance) >= 1:
-            sensfile = goodlist[np.argmin(distance)]
-        else:
-            sensfile = ''
-    else:
-        sensfile = ''
+    # hdr = ntt.util.readhdr(img)
+    # JD = ntt.util.readkey3(hdr, 'JD')
+    # _instrume = ntt.util.readkey3(hdr, 'instrume')
+    # grism0 = ntt.util.readkey3(hdr, 'grism')
+    # filter0 = ntt.util.readkey3(hdr, 'filter')
+    # if not listsens:
+    #     directory = ntt.__path__[0] + '/archive/' + \
+    #         str(_instrume) + '/sens/' + grism0 + '/' + filter0
+    #     listsens = glob.glob(directory + '/*fits')
+    # else:
+    #     directory = ''
+    # if listsens:
+    #     sensfile = ''
+    #     distance = []
+    #     goodlist = []
+    #     for sens in listsens:
+    #         hdrs = ntt.util.readhdr(sens)
+    #         JDsens = ntt.util.readkey3(hdrs, 'JD')
+    #         filter1 = ntt.util.readkey3(hdrs, 'filter') \
+    #             if ntt.util.readkey3(hdrs, 'filter') else ntt.util.readkey3(hdrs, 'FILTER')
+    #         grism1 = ntt.util.readkey3(hdrs, 'grism') \
+    #             if ntt.util.readkey3(hdrs, 'grism') else ntt.util.readkey3(hdrs, 'GRISM')
+    #         if filter0 == filter1 and grism0 == grism1:
+    #             goodlist.append(sens)
+    #             distance.append(np.abs(JD - JDsens))
+    #     if len(distance) >= 1:
+    #         sensfile = goodlist[np.argmin(distance)]
+    #     else:
+    #         sensfile = ''
+    # else:
+    #     sensfile = ''
+    sensfile = 'sens.blue.fits'
+    directory = '/home/msiebert/Documents/UCSC/Research/spectral_reduction'
     return sensfile, directory
 
 
@@ -1267,7 +1270,7 @@ def limmag(img):
 ####################################################################
 
 
-def extractspectrum(img, dv, _ext_trace, _dispersionline, _interactive, _type, automaticex=False):
+def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _type, automaticex=False):
     # print "LOGX:: Entering `extractspectrum` method/function in
     # %(__file__)s" % globals()
     import glob
@@ -1289,12 +1292,13 @@ def extractspectrum(img, dv, _ext_trace, _dispersionline, _interactive, _type, a
     for t in toforget:
         iraf.unlearn(t)
 
-    dv = ntt.dvex()
+    # dv = ntt.dvex()
     hdr = ntt.util.readhdr(img)
-    _gain = ntt.util.readkey3(hdr, 'gain')
-    _rdnoise = ntt.util.readkey3(hdr, 'ron')
-    _grism = ntt.util.readkey3(hdr, 'grism')
-    iraf.specred.dispaxi = 2
+    # _gain = ntt.util.readkey3(hdr, 'gain')
+    # _rdnoise = ntt.util.readkey3(hdr, 'ron')
+    # _grism = ntt.util.readkey3(hdr, 'grism')
+    iraf.specred.dispaxi = inst.get('dispaxis')
+
     imgex = re.sub('.fits', '_ex.fits', img)
     imgfast = re.sub(string.split(img, '_')[-2] + '_', '', img)
     # imgfast=re.sub(str(MJDtoday)+'_','',img)
@@ -1335,7 +1339,7 @@ def extractspectrum(img, dv, _ext_trace, _dispersionline, _interactive, _type, a
             else:
                 _new, _extract = 'yes', 'yes'
     if _extract == 'yes':
-        ntt.util.delete(imgex)
+        delete(imgex)
         if _dispersionline:
             question = 'yes'
             while question == 'yes':
@@ -1350,7 +1354,8 @@ def extractspectrum(img, dv, _ext_trace, _dispersionline, _interactive, _type, a
                 except:
                     print '\n### input not valid, try again:'
         else:
-            dist = dv['line'][_grism]
+            # dist = dv['line'][_grism]
+            dist = 200
         if _ext_trace in ['yes', 'Yes', 'YES', True]:
             lista = glob.glob('*ex.fits')
             if lista:
@@ -1394,9 +1399,18 @@ def extractspectrum(img, dv, _ext_trace, _dispersionline, _interactive, _type, a
             _edit = 'yes'
             _review = 'yes'
             _resize = dv[_type]['_resize']
+
+        # _interactive = False
+        _recenter = 'no'
+        _resize = 'no'
+        _edit = 'yes'
+        _trace = 'yes'
+        _fittrace = 'no'
+        _review = 'yes'
+
         iraf.specred.apall(img, output=imgex, referen=_reference, trace=_trace, fittrac=_fittrac, find=_find,
                            recenter=_recenter, edit=_edit,
-                           nfind=1, extract='yes', backgro='fit', gain=_gain, readnoi=_rdnoise, lsigma=4, usigma=4,
+                           nfind=1, backgro='fit', lsigma=4, usigma=4,
                            format='multispec',
                            b_function='legendre', b_sample=dv[_type]['_b_sample'], clean='yes', pfit='fit1d',
                            lower=dv[_type]['_lower'], upper=dv[_type][
@@ -1409,40 +1423,41 @@ def extractspectrum(img, dv, _ext_trace, _dispersionline, _interactive, _type, a
                                _type]['_t_sample'], resize=_resize,
                            t_order=dv[_type]['_t_order'],
                            weights=dv[_type]['_weights'], interactive=_interactive, review=_review, mode=_mode)
-        ntt.util.repstringinfile('database/ap' + re.sub('.fits', '', img), 'database/ap' + re.sub('.fits', '', imgfast),
-                                 re.sub('.fits', '', img), re.sub('.fits', '', imgfast))
 
-        data, hdr = pyfits.getdata(imgex, 0, header=True)
-        xxex = np.arange(len(data[0][0]))
-        aaex = ntt.util.readkey3(hdr, 'CRVAL1') + \
-            (xxex) * ntt.util.readkey3(hdr, 'CD1_1')
-        # add sky from original image  for sofi .....probably better to move
-        # out of this module
-        _original = ntt.util.readkey3(hdr, 'ORIGFILE')
-        _archive = ntt.util.readkey3(hdr, 'ARCFILE')
-        _arc = ntt.util.readkey3(hdr, 'ARC')
-        _instrume = ntt.util.readkey3(hdr, 'instrume')
-        if _arc and _instrume != 'efosc':
-            if os.path.isfile(_arc):
-                if os.path.isfile(_archive):
-                    imgstart = _archive
-                elif os.path.isfile(_original):
-                    imgstart = _original
-                else:
-                    imgstart = ''
-                if imgstart:
-                    ntt.util.delete('_tmp.fits')
-                    iraf.specred.transform(input=imgstart, output='_tmp.fits', minput='',
-                                           fitnames=re.sub('.fits', '', _arc), databas='database',
-                                           x1='INDEF', x2='INDEF', y1='INDEF', y2='INDEF', flux='yes', mode='h',
-                                           logfile='logfile')
-                    yysky = pyfits.open('_tmp.fits')[0].data[:, 10]
-                    ntt.util.delete('_tmp.fits')
-                    data[2][0] = yysky
-                    ntt.util.delete(imgex)
-                    pyfits.writeto(imgex, np.float32(data), hdr)
-                else:
-                    print '\n### warning raw image for sky information not found'
+        # repstringinfile('database/ap' + re.sub('.fits', '', img), 'database/ap' + re.sub('.fits', '', imgfast),
+        #                          re.sub('.fits', '', img), re.sub('.fits', '', imgfast))
+
+        # data, hdr = pyfits.getdata(imgex, 0, header=True)
+        # xxex = np.arange(len(data[0][0]))
+        # aaex = ntt.util.readkey3(hdr, 'CRVAL1') + \
+        #     (xxex) * ntt.util.readkey3(hdr, 'CD1_1')
+        # # add sky from original image  for sofi .....probably better to move
+        # # out of this module
+        # _original = ntt.util.readkey3(hdr, 'ORIGFILE')
+        # _archive = ntt.util.readkey3(hdr, 'ARCFILE')
+        # _arc = ntt.util.readkey3(hdr, 'ARC')
+        # _instrume = ntt.util.readkey3(hdr, 'instrume')
+        # if _arc and _instrume != 'efosc':
+        #     if os.path.isfile(_arc):
+        #         if os.path.isfile(_archive):
+        #             imgstart = _archive
+        #         elif os.path.isfile(_original):
+        #             imgstart = _original
+        #         else:
+        #             imgstart = ''
+        #         if imgstart:s
+        #             ntt.util.delete('_tmp.fits')
+        #             iraf.specred.transform(input=imgstart, output='_tmp.fits', minput='',
+        #                                    fitnames=re.sub('.fits', '', _arc), databas='database',
+        #                                    x1='INDEF', x2='INDEF', y1='INDEF', y2='INDEF', flux='yes', mode='h',
+        #                                    logfile='logfile')
+        #             yysky = pyfits.open('_tmp.fits')[0].data[:, 10]
+        #             ntt.util.delete('_tmp.fits')
+        #             data[2][0] = yysky
+        #             ntt.util.delete(imgex)
+        #             pyfits.writeto(imgex, np.float32(data), hdr)
+        #         else:
+        #             print '\n### warning raw image for sky information not found'
                 ##########################################
             #        ntt.util.updateheader(imgex,0,{'XMIN':[aaex[0],'min wavelength [Angstrom]'],'XMAX':[aaex[-1],'max wavelength [Angstrom]']})
     else:

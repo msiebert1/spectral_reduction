@@ -1,6 +1,6 @@
 # Tue 11:47:56 21-Nov-2017
-begin	aperture last 1 200. 164.5962
-	image	last
+begin	aperture tsn2017erp_2017-07-03T05:10:28.34_1 1 200. 164.5962
+	image	tsn2017erp_2017-07-03T05:10:28.34_1
 	aperture	1
 	beam	1
 	center	200. 164.5962

@@ -1,38 +1,254 @@
-tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 14:17 Trim data section is [1:2048,1:350]
 
-REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:17:42 06-Nov-2017
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:35:39 20-Nov-2017
 
-REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:17:42 06-Nov-2017
-  Reference image = db1007.ms.fits, New image = db1007.ms, Refit = yes
-          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
-db1007.ms - Ap 1       16/16   16/16    5.65E-4    -1.98E-8  1.3E-11    0.632
-db1007.ms - Ap 1       16/16   16/16         0.          0.       0.    0.632
-
-NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:17:42 06-Nov-2017
-  Longslit coordinate fit name is db1007.ms.
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:35:39 20-Nov-2017
+  Longslit coordinate fit name is b1008.
   Longslit database is database.
   Features from images:
-    db1007.ms
-tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 14:51 Trim data section is [1:2048,1:350]
+    b1008
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 314
+  Mapping function = legendre
+    X order = 6
+    Y order = 4
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 3232.891  (2112, 1) = 6214.897
+    (1, 350) = 3215.115  (2112, 350) = 6376.903
 
-REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:52:04 06-Nov-2017
-tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 14:52 Trim data section is [1:2048,1:350]
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:35:40 20-Nov-2017
+  Transform tsn2017erp_2017-07-03T05:10:28.34_1.fits to tsn2017erp_2017-07-03T05:10:28.34_1.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+    b1008
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      3215., x2 =      6377., dx =      1.498, nx = 2112, xlog = no
+    y1 =         1., y2 =       350., dy =         1., ny =  350, ylog = no
+Nov 20 13:35: FIND - 1 apertures found for tsn2017erp_2017-07-03T05:10:28.34_1
+Nov 20 13:35: EDIT - 1 apertures edited for tsn2017erp_2017-07-03T05:10:28.34_1
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 1970.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 1980.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 1990.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2000.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2010.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2020.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2030.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2040.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2050.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2060.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2070.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2080.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2090.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2100.
+Nov 20 13:35: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2110.
+Nov 20 13:36: TRACE - 1 apertures traced in tsn2017erp_2017-07-03T05:10:28.34_1.
+Nov 20 13:36: DATABASE - 1 apertures for tsn2017erp_2017-07-03T05:10:28.34_1 written to database
+Nov 20 13:36: EXTRACT: 161 pixels rejected for profile from aperture 1
+Nov 20 13:36: EXTRACT: Aperture 1 variance spectrum bias factor is 0.999901
+Nov 20 13:36: EXTRACT: 1 pixels rejected from aperture 1
+Nov 20 13:36: EXTRACT - Aperture 1 from tsn2017erp_2017-07-03T05:10:28.34_1 --> tsn2017erp_2017-07-03T05:10:28.34_1_ex
 
-REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:54:31 06-Nov-2017
-tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 14:56 Trim data section is [1:2048,1:350]
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:52:09 20-Nov-2017
 
-REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:00:39 06-Nov-2017
-tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 15:01 Trim data section is [1:2048,1:350]
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:52:10 20-Nov-2017
+  Longslit coordinate fit name is b1008.
+  Longslit database is database.
+  Features from images:
+    b1008
 
-REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:01:34 06-Nov-2017
-tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 15:02 Trim data section is [1:2048,1:350]
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:53:05 20-Nov-2017
 
-REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:03 06-Nov-2017
-tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 15:02 Trim data section is [1:2048,1:350]
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:53:05 20-Nov-2017
+  Longslit coordinate fit name is b1008.
+  Longslit database is database.
+  Features from images:
+    b1008
 
-REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:38 06-Nov-2017
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:54:30 20-Nov-2017
 
-REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:38 06-Nov-2017
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:54:31 20-Nov-2017
+  Longslit coordinate fit name is b1008.
+  Longslit database is database.
+  Features from images:
+    b1008
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:55:18 20-Nov-2017
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:55:18 20-Nov-2017
+  Reference image = b1008, New image = b1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+b1008[*,165]            6/6     6/6     -0.0623     -0.0874  -2.0E-5  1.4E-11
+b1008[*,155]            6/6     6/6     -0.0536     -0.0749  -1.8E-5  9.6E-12
+b1008[*,145]            6/6     6/6     -0.0567     -0.0799  -1.8E-5  1.4E-11
+b1008[*,135]            6/6     6/6     -0.0517      -0.073  -1.7E-5  2.8E-11
+b1008[*,125]            6/6     6/6     -0.0639     -0.0892  -2.1E-5  1.2E-11
+b1008[*,115]            6/6     6/6     -0.0548     -0.0768  -1.8E-5  1.7E-11
+b1008[*,105]            6/6     6/6     -0.0604      -0.086  -1.9E-5  3.4E-11
+b1008[*,95]             6/6     6/6     -0.0624     -0.0856  -2.1E-5  7.8E-12
+b1008[*,85]             6/6     6/6     -0.0732      -0.103  -2.4E-5  1.1E-11
+b1008[*,75]             6/6     6/6     -0.0784      -0.109  -2.6E-5  3.8E-12
+b1008[*,65]             6/6     6/6     -0.0838      -0.117  -2.8E-5  1.0E-11
+b1008[*,55]             6/6     6/6      -0.057     -0.0777  -1.9E-5  3.6E-11
+b1008[*,45]             6/6     6/6     -0.0825      -0.115  -2.8E-5  4.4E-12
+b1008[*,35]             6/6     6/6     -0.0913      -0.127  -3.0E-5  3.1E-11
+b1008[*,25]             6/6     6/6     -0.0841      -0.119  -2.7E-5  6.1E-11
+b1008[*,15]             6/6     6/6      -0.103      -0.144  -3.4E-5  3.4E-11
+b1008[*,5]              6/6     6/6      -0.368      -0.527  -1.2E-4  4.9E-11
+b1008[*,185]            6/6     6/6      0.0613      0.0856  2.03E-5  3.4E-12
+b1008[*,195]            6/6     6/6      0.0449      0.0632  1.47E-5  6.1E-12
+b1008[*,205]            6/6     6/6       0.069      0.0963  2.27E-5  1.9E-11
+b1008[*,215]            6/6     6/6      0.0446       0.064  1.42E-5  1.4E-11
+b1008[*,225]            6/6     6/6      0.0659      0.0916  2.19E-5  2.3E-11
+b1008[*,235]            6/6     6/6      0.0494      0.0697  1.60E-5  1.2E-11
+b1008[*,245]            6/6     6/6       0.055      0.0768  1.82E-5  1.1E-12
+b1008[*,255]            6/6     6/6      0.0495      0.0701  1.61E-5  3.2E-11
+b1008[*,265]            6/6     6/6      0.0542      0.0753  1.80E-5  5.4E-12
+b1008[*,275]            6/6     6/6      0.0447      0.0607  1.54E-5  2.3E-11
+b1008[*,285]            6/6     6/6      0.0537      0.0727  1.85E-5  4.1E-11
+b1008[*,295]            6/6     6/6      0.0464      0.0627  1.61E-5  1.4E-11
+b1008[*,305]            6/6     6/6      0.0339      0.0453  1.19E-5  3.9E-11
+b1008[*,315]            6/6     6/6       0.031      0.0406  1.12E-5  1.6E-11
+b1008[*,325]            6/6     6/6      -0.134      -0.196  -4.2E-5  2.8E-11
+Non-monotonic dispersion functionb1008[*,335]            6/6     6/6      0.0514      0.0823  1.38E-5  8.2E-12
+b1008[*,345]            6/6     6/6       0.401       0.607  1.15E-4  9.0E-12
+Non-monotonic dispersion function
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:55:19 20-Nov-2017
+  Longslit coordinate fit name is b1008.
+  Longslit database is database.
+  Features from images:
+    b1008
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 210
+  Mapping function = legendre
+    X order = 6
+    Y order = 4
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 3191.249  (2112, 1) = 6384.958
+    (1, 350) = 3292.309  (2112, 350) = 6105.329
+
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:55:19 20-Nov-2017
+  Transform tsn2017erp_2017-07-03T05:10:28.34_1.fits to tsn2017erp_2017-07-03T05:10:28.34_1.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+    b1008
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      3191., x2 =      6385., dx =      1.513, nx = 2112, xlog = no
+    y1 =         1., y2 =       350., dy =         1., ny =  350, ylog = no
+Nov 20 13:55: DATABASE  - 1 apertures read for tsn2017erp_2017-07-03T05:10:28.34_1 from database
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 1980.
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 1990.
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2000.
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2010.
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2020.
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2030.
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2040.
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2050.
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2060.
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2070.
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2080.
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2090.
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2100.
+Nov 20 13:55: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2110.
+Nov 20 13:55: TRACE - 1 apertures traced in tsn2017erp_2017-07-03T05:10:28.34_1.
+Nov 20 13:55: DATABASE - 1 apertures for tsn2017erp_2017-07-03T05:10:28.34_1 written to database
+Nov 20 13:55: EXTRACT: 158 pixels rejected for profile from aperture 1
+Nov 20 13:55: EXTRACT: Aperture 1 variance spectrum bias factor is 0.9998885
+Nov 20 13:55: EXTRACT: 1 pixels rejected from aperture 1
+Nov 20 13:55: EXTRACT - Aperture 1 from tsn2017erp_2017-07-03T05:10:28.34_1 --> tsn2017erp_2017-07-03T05:10:28.34_1_ex
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:58:16 20-Nov-2017
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:58:16 20-Nov-2017
+  Reference image = b1008, New image = b1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+b1008[*,165]            9/9     9/9     -0.0704     -0.0718  -1.0E-4     175.
+b1008[*,155]            9/9     9/9     -0.0469     -0.0469  -1.1E-5     175.
+b1008[*,145]            9/9     9/9     -0.0543     -0.0543  -1.2E-5     175.
+b1008[*,135]            9/9     9/9     -0.0549     -0.0549  -1.2E-5     175.
+b1008[*,125]            9/9     9/9     -0.0576     -0.0576  -1.3E-5     175.
+b1008[*,115]            9/9     9/9     -0.0586     -0.0586  -1.3E-5     175.
+b1008[*,105]            9/9     9/9     -0.0607     -0.0607  -1.4E-5     175.
+b1008[*,95]             9/9     9/9     -0.0633     -0.0633  -1.5E-5     175.
+b1008[*,85]             9/9     9/9     -0.0729     -0.0729  -1.7E-5     175.
+b1008[*,75]             9/9     9/9     -0.0719     -0.0719  -1.7E-5     175.
+b1008[*,65]             9/9     9/9     -0.0859     -0.0859  -2.0E-5     175.
+b1008[*,55]             9/9     9/9      -0.058      -0.058  -1.4E-5     175.
+b1008[*,45]             9/9     9/9     -0.0776     -0.0776  -1.8E-5     175.
+b1008[*,35]             9/9     9/9     -0.0922     -0.0922  -2.1E-5     175.
+b1008[*,25]             9/9     9/9     -0.0822     -0.0822  -1.9E-5     175.
+b1008[*,15]             9/9     9/9      -0.103      -0.103  -2.4E-5     175.
+b1008[*,5]              9/9     9/9      -0.384      -0.384  -8.5E-5     175.
+b1008[*,185]            9/9     9/9      0.0604       0.059  9.35E-5     175.
+b1008[*,195]            9/9     9/9      0.0439      0.0439  9.94E-6     175.
+b1008[*,205]            9/9     9/9      0.0672      0.0672  1.53E-5     175.
+b1008[*,215]            9/9     9/9      0.0504      0.0504  1.11E-5     175.
+b1008[*,225]            9/9     9/9      0.0601      0.0601  1.38E-5     175.
+b1008[*,235]            9/9     9/9      0.0469      0.0469  1.06E-5     175.
+b1008[*,245]            9/9     9/9      0.0547      0.0547  1.25E-5     175.
+b1008[*,255]            9/9     9/9      0.0505      0.0505  1.13E-5     175.
+b1008[*,265]            9/9     9/9      0.0556      0.0556  1.27E-5     175.
+b1008[*,275]            9/9     9/9      0.0366      0.0366  8.77E-6     175.
+b1008[*,285]            9/9     9/9      0.0479      0.0479  1.14E-5     175.
+b1008[*,295]            9/9     9/9      0.0411      0.0411  9.84E-6     175.
+b1008[*,305]            9/9     9/9        0.03        0.03  7.28E-6     175.
+b1008[*,315]            9/9     9/9      0.0184      0.0184  4.83E-6     175.
+b1008[*,325]            9/9     9/9     -0.0805     -0.0805  -1.7E-5     175.
+b1008[*,335]            9/9     9/9     0.00728     0.00728  -4.5E-7     175.
+b1008[*,345]            8/9     8/8       0.515       0.515  1.08E-4     184.
+
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:58:16 20-Nov-2017
+  Longslit coordinate fit name is b1008.
+  Longslit database is database.
+  Features from images:
+    b1008
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 314
+  Mapping function = legendre
+    X order = 6
+    Y order = 4
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 3232.891  (2112, 1) = 6214.897
+    (1, 350) = 3215.115  (2112, 350) = 6376.903
+
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 13:58:17 20-Nov-2017
+  Transform tsn2017erp_2017-07-03T05:10:28.34_1.fits to tsn2017erp_2017-07-03T05:10:28.34_1.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+    b1008
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      3215., x2 =      6377., dx =      1.498, nx = 2112, xlog = no
+    y1 =         1., y2 =       350., dy =         1., ny =  350, ylog = no
+Nov 20 13:58: DATABASE  - 1 apertures read for tsn2017erp_2017-07-03T05:10:28.34_1 from database
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 1970.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 1980.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 1990.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2000.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2010.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2020.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2030.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2040.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2050.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2060.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2070.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2080.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2090.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2100.
+Nov 20 13:58: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2110.
+Nov 20 13:58: TRACE - 1 apertures traced in tsn2017erp_2017-07-03T05:10:28.34_1.
+Nov 20 13:58: DATABASE - 1 apertures for tsn2017erp_2017-07-03T05:10:28.34_1 written to database
+Nov 20 13:58: EXTRACT: 161 pixels rejected for profile from aperture 1
+Nov 20 13:58: EXTRACT: Aperture 1 variance spectrum bias factor is 0.999901
+Nov 20 13:58: EXTRACT: 1 pixels rejected from aperture 1
+Nov 20 13:58: EXTRACT - Aperture 1 from tsn2017erp_2017-07-03T05:10:28.34_1 --> tsn2017erp_2017-07-03T05:10:28.34_1_ex
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:01:32 20-Nov-2017
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:01:32 20-Nov-2017
   Reference image = b1008.fits, New image = b1008, Refit = yes
           Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
 b1008[*,165]            9/9     9/9     -0.0704     -0.0718  -1.0E-4     175.
@@ -70,7 +286,7 @@ b1008[*,325]            9/9     9/9     -0.0805     -0.0805  -1.7E-5     175.
 b1008[*,335]            9/9     9/9     0.00728     0.00728  -4.5E-7     175.
 b1008[*,345]            8/9     8/8       0.515       0.515  1.08E-4     184.
 
-NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:38 06-Nov-2017
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:01:32 20-Nov-2017
   Longslit coordinate fit name is b1008.
   Longslit database is database.
   Features from images:
@@ -84,8 +300,8 @@ NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:38 06-Nov-2017
     (1, 1) = 3232.891  (2112, 1) = 6214.897
     (1, 350) = 3215.115  (2112, 350) = 6376.903
 
-NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:39 06-Nov-2017
-  Transform tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits to tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits.
+NOAO/IRAF V2.16 msiebert@ubuntu Mon 14:01:33 20-Nov-2017
+  Transform tsn2017erp_2017-07-03T05:10:28.34_1.fits to tsn2017erp_2017-07-03T05:10:28.34_1.fits.
   Conserve flux per pixel.
   User coordinate transformations:
     b1008
@@ -94,33 +310,52 @@ NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:39 06-Nov-2017
   Output coordinate parameters are:
     x1 =      3215., x2 =      6377., dx =      1.498, nx = 2112, xlog = no
     y1 =         1., y2 =       350., dy =         1., ny =  350, ylog = no
+Nov 20 14:01: DATABASE  - 1 apertures read for tsn2017erp_2017-07-03T05:10:28.34_1 from database
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 1970.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 1980.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 1990.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2000.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2010.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2020.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2030.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2040.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2050.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2060.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2070.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2080.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2090.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2100.
+Nov 20 14:01: TRACE - Trace of aperture 1 in tsn2017erp_2017-07-03T05:10:28.34_1 lost at column 2110.
+Nov 20 14:01: TRACE - 1 apertures traced in tsn2017erp_2017-07-03T05:10:28.34_1.
+Nov 20 14:01: DATABASE - 1 apertures for tsn2017erp_2017-07-03T05:10:28.34_1 written to database
+Nov 20 14:01: EXTRACT: 161 pixels rejected for profile from aperture 1
+Nov 20 14:01: EXTRACT: Aperture 1 variance spectrum bias factor is 0.999901
+Nov 20 14:01: EXTRACT: 1 pixels rejected from aperture 1
+Nov 20 14:01: EXTRACT - Aperture 1 from tsn2017erp_2017-07-03T05:10:28.34_1 --> tsn2017erp_2017-07-03T05:10:28.34_1_ex
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 10:18 Trim data section is [1:2048,1:300]
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 10:18 Overscan section is [1:2048,300:350] with mean=1353.399
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 10:44 Trim data section is [1:2048,1:300]
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 10:44 Overscan section is [1:2048,300:350] with mean=1353.399
+b1008.fits: Nov 21 10:44 Trim data section is [1:2048,1:300]
+b1008.fits: Nov 21 10:44 Overscan section is [1:2048,300:350] with mean=1535.368
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 10:45 Trim data section is [1:2048,1:300]
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 10:45 Overscan section is [1:2048,300:350] with mean=1353.399
+b1008.fits: Nov 21 10:45 Trim data section is [1:2048,1:300]
+b1008.fits: Nov 21 10:45 Overscan section is [1:2048,300:350] with mean=1535.368
+tsn2017erp_2017-07-03T05:10:42.69_1.fits: Nov 21 11:00 Trim data section is [45:355,1:2725]
+tsn2017erp_2017-07-03T05:10:42.69_1.fits: Nov 21 11:00 Overscan section is [355:405,1:2725] with mean=1045.95
+r1007.fits: Nov 21 11:01 Trim data section is [45:355,1:2725]
+r1007.fits: Nov 21 11:01 Overscan section is [355:405,1:2725] with mean=1044.184
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 11:13 Trim data section is [1:2048,1:300]
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 11:13 Overscan section is [1:2048,300:350] with mean=1353.399
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 11:15 Trim data section is [1:2048,1:300]
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 11:15 Overscan section is [1:2048,300:350] with mean=1353.399
+b1008.fits: Nov 21 11:16 Trim data section is [1:2048,1:300]
+b1008.fits: Nov 21 11:16 Overscan section is [1:2048,300:350] with mean=1535.368
 
-SFIT: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:39 06-Nov-2017
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:16:00 21-Nov-2017
 
-Line 1 of new3.fits:
-
-      coeff           value
-	1	    2.5167E2
-	2	   3.7636E-1
-	3	  -4.8319E-3
-	4	   3.1911E-5
-	5	  -1.0053E-7
-	6	  1.1758E-10
-
-
-END: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:39 06-Nov-2017
-
-
-SFIT: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:39 06-Nov-2017
-
-
-END: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:02:39 06-Nov-2017
-
-tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits: Nov  6 15:21 Trim data section is [1:2048,1:350]
-
-REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:02 06-Nov-2017
-
-REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:02 06-Nov-2017
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:16:00 21-Nov-2017
   Reference image = b1008.fits, New image = b1008, Refit = yes
           Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
 b1008[*,165]            9/9     9/9     -0.0704     -0.0718  -1.0E-4     175.
@@ -158,7 +393,7 @@ b1008[*,325]            9/9     9/9     -0.0805     -0.0805  -1.7E-5     175.
 b1008[*,335]            9/9     9/9     0.00728     0.00728  -4.5E-7     175.
 b1008[*,345]            8/9     8/8       0.515       0.515  1.08E-4     184.
 
-NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:02 06-Nov-2017
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:16:00 21-Nov-2017
   Longslit coordinate fit name is b1008.
   Longslit database is database.
   Features from images:
@@ -172,8 +407,8 @@ NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:02 06-Nov-2017
     (1, 1) = 3232.891  (2112, 1) = 6214.897
     (1, 350) = 3215.115  (2112, 350) = 6376.903
 
-NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:03 06-Nov-2017
-  Transform tat2017fbs_2017-07-03T07:16:35.32_temp_temp_temp_1.fits to test.fits.
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:16:01 21-Nov-2017
+  Transform tsn2017erp_2017-07-03T05:10:28.34_1.fits to tsn2017erp_2017-07-03T05:10:28.34_1.fits.
   Conserve flux per pixel.
   User coordinate transformations:
     b1008
@@ -182,25 +417,246 @@ NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:03 06-Nov-2017
   Output coordinate parameters are:
     x1 =      3215., x2 =      6377., dx =      1.498, nx = 2112, xlog = no
     y1 =         1., y2 =       350., dy =         1., ny =  350, ylog = no
+Nov 21 11:16: DATABASE  - 1 apertures read for tsn2017erp_2017-07-03T05:10:28.34_1 from database
+Nov 21 11:16: TRACE - 1 apertures traced in tsn2017erp_2017-07-03T05:10:28.34_1.
+Nov 21 11:16: DATABASE - 1 apertures for tsn2017erp_2017-07-03T05:10:28.34_1 written to database
+Nov 21 11:16: EXTRACT: 23801 pixels rejected for profile from aperture 1
+Nov 21 11:16: EXTRACT: Aperture 1 variance spectrum bias factor is 0.9936531
+Nov 21 11:16: EXTRACT: 4220 pixels rejected from aperture 1
+Nov 21 11:16: EXTRACT - Aperture 1 from tsn2017erp_2017-07-03T05:10:28.34_1 --> tsn2017erp_2017-07-03T05:10:28.34_1_ex
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 11:19 Trim data section is [1:2048,1:300]
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 11:19 Overscan section is [1:2048,300:350] with mean=1353.399
+b1008.fits: Nov 21 11:19 Trim data section is [1:2048,1:300]
+b1008.fits: Nov 21 11:19 Overscan section is [1:2048,300:350] with mean=1535.368
 
-SFIT: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:03 06-Nov-2017
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:19:36 21-Nov-2017
 
-Line 1 of new3.fits:
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:19:36 21-Nov-2017
 
-      coeff           value
-	1	   5.9431E15
-	2	  -3.4450E15
-	3	   7.9878E14
-	4	  -9.2604E13
-	5	   5.3680E12
-	6	  -1.2446E11
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:19:36 21-Nov-2017
+  Longslit coordinate fit name is tb1008.
+  Longslit database is database.
+  Features from images:
+    tb1008
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 11:26 Trim data section is [1:2048,1:300]
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 11:26 Overscan section is [1:2048,300:350] with mean=1353.399
+b1008.fits: Nov 21 11:26 Trim data section is [1:2048,1:300]
+b1008.fits: Nov 21 11:26 Overscan section is [1:2048,300:350] with mean=1535.368
 
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:36:59 21-Nov-2017
+  Reference image = b1008_ref.fits, New image = tb1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tb1008[*,150]          16/16   16/16   -0.00214    -0.00273  -1.1E-6     0.62
 
-END: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:03 06-Nov-2017
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:36:59 21-Nov-2017
+  Reference image = tb1008.fits, New image = tb1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tb1008[*,140]          16/16   16/16    -0.0658     -0.0884  -2.1E-5    0.621
+tb1008[*,130]          16/16   16/16    -0.0382     -0.0549  -1.2E-5    0.615
+tb1008[*,120]          16/16   16/16    -0.0643      -0.086  -2.1E-5    0.614
+tb1008[*,110]          16/16   16/16    -0.0603     -0.0819  -1.9E-5    0.614
+tb1008[*,100]          16/16   16/16    -0.0575     -0.0797  -1.8E-5    0.608
+tb1008[*,90]           16/16   16/16    -0.0634     -0.0861  -2.0E-5    0.613
+tb1008[*,80]           16/16   16/16    -0.0849      -0.114  -2.8E-5     0.61
+tb1008[*,70]           16/16   16/16    -0.0774      -0.104  -2.5E-5    0.608
+tb1008[*,60]           16/16   16/16    -0.0676     -0.0929  -2.2E-5    0.607
+tb1008[*,50]           16/16   16/16    -0.0498     -0.0764  -1.9E-5    0.599
+tb1008[*,40]           16/16   16/16     -0.085      -0.116  -2.8E-5    0.601
+tb1008[*,30]           16/16   16/16    -0.0868      -0.118  -2.7E-5    0.603
+tb1008[*,20]           16/16   16/16    -0.0853      -0.116  -2.7E-5    0.599
+tb1008[*,10]           16/16   16/16     -0.114      -0.135  -4.0E-5    0.586
+tb1008[*,160]          16/16   16/16     0.0519      0.0708  1.61E-5    0.616
+tb1008[*,170]          16/16   16/16     0.0573      0.0785  1.88E-5    0.624
+tb1008[*,180]          16/16   16/16     0.0647      0.0852  2.02E-5    0.621
+tb1008[*,190]          16/16   16/16     0.0467      0.0646  1.45E-5    0.613
+tb1008[*,200]          16/16   16/16     0.0637      0.0868  2.07E-5     0.62
+tb1008[*,210]          16/16   16/16      0.057       0.079  1.80E-5    0.615
+tb1008[*,220]          16/16   16/16     0.0559      0.0758  1.78E-5    0.616
+tb1008[*,230]          16/16   16/16     0.0627      0.0844  2.06E-5    0.622
+tb1008[*,240]          16/16   16/16      0.062      0.0838  1.96E-5    0.623
+tb1008[*,250]          16/16   16/16     0.0428      0.0566  1.34E-5    0.626
+tb1008[*,260]          16/16   16/16     0.0571      0.0787  1.80E-5    0.619
+tb1008[*,270]          16/16   16/16     0.0313      0.0441  1.04E-5    0.616
+tb1008[*,280]          16/16   16/16     0.0489      0.0658  1.61E-5    0.622
+tb1008[*,290]          16/16   16/16     0.0518      0.0661  1.70E-5    0.624
+tb1008[*,300]          16/16   16/16     0.0356      0.0487  1.29E-5    0.622
 
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:36:59 21-Nov-2017
+  Longslit coordinate fit name is tb1008.
+  Longslit database is database.
+  Features from images:
+    tb1008
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 480
+  Mapping function = legendre
+    X order = 6
+    Y order = 4
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 3241.844  (2048, 1) = 5910.601
+    (1, 300) = 3238.237  (2048, 300) = 5910.794
 
-SFIT: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:03 06-Nov-2017
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:37:00 21-Nov-2017
+  Transform tsn2017erp_2017-07-03T05:10:28.34_1.fits to tsn2017erp_2017-07-03T05:10:28.34_1.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+    tb1008
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      3238., x2 =      5911., dx =      1.306, nx = 2048, xlog = no
+    y1 =         1., y2 =       300., dy =         1., ny =  300, ylog = no
+Nov 21 11:37: DATABASE  - 1 apertures read for tsn2017erp_2017-07-03T05:10:28.34_1 from database
+Nov 21 11:37: TRACE - 1 apertures traced in tsn2017erp_2017-07-03T05:10:28.34_1.
+Nov 21 11:37: DATABASE - 1 apertures for tsn2017erp_2017-07-03T05:10:28.34_1 written to database
+Nov 21 11:37: EXTRACT: 17527 pixels rejected for profile from aperture 1
+Nov 21 11:37: EXTRACT: Aperture 1 variance spectrum bias factor is 0.9935766
+Nov 21 11:37: EXTRACT: 4190 pixels rejected from aperture 1
+Nov 21 11:37: EXTRACT - Aperture 1 from tsn2017erp_2017-07-03T05:10:28.34_1 --> tsn2017erp_2017-07-03T05:10:28.34_1_ex
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 11:47 Trim data section is [1:2048,1:300]
+tsn2017erp_2017-07-03T05:10:28.34_1.fits: Nov 21 11:47 Overscan section is [1:2048,300:350] with mean=1353.399
+b1008.fits: Nov 21 11:47 Trim data section is [1:2048,1:300]
+b1008.fits: Nov 21 11:47 Overscan section is [1:2048,300:350] with mean=1535.368
 
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:47:55 21-Nov-2017
+  Reference image = b1008_ref.fits, New image = tb1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tb1008[*,150]          16/16   16/16   -0.00214    -0.00273  -1.1E-6     0.62
 
-END: NOAO/IRAF V2.16 msiebert@ubuntu Mon 15:21:03 06-Nov-2017
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:47:55 21-Nov-2017
+  Reference image = tb1008.fits, New image = tb1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tb1008[*,140]          16/16   16/16    -0.0658     -0.0884  -2.1E-5    0.621
+tb1008[*,130]          16/16   16/16    -0.0382     -0.0549  -1.2E-5    0.615
+tb1008[*,120]          16/16   16/16    -0.0643      -0.086  -2.1E-5    0.614
+tb1008[*,110]          16/16   16/16    -0.0603     -0.0819  -1.9E-5    0.614
+tb1008[*,100]          16/16   16/16    -0.0575     -0.0797  -1.8E-5    0.608
+tb1008[*,90]           16/16   16/16    -0.0634     -0.0861  -2.0E-5    0.613
+tb1008[*,80]           16/16   16/16    -0.0849      -0.114  -2.8E-5     0.61
+tb1008[*,70]           16/16   16/16    -0.0774      -0.104  -2.5E-5    0.608
+tb1008[*,60]           16/16   16/16    -0.0676     -0.0929  -2.2E-5    0.607
+tb1008[*,50]           16/16   16/16    -0.0498     -0.0764  -1.9E-5    0.599
+tb1008[*,40]           16/16   16/16     -0.085      -0.116  -2.8E-5    0.601
+tb1008[*,30]           16/16   16/16    -0.0868      -0.118  -2.7E-5    0.603
+tb1008[*,20]           16/16   16/16    -0.0853      -0.116  -2.7E-5    0.599
+tb1008[*,10]           16/16   16/16     -0.114      -0.135  -4.0E-5    0.586
+tb1008[*,160]          16/16   16/16     0.0519      0.0708  1.61E-5    0.616
+tb1008[*,170]          16/16   16/16     0.0573      0.0785  1.88E-5    0.624
+tb1008[*,180]          16/16   16/16     0.0647      0.0852  2.02E-5    0.621
+tb1008[*,190]          16/16   16/16     0.0467      0.0646  1.45E-5    0.613
+tb1008[*,200]          16/16   16/16     0.0637      0.0868  2.07E-5     0.62
+tb1008[*,210]          16/16   16/16      0.057       0.079  1.80E-5    0.615
+tb1008[*,220]          16/16   16/16     0.0559      0.0758  1.78E-5    0.616
+tb1008[*,230]          16/16   16/16     0.0627      0.0844  2.06E-5    0.622
+tb1008[*,240]          16/16   16/16      0.062      0.0838  1.96E-5    0.623
+tb1008[*,250]          16/16   16/16     0.0428      0.0566  1.34E-5    0.626
+tb1008[*,260]          16/16   16/16     0.0571      0.0787  1.80E-5    0.619
+tb1008[*,270]          16/16   16/16     0.0313      0.0441  1.04E-5    0.616
+tb1008[*,280]          16/16   16/16     0.0489      0.0658  1.61E-5    0.622
+tb1008[*,290]          16/16   16/16     0.0518      0.0661  1.70E-5    0.624
+tb1008[*,300]          16/16   16/16     0.0356      0.0487  1.29E-5    0.622
 
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:47:55 21-Nov-2017
+  Longslit coordinate fit name is tb1008.
+  Longslit database is database.
+  Features from images:
+    tb1008
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 480
+  Mapping function = legendre
+    X order = 6
+    Y order = 4
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 3241.844  (2048, 1) = 5910.601
+    (1, 300) = 3238.237  (2048, 300) = 5910.794
+
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 11:47:56 21-Nov-2017
+  Transform tsn2017erp_2017-07-03T05:10:28.34_1.fits to tsn2017erp_2017-07-03T05:10:28.34_1.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+    tb1008
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      3238., x2 =      5911., dx =      1.306, nx = 2048, xlog = no
+    y1 =         1., y2 =       300., dy =         1., ny =  300, ylog = no
+Nov 21 11:47: FIND - 1 apertures found for tsn2017erp_2017-07-03T05:10:28.34_1
+Nov 21 11:47: TRACE - 1 apertures traced in tsn2017erp_2017-07-03T05:10:28.34_1.
+Nov 21 11:47: DATABASE - 1 apertures for tsn2017erp_2017-07-03T05:10:28.34_1 written to database
+Nov 21 11:47: EXTRACT: 17527 pixels rejected for profile from aperture 1
+Nov 21 11:47: EXTRACT: Aperture 1 variance spectrum bias factor is 0.9935766
+Nov 21 11:47: EXTRACT: 4190 pixels rejected from aperture 1
+Nov 21 11:47: EXTRACT - Aperture 1 from tsn2017erp_2017-07-03T05:10:28.34_1 --> tsn2017erp_2017-07-03T05:10:28.34_1_ex
+tsn2017erp_2017-07-03T05:10:42.69_1.fits: Nov 21 11:58 Trim data section is [45:355,1:2725]
+tsn2017erp_2017-07-03T05:10:42.69_1.fits: Nov 21 11:58 Overscan section is [355:405,1:2725] with mean=1045.95
+r1007.fits: Nov 21 11:59 Trim data section is [45:355,1:2725]
+r1007.fits: Nov 21 11:59 Overscan section is [355:405,1:2725] with mean=1044.184
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 12:12:13 21-Nov-2017
+tsn2017erp_2017-07-03T05:10:42.69_1.fits: Nov 21 12:14 Trim data section is [45:355,1:2725]
+tsn2017erp_2017-07-03T05:10:42.69_1.fits: Nov 21 12:14 Overscan section is [355:405,1:2725] with mean=1045.95
+r1007.fits: Nov 21 12:15 Trim data section is [45:355,1:2725]
+r1007.fits: Nov 21 12:15 Overscan section is [355:405,1:2725] with mean=1044.184
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 12:15:01 21-Nov-2017
+  Reference image = r1007_ref.fits, New image = tr1007, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tr1007[156,*]          21/21   21/21    0.00126     0.00321  4.59E-7   0.0984
+Non-monotonic dispersion function
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 12:15:01 21-Nov-2017
+tsn2017erp_2017-07-03T05:10:42.69_1.fits: Nov 21 12:16 Trim data section is [45:355,1:2725]
+tsn2017erp_2017-07-03T05:10:42.69_1.fits: Nov 21 12:16 Overscan section is [355:405,1:2725] with mean=1045.95
+r1007.fits: Nov 21 12:16 Trim data section is [45:355,1:2725]
+r1007.fits: Nov 21 12:16 Overscan section is [355:405,1:2725] with mean=1044.184
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 12:16:05 21-Nov-2017
+  Reference image = r1007_ref.fits, New image = tr1007, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tr1007[156,*]          21/21   21/21    0.00126     0.00321  4.59E-7   0.0984
+Non-monotonic dispersion function
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 12:16:06 21-Nov-2017
+  Reference image = tr1007.fits, New image = tr1007, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tr1007[146,*]          21/21   21/21     0.0363      0.0877  1.40E-5    0.105
+Non-monotonic dispersion functiontr1007[136,*]          21/21   21/21     0.0329      0.0826  1.28E-5    0.101
+Non-monotonic dispersion functiontr1007[126,*]          21/21   21/21     0.0283      0.0711  1.10E-5   0.0918
+Non-monotonic dispersion functiontr1007[116,*]          21/21   21/21     0.0355      0.0892  1.38E-5   0.0885
+Non-monotonic dispersion functiontr1007[106,*]          21/21   21/21       0.04       0.101  1.52E-5   0.0918
+Non-monotonic dispersion functiontr1007[96,*]           21/21   21/21     0.0493       0.124  1.90E-5   0.0938
+Non-monotonic dispersion functiontr1007[86,*]           21/21   21/21     0.0406       0.102  1.56E-5   0.0923
+Non-monotonic dispersion functiontr1007[76,*]           21/21   21/21     0.0425       0.107  1.61E-5   0.0885
+Non-monotonic dispersion functiontr1007[66,*]           21/21   21/21     0.0349       0.088  1.31E-5    0.109
+Non-monotonic dispersion functiontr1007[56,*]           21/21   21/21      0.029       0.073  1.10E-5   0.0995
+Non-monotonic dispersion functiontr1007[46,*]           21/21   21/21     0.0208      0.0523  7.87E-6    0.113
+Non-monotonic dispersion functiontr1007[36,*]           21/21   21/21     0.0303      0.0763  1.14E-5    0.101
+Non-monotonic dispersion functiontr1007[26,*]           21/21   21/21    0.00653      0.0169  1.88E-6   0.0963
+Non-monotonic dispersion functiontr1007[16,*]           21/21   21/21    -0.0072     -0.0175  -3.4E-6   0.0808
+Non-monotonic dispersion functiontr1007[6,*]            21/21   21/21     0.0249      0.0629  9.26E-6   0.0637
+Non-monotonic dispersion functiontsn2017erp_2017-07-03T05:10:42.69_1.fits: Nov 21 12:19 Trim data section is [45:355,1:2725]
+tsn2017erp_2017-07-03T05:10:42.69_1.fits: Nov 21 12:19 Overscan section is [355:405,1:2725] with mean=1045.95
+r1007.fits: Nov 21 12:19 Trim data section is [45:355,1:2725]
+r1007.fits: Nov 21 12:19 Overscan section is [355:405,1:2725] with mean=1044.184
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 12:19:41 21-Nov-2017
+  Reference image = r1007_ref.fits, New image = tr1007, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tr1007[156,*]          21/21   21/21    0.00126     0.00321  4.59E-7   0.0984
+Non-monotonic dispersion function
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 12:19:41 21-Nov-2017
+  Reference image = tr1007.fits, New image = tr1007, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tr1007[146,*]          21/21   21/21     0.0363      0.0877  1.40E-5    0.105
+Non-monotonic dispersion functiontr1007[136,*]          21/21   21/21     0.0329      0.0826  1.28E-5    0.101
+Non-monotonic dispersion functiontr1007[126,*]          21/21   21/21     0.0283      0.0711  1.10E-5   0.0918
+Non-monotonic dispersion functiontr1007[116,*]          21/21   21/21     0.0355      0.0892  1.38E-5   0.0885
+Non-monotonic dispersion functiontr1007[106,*]          21/21   21/21       0.04       0.101  1.52E-5   0.0918
+Non-monotonic dispersion functiontr1007[96,*]           21/21   21/21     0.0493       0.124  1.90E-5   0.0938
+Non-monotonic dispersion functiontr1007[86,*]           21/21   21/21     0.0406       0.102  1.56E-5   0.0923
+Non-monotonic dispersion functiontr1007[76,*]           21/21   21/21     0.0425       0.107  1.61E-5   0.0885
+Non-monotonic dispersion functiontr1007[66,*]           21/21   21/21     0.0349       0.088  1.31E-5    0.109
+Non-monotonic dispersion functiontr1007[56,*]           21/21   21/21      0.029       0.073  1.10E-5   0.0995
+Non-monotonic dispersion functiontr1007[46,*]           21/21   21/21     0.0208      0.0523  7.87E-6    0.113
+Non-monotonic dispersion functiontr1007[36,*]           21/21   21/21     0.0303      0.0763  1.14E-5    0.101
+Non-monotonic dispersion functiontr1007[26,*]           21/21   21/21    0.00653      0.0169  1.88E-6   0.0963
+Non-monotonic dispersion functiontr1007[16,*]           21/21   21/21    -0.0072     -0.0175  -3.4E-6   0.0808
+Non-monotonic dispersion functiontr1007[6,*]            21/21   21/21     0.0249      0.0629  9.26E-6   0.0637
+Non-monotonic dispersion function
