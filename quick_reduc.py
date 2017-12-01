@@ -15,6 +15,7 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
 
     import util
     import instruments
+    import combine_sides as cs
 
     dv = util.dvex()
     scal = np.pi / 180.
@@ -103,7 +104,7 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
 
         _object0 = re.sub(' ', '', _object0)
         _object0 = re.sub('/', '_', _object0)
-        nameout0 = 't' + str(_object0) + '_' + str(_date0)
+        nameout0 = str(_object0) + '_' + inst.get('name') + '_' + str(_date0)
         # for _set in setup:
         #     nameout0 = nameout0 + '_' + _set
         nameout0 = util.name_duplicate(img, nameout0, '')
@@ -170,19 +171,25 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                     # iraf.imtranspose(input=arcfile + '[-*,*]', output=re.sub('.fits', '', arcfile)+'rot')
                     # iraf.imtranspose(input=img + '[-*,*]', output=re.sub('.fits', '', img)+'rot')
                     # arcref = re.sub('.fits', '', arcref) + 'rot'
-
-                # iraf.longslit.identify(images=arcref, section='middle column',
+                # print inst.get('ident_order')
+                # iraf.longslit.identify(images=arcref, section=inst.get('section'),
                 #                        coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', nsum=10, fwidth=7,
                 #                        order=3, mode='h')
+                # iraf.longslit.identify(images=arcref, section=inst.get('section'),
+                #                        coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', nsum=10, fwidth=7,
+                #                        order=4, function='legendre', mode='h')
+                # raise TypeError
                 # arcref = re.sub('.fits', '', arcref)
                 # arcfile = re.sub('.fits', '', arcfile)
                 iraf.longslit.reidentify(referenc=arcref, images=arcfile, interac=_inter, section=inst.get('section'),
                                          coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', overrid='yes', step=0,
                                          newaps='no', nsum=5, nlost=2, mode='h', verbose='no')
+                # raise TypeError
             else:
                 iraf.longslit.identify(images=arcfile, section=inst.get('section'),
                                        coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', nsum=10, fwidth=7,
                                        order=3, mode='h')
+
             iraf.longslit.reident(referenc=arcfile, images=arcfile, interac='NO', section=inst.get('section'),
                                   coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', overrid='yes', step=10,
                                   newaps='yes', nsum=5, nlost=2, mode='h', verbose='no')
@@ -194,8 +201,6 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                                           function='legendre', yorder=4, logfile='logfile', plotfil='', mode='h')
 
             print img, arcfile, arcref
-            # raise TypeError
-            # iraf.imtranspose(input=img + '[-*,*]', output=img)
             iraf.specred.transform(input=img, output=img, minput='', fitnames=re.sub('.fits', '', arcfile),
                                    databas='database',
                                    x1='INDEF', x2='INDEF', y1='INDEF', y2='INDEF', flux='yes', mode='h',
@@ -232,6 +237,7 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                 _interactive = 'NO'
                 imgex = util.extractspectrum(
                     img, dv, inst, _ext_trace, _dispersionline, _interactive, _type)
+                # raise TypeError
                 #TEST STANDARD STAR
                 # standardfile = imgex
                 # _airmass = readkey3(hdr, 'AIRMASS')
@@ -253,12 +259,7 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                 # util.updateheader(imgex, 0, {'TRACE1': [img, '']})
                 # result.append(imgex)
                 # raise TypeError
-                if _listsens:
-                	sensfile = util.searchsens(img, _listsens)[0]
-                else:
-                    sensfile = ''
-                if not sensfile:
-                	sensfile = util.searchsens(img, '')[0]
+                sensfile = inst.get('QL_sens')
                 if sensfile:
                     print sensfile
                     imgf = re.sub('.fits', '_f.fits', img)
@@ -286,9 +287,17 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                     #     imgd, 0, {'FILETYPE': [22209, '2D wavelength and flux calibrated spectrum ']})
                     # util.updateheader(imgd, 0, {'TRACE1': [img, '']})
                     imgasci = re.sub('.fits', '.asci', imgout)
+                    errasci = re.sub('.fits', '_err.asci', imgout)
                     util.delete(imgasci)
                     iraf.onedspec.wspectext(
                         imgout + '[*,1,1]', imgasci, header='no')
+                    iraf.onedspec.wspectext(
+                        imgout + '[*,1,4]', errasci, header='no')
+                    spec = np.transpose(np.genfromtxt(imgasci))
+                    err = np.transpose(np.genfromtxt(errasci))
+                    final = np.transpose([spec[0], spec[1], err[1]])
+                    np.savetxt(imgasci, final)
+
                     # result = result + [imgout, imgd, imgasci]
                     result = result + [imgout, imgasci]
             else:
@@ -304,4 +313,15 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
             ntt.util.airmass(img)  # phase 3 definitions
             ntt.util.updateheader(
                 img, 0, {'quality': ['Rapid', 'Final or Rapid reduction']})
+
+    result = result + [imgex] + [timg]
+
+    if not os.path.isdir(_object0 + '/'):
+        os.mkdir(_object0 + '/')
+        for img in result:
+            os.system('mv ' + img + ' ' + _object0 + '/')
+    else:
+        for img in result:
+            os.system('mv ' + img + ' ' + _object0 + '/')
+
     return result

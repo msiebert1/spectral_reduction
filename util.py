@@ -1411,7 +1411,7 @@ def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _t
         iraf.specred.apall(img, output=imgex, referen=_reference, trace=_trace, fittrac=_fittrac, find=_find,
                            recenter=_recenter, edit=_edit,
                            nfind=1, backgro='fit', lsigma=4, usigma=4,
-                           format='multispec',
+                           format='multispec', extras='yes',
                            b_function='legendre', b_sample=dv[_type]['_b_sample'], clean='yes', pfit='fit1d',
                            lower=dv[_type]['_lower'], upper=dv[_type][
                                '_upper'], t_niter=dv[_type]['_t_niter'],

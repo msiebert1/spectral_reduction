@@ -1,6 +1,6 @@
 # Fri 11:37:08 01-Dec-2017
-begin	aperture last 1 200. 164.5749
-	image	last
+begin	aperture sn2017erp_kast_blue_2017-07-03T05:10:28.34_1 1 200. 164.5749
+	image	sn2017erp_kast_blue_2017-07-03T05:10:28.34_1
 	aperture	1
 	beam	1
 	center	200. 164.5749

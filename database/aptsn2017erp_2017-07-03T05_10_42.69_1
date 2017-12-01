@@ -1,0 +1,30 @@
+# Wed 14:37:38 22-Nov-2017
+begin	aperture tsn2017erp_2017-07-03T05:10:42.69_1 1 149.0854 200.
+	image	tsn2017erp_2017-07-03T05:10:42.69_1
+	aperture	1
+	beam	1
+	center	149.0854 200.
+	low	-5. -199.
+	high	5. 2525.
+	background
+		xmin -25.
+		xmax 25.
+		function legendre
+		order 1
+		sample -25:-15,15:25
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	1
+	curve	8
+		2.
+		4.
+		10.
+		2710.
+		2.908379
+		1.660789
+		0.7538604
+		-0.5770218
+
