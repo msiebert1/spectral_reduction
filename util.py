@@ -1293,7 +1293,7 @@ def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _t
         iraf.unlearn(t)
 
     # dv = ntt.dvex()
-    hdr = ntt.util.readhdr(img)
+    hdr = readhdr(img)
     # _gain = ntt.util.readkey3(hdr, 'gain')
     # _rdnoise = ntt.util.readkey3(hdr, 'ron')
     # _grism = ntt.util.readkey3(hdr, 'grism')
@@ -1416,7 +1416,7 @@ def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _t
                            lower=dv[_type]['_lower'], upper=dv[_type][
                                '_upper'], t_niter=dv[_type]['_t_niter'],
                            width=dv[_type]['_width'],
-                           radius=dv[_type]['_radius'], line=dist, nsum=dv[
+                           radius=dv[_type]['_radius'], line='INDEF', nsum=dv[
                                _type]['_nsum'], t_step=dv[_type]['_t_step'],
                            t_nsum=dv[_type]['_t_nsum'],
                            t_nlost=dv[_type]['_t_nlost'], t_sample=dv[

@@ -42,7 +42,8 @@ if __name__ == "__main__":
         _listsens = util.readlist(option.sens)
     else:
         _listsens = ''
-    imglist = util.readlist(args[0])
+    # imglist = util.readlist(args)
+    imglist = args
     outputfile = quick_reduc.reduce(imglist, _listsens, _listarc, _trace, _dispersionline, _cosmic,
                                                     _interactive)
     print '\n#######################################\n### end of reduction \n### output files:'

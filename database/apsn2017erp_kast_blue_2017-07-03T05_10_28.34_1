@@ -1,11 +1,11 @@
-# Fri 11:37:08 01-Dec-2017
-begin	aperture sn2017erp_kast_blue_2017-07-03T05:10:28.34_1 1 200. 164.5749
+# Mon 13:48:12 11-Dec-2017
+begin	aperture sn2017erp_kast_blue_2017-07-03T05:10:28.34_1 1 1024. 159.9107
 	image	sn2017erp_kast_blue_2017-07-03T05:10:28.34_1
 	aperture	1
 	beam	1
-	center	200. 164.5749
-	low	-199. -5.
-	high	1848. 5.
+	center	1024. 159.9107
+	low	-1023. -5.
+	high	1024. 5.
 	background
 		xmin -25.
 		xmax 25.
@@ -21,10 +21,10 @@ begin	aperture sn2017erp_kast_blue_2017-07-03T05:10:28.34_1 1 200. 164.5749
 	curve	8
 		2.
 		4.
-		10.
-		2040.
-		-4.150165
-		-4.377998
-		1.111017
-		-0.413538
+		4.
+		2044.
+		0.5323327
+		-4.394201
+		1.152936
+		-0.4017358
 

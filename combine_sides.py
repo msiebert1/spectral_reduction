@@ -29,9 +29,9 @@ def sq_residuals(s,blue,red):
     w_res = blue_ivar*sq_res
     return np.sum(w_res)
 
-def combine_blue_red(blue_asci, red_asci):
-	blue = np.transpose(np.genfromtxt(blue_asci))
-	red = np.transpose(np.genfromtxt(red_asci))
+def combine_blue_red(blue_asci, red_asci, name):
+	blue = np.transpose(np.genfromtxt(name + '/' + blue_asci))
+	red = np.transpose(np.genfromtxt(name + '/' + red_asci))
 
 	#cut noisy part of red spectrum
 	valid_range = np.where(red[0]>5480.)
@@ -83,6 +83,12 @@ def combine_blue_red(blue_asci, red_asci):
 	plt.plot(olap_arr[0], olap_arr[1])
 	plt.plot(red_short[0], red_short[1])
 	plt.show()
+	
+	plt.plot(blue[0], blue[1])
+	plt.plot(red[0], red[1])
+	plt.show()
 
 
+	return [wavelength, flux, err]
 
+# combine_blue_red('sn2017erp_kast_blue_2017-07-03T05:10:28.34_1_f.asci', 'sn2017erp_kast_red_2017-07-03T05:10:42.69_1_f.asci', 'sn2017erp')

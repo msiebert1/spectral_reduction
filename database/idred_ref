@@ -1,8 +1,8 @@
 # Wed 14:29:57 22-Nov-2017
-begin	identify r1007_ref[156,*]
-	id	r1007_ref
+begin	identify red_ref[156,*]
+	id	red_ref
 	task	identify
-	image	r1007_ref[156,*]
+	image	red_ref[156,*]
 	units	Angstroms
 	features	21
 	        359.01 5460.49107    5460.75   7.0 1 1 Hg I     *

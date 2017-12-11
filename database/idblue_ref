@@ -1,8 +1,8 @@
 # Wed 10:40:01 22-Nov-2017
-begin	identify b1008_ref[*,150]
-	id	b1008_ref
+begin	identify blue_ref[*,150]
+	id	blue_ref
 	task	identify
-	image	b1008_ref[*,150]
+	image	blue_ref[*,150]
 	units	Angstroms
 	features	19
 	         20.85 3260.20698      3261.   7.0 1 1 

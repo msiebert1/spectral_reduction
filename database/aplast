@@ -1,11 +1,11 @@
-# Fri 11:37:08 01-Dec-2017
-begin	aperture last 1 200. 164.5749
+# Mon 13:48:21 11-Dec-2017
+begin	aperture last 1 151.5969 1362.
 	image	last
 	aperture	1
 	beam	1
-	center	200. 164.5749
-	low	-199. -5.
-	high	1848. 5.
+	center	151.5969 1362.
+	low	-5. -1361.
+	high	5. 1363.
 	background
 		xmin -25.
 		xmax 25.
@@ -17,14 +17,14 @@ begin	aperture last 1 200. 164.5749
 		low_reject 3.
 		high_reject 3.
 		grow 0.
-	axis	2
+	axis	1
 	curve	8
 		2.
 		4.
-		10.
-		2040.
-		-4.150165
-		-4.377998
-		1.111017
-		-0.413538
+		2.
+		2722.
+		0.3928558
+		1.645605
+		0.6989625
+		-0.5006201
 

@@ -28,7 +28,7 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
 
     hdr0 = util.readhdr(imglist[0])
     if readkey3(hdr0, 'VERSION') == 'kastb':
-            inst = instruments.kast_blue
+        inst = instruments.kast_blue
     elif readkey3(hdr0, 'VERSION') == 'kastr':
         inst = instruments.kast_red
     else:
@@ -54,29 +54,50 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
     iraf.ccdproc.zerocor = 'no'
     iraf.ccdproc.ccdtype = ''
 
-    _gain = inst.get('gain')
-    _ron = inst.get('read_noise')
-
-    iraf.specred.apall.readnoi = _ron
-    iraf.specred.apall.gain = _gain
-    iraf.specred.dispaxi = inst.get('dispaxis')
-    iraf.longslit.dispaxi = inst.get('dispaxis')
     iraf.longslit.mode = 'h'
     iraf.specred.mode = 'h'
     iraf.noao.mode = 'h'
     iraf.ccdred.instrument = "ccddb$kpno/camera.dat"
     iraf.set(direc=ntt.__path__[0] + '/')
+
+    asci_files = []
+    newlist = [[],[]]
     for img in imglist:
-        hdr = util.readhdr(img)
+        if 'b' in img:
+            newlist[0].append(img)
+        elif 'r' in img:
+            newlist[1].append(img)
+
+    # for img in imglist:
+    print newlist
+    for imgs in newlist:
+        hdr = util.readhdr(imgs[0])
+        # hdr = util.readhdr(img)
         # _tech = util.readkey3(hdr, 'tech')
 
-        print hdr
+        # print hdr
+        if readkey3(hdr, 'VERSION') == 'kastb':
+            inst = instruments.kast_blue
+        elif readkey3(hdr, 'VERSION') == 'kastr':
+            inst = instruments.kast_red
+        else:
+            print readkey3(hdr, 'VERSION') + 'not in database'
+            sys.exit()
+
+        iraf.specred.dispaxi = inst.get('dispaxis')
+        iraf.longslit.dispaxi = inst.get('dispaxis')
+
+        _gain = inst.get('gain')
+        _ron = inst.get('read_noise')
+        iraf.specred.apall.readnoi = _ron
+        iraf.specred.apall.gain = _gain
+
         print inst.get('name')
-        print img
+        print imgs
 
         # if _tech != 'SPECTRUM':
         #     sys.exit('error: ' + str(img) + ' is not a spectrum ')
-        print '\n####  image name = ' + img + '\n'
+        # print '\n####  image name = ' + img + '\n'
         # _grism0 = inst.get('grism')
         # _filter0 = inst.get('filter')
         # _slit0 = inst.get('slit')
@@ -107,12 +128,23 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
         nameout0 = str(_object0) + '_' + inst.get('name') + '_' + str(_date0)
         # for _set in setup:
         #     nameout0 = nameout0 + '_' + _set
-        nameout0 = util.name_duplicate(img, nameout0, '')
+        # nameout0 = util.name_duplicate(img, nameout0, '')
+        nameout0 = util.name_duplicate(imgs[0], nameout0, '')
         timg = nameout0
-        if os.path.isfile(timg):
-            os.system('rm -rf ' + timg)
-        iraf.imcopy(img, output=timg)
 
+        if len(imgs) > 1:
+            img_str = ''
+            for i in imgs:
+                img_str = img_str + i + ','
+            iraf.imcombine(img_str, output=timg)
+        else:
+            img = imgs[0]
+            if os.path.isfile(timg):
+                os.system('rm -rf ' + timg)
+            iraf.imcopy(img, output=timg)
+        print img
+        
+        
         #TODO: Update with masterbias/master flat
         iraf.ccdproc(timg, output='', overscan='yes', trim='yes', zerocor="no", flatcor="no", readaxi='line',
                      trimsec=str(_trimsec0), biassec=str(_biassec0), Stdout=1)
@@ -295,6 +327,7 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                         imgout + '[*,1,4]', errasci, header='no')
                     spec = np.transpose(np.genfromtxt(imgasci))
                     err = np.transpose(np.genfromtxt(errasci))
+                    util.delete(errasci)
                     final = np.transpose([spec[0], spec[1], err[1]])
                     np.savetxt(imgasci, final)
 
@@ -307,21 +340,25 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                     imgex, 'spline3', 6, _inter)
                 result = result + [imgout]
 
-    for img in result:
-        if img[-5:] == '.fits':
-            ntt.util.phase3header(img)  # phase 3 definitions
-            ntt.util.airmass(img)  # phase 3 definitions
-            ntt.util.updateheader(
-                img, 0, {'quality': ['Rapid', 'Final or Rapid reduction']})
+    # for img in result:
+    #     if img[-5:] == '.fits':
+    #         ntt.util.phase3header(img)  # phase 3 definitions
+    #         ntt.util.airmass(img)  # phase 3 definitions
+    #         ntt.util.updateheader(
+    #             img, 0, {'quality': ['Rapid', 'Final or Rapid reduction']})
 
-    result = result + [imgex] + [timg]
+        result = result + [imgex] + [timg]
+        print result
+        asci_files.append(imgasci)
+        if not os.path.isdir(_object0 + '/'):
+            os.mkdir(_object0 + '/')
+            for img in result:
+                os.system('mv ' + img + ' ' + _object0 + '/')
+        else:
+            for img in result:
+                os.system('mv ' + img + ' ' + _object0 + '/')
 
-    if not os.path.isdir(_object0 + '/'):
-        os.mkdir(_object0 + '/')
-        for img in result:
-            os.system('mv ' + img + ' ' + _object0 + '/')
-    else:
-        for img in result:
-            os.system('mv ' + img + ' ' + _object0 + '/')
 
+
+    final = cs.combine_blue_red(asci_files[0], asci_files[1], _object0)
     return result
