@@ -89,6 +89,7 @@ def combine_blue_red(blue_asci, red_asci, name):
 	plt.plot(red_short[0], red_short[1])
 	plt.show()
 
+	np.savetxt(name + '/' + name + '_combined.asci', np.transpose([wavelength, flux, err]))
 
 	return [wavelength, flux, err]
 

@@ -13970,3 +13970,483 @@ Dec 12 14:30: EXTRACT: 4264 pixels rejected for profile from aperture 1
 Dec 12 14:30: EXTRACT: Aperture 1 variance spectrum bias factor is 1.000675
 Dec 12 14:30: EXTRACT: 691 pixels rejected from aperture 1
 Dec 12 14:30: EXTRACT - Aperture 1 from sn2017erp_kast_red_2017-07-03T05:10:42.69_1 --> sn2017erp_kast_red_2017-07-03T05:10:42.69_1_ex
+sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.fits: Dec 12 15:17 Trim data section is [1:2048,1:300]
+sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.fits: Dec 12 15:17 Overscan section is [1:2048,300:350] with mean=1353.399
+b1008.fits: Dec 12 15:17 Trim data section is [1:2048,1:300]
+b1008.fits: Dec 12 15:17 Overscan section is [1:2048,300:350] with mean=1535.368
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:19 12-Dec-2017
+  Reference image = blue_ref.fits, New image = tb1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tb1008[*,150]          19/19   19/19   -0.00184    -0.00213  -9.0E-7     7.28
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:19 12-Dec-2017
+  Reference image = tb1008.fits, New image = tb1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tb1008[*,140]          19/19   19/19    -0.0681     -0.0912  -2.2E-5     7.26
+tb1008[*,130]          19/19   19/19    -0.0358     -0.0506  -1.1E-5     7.27
+tb1008[*,120]          19/19   19/19    -0.0634      -0.084  -2.0E-5     7.29
+tb1008[*,110]          19/19   19/19    -0.0545     -0.0744  -1.6E-5     7.27
+tb1008[*,100]          19/19   19/19    -0.0577     -0.0787  -1.8E-5     7.26
+tb1008[*,90]           19/19   19/19    -0.0579     -0.0782  -1.7E-5     7.27
+tb1008[*,80]           19/19   19/19    -0.0912      -0.121  -2.9E-5     7.26
+tb1008[*,70]           19/19   19/19    -0.0672     -0.0913  -2.2E-5     7.26
+tb1008[*,60]           19/19   19/19    -0.0693     -0.0934  -2.2E-5     7.26
+tb1008[*,50]           19/19   19/19    -0.0232     -0.0392  -1.3E-5     7.28
+tb1008[*,40]           19/19   19/19    -0.0902       -0.12  -2.8E-5     7.28
+tb1008[*,30]           19/19   19/19    -0.0727     -0.0995  -2.3E-5     7.29
+tb1008[*,20]           19/19   19/19    -0.0922      -0.124  -2.9E-5     7.26
+tb1008[*,10]           19/19   19/19    -0.0753     -0.0919  -2.7E-5     7.26
+tb1008[*,160]          19/19   19/19     0.0469      0.0636  1.35E-5     7.28
+tb1008[*,170]          19/19   19/19     0.0574       0.077  1.83E-5     7.27
+tb1008[*,180]          19/19   19/19      0.063      0.0837  1.97E-5     7.28
+tb1008[*,190]          19/19   19/19     0.0483      0.0656  1.48E-5     7.28
+tb1008[*,200]          19/19   19/19     0.0607      0.0816  1.86E-5     7.29
+tb1008[*,210]          19/19   19/19     0.0594      0.0806  1.87E-5     7.28
+tb1008[*,220]          19/19   19/19     0.0513      0.0693  1.60E-5     7.26
+tb1008[*,230]          19/19   19/19     0.0671      0.0888  2.13E-5     7.28
+tb1008[*,240]          19/19   19/19     0.0667      0.0889  2.06E-5     7.29
+tb1008[*,250]          19/19   19/19     0.0404      0.0533  1.19E-5     7.27
+tb1008[*,260]          19/19   19/19     0.0595      0.0803  1.83E-5     7.28
+tb1008[*,270]          19/19   19/19     0.0373      0.0499  1.19E-5     7.27
+tb1008[*,280]          19/19   19/19     0.0431      0.0583  1.46E-5     7.28
+tb1008[*,290]          19/19   19/19     0.0531      0.0686  1.75E-5      7.3
+tb1008[*,300]          19/19   19/19     0.0488      0.0631  1.59E-5     7.29
+
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:20 12-Dec-2017
+  Longslit coordinate fit name is tb1008.
+  Longslit database is /home/msiebert/Documents/UCSC/Research/spectral_reduction/database.
+  Features from images:
+    tb1008
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 570
+  Mapping function = legendre
+    X order = 6
+    Y order = 4
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 3238.064  (2048, 1) = 6001.078
+    (1, 300) = 3234.245  (2048, 300) = 6000.84
+
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:20 12-Dec-2017
+  Transform sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.fits to sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+    tb1008
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      3234., x2 =      6001., dx =      1.352, nx = 2048, xlog = no
+    y1 =         1., y2 =       300., dy =         1., ny =  300, ylog = no
+Dec 12 15:17: DATABASE  - 1 apertures read for sn2017erp_kast_blue_2017-07-03T05:10:28.34_1 from database
+Dec 12 15:17: TRACE - 1 apertures traced in sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.
+Dec 12 15:17: DATABASE - 1 apertures for sn2017erp_kast_blue_2017-07-03T05:10:28.34_1 written to database
+Dec 12 15:17: EXTRACT: 18757 pixels rejected for profile from aperture 1
+Dec 12 15:17: EXTRACT: Aperture 1 variance spectrum bias factor is 0.9935951
+Dec 12 15:17: EXTRACT: 4256 pixels rejected from aperture 1
+Dec 12 15:17: EXTRACT - Aperture 1 from sn2017erp_kast_blue_2017-07-03T05:10:28.34_1 --> sn2017erp_kast_blue_2017-07-03T05:10:28.34_1_ex
+sn2017erp_kast_red_2017-07-03T05:10:42.69_1.fits: Dec 12 15:17 Trim data section is [45:355,1:2725]
+sn2017erp_kast_red_2017-07-03T05:10:42.69_1.fits: Dec 12 15:17 Overscan section is [355:405,1:2725] with mean=1047.7
+r1007.fits: Dec 12 15:17 Trim data section is [45:355,1:2725]
+r1007.fits: Dec 12 15:17 Overscan section is [355:405,1:2725] with mean=1044.184
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:26 12-Dec-2017
+  Reference image = red_ref.fits, New image = tr1007, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tr1007[156,*]          21/21   21/21    0.00126     0.00321  4.58E-7    0.131
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:26 12-Dec-2017
+  Reference image = tr1007.fits, New image = tr1007, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tr1007[146,*]          21/21   21/21     0.0363      0.0877  1.40E-5     0.14
+tr1007[136,*]          21/21   21/21     0.0329      0.0826  1.28E-5    0.131
+tr1007[126,*]          21/21   21/21     0.0283      0.0711  1.10E-5    0.118
+tr1007[116,*]          21/21   21/21     0.0355      0.0891  1.38E-5    0.111
+tr1007[106,*]          21/21   21/21       0.04       0.101  1.52E-5    0.112
+tr1007[96,*]           21/21   21/21     0.0493       0.124  1.90E-5    0.122
+tr1007[86,*]           21/21   21/21     0.0406       0.102  1.56E-5    0.115
+tr1007[76,*]           21/21   21/21     0.0425       0.107  1.61E-5    0.112
+tr1007[66,*]           21/21   21/21     0.0349       0.088  1.31E-5    0.137
+tr1007[56,*]           21/21   21/21      0.029       0.073  1.10E-5     0.12
+tr1007[46,*]           21/21   21/21     0.0208      0.0523  7.87E-6     0.13
+tr1007[36,*]           21/21   21/21     0.0303      0.0763  1.14E-5    0.118
+tr1007[26,*]           21/21   21/21    0.00653      0.0169  1.88E-6    0.107
+tr1007[16,*]           21/21   21/21    -0.0072     -0.0176  -3.4E-6   0.0927
+tr1007[6,*]            21/21   21/21     0.0249      0.0629  9.26E-6   0.0879
+tr1007[166,*]          21/21   21/21     -0.028     -0.0703  -1.1E-5    0.132
+tr1007[176,*]          21/21   21/21    -0.0343     -0.0858  -1.3E-5    0.121
+tr1007[186,*]          21/21   21/21    -0.0262     -0.0657  -1.0E-5    0.143
+tr1007[196,*]          21/21   21/21    -0.0292      -0.073  -1.2E-5    0.135
+tr1007[206,*]          21/21   21/21    -0.0342     -0.0857  -1.3E-5    0.145
+tr1007[216,*]          21/21   21/21    -0.0315     -0.0789  -1.2E-5    0.135
+tr1007[226,*]          21/21   21/21    -0.0313     -0.0784  -1.2E-5    0.122
+tr1007[236,*]          21/21   21/21    -0.0342     -0.0857  -1.3E-5    0.117
+tr1007[246,*]          21/21   21/21    -0.0274     -0.0686  -1.1E-5    0.139
+tr1007[256,*]          21/21   21/21    -0.0415      -0.104  -1.6E-5    0.119
+tr1007[266,*]          21/21   21/21    -0.0148     -0.0376  -5.5E-6   0.0989
+tr1007[276,*]          21/21   21/21    -0.0276      -0.069  -1.1E-5    0.105
+tr1007[286,*]          21/21   21/21    -0.0389     -0.0974  -1.5E-5    0.114
+tr1007[296,*]          21/21   21/21    -0.0314     -0.0785  -1.2E-5    0.118
+tr1007[306,*]          21/21   21/21    -0.0343      -0.086  -1.4E-5    0.122
+
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:27 12-Dec-2017
+  Longslit coordinate fit name is tr1007.
+  Longslit database is /home/msiebert/Documents/UCSC/Research/spectral_reduction/database.
+  Features from images:
+    tr1007
+  Map User coordinates for axis 2 using image features:
+  Number of feature coordnates = 651
+  Mapping function = legendre
+    X order = 6
+    Y order = 4
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 4599.9  (311, 1) = 4602.585
+    (1, 2725) = 11444.71  (311, 2725) = 11441.25
+
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:27 12-Dec-2017
+  Transform sn2017erp_kast_red_2017-07-03T05:10:42.69_1.fits to sn2017erp_kast_red_2017-07-03T05:10:42.69_1.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+    tr1007
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =         1., x2 =       311., dx =         1., nx =  311, xlog = no
+    y1 =      4600., y2 =     11445., dy =      2.513, ny = 2725, ylog = no
+Dec 12 15:17: DATABASE  - 1 apertures read for sn2017erp_kast_red_2017-07-03T05:10:42.69_1 from database
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 242.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 232.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 202.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 192.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 152.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 142.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 132.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 112.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 102.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 12.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 2.
+Dec 12 15:17: TRACE - 1 apertures traced in sn2017erp_kast_red_2017-07-03T05:10:42.69_1.
+Dec 12 15:17: DATABASE - 1 apertures for sn2017erp_kast_red_2017-07-03T05:10:42.69_1 written to database
+Dec 12 15:17: EXTRACT: 4264 pixels rejected for profile from aperture 1
+Dec 12 15:17: EXTRACT: Aperture 1 variance spectrum bias factor is 1.000675
+Dec 12 15:17: EXTRACT: 691 pixels rejected from aperture 1
+Dec 12 15:17: EXTRACT - Aperture 1 from sn2017erp_kast_red_2017-07-03T05:10:42.69_1 --> sn2017erp_kast_red_2017-07-03T05:10:42.69_1_ex
+sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.fits: Dec 12 15:17 Trim data section is [1:2048,1:300]
+sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.fits: Dec 12 15:17 Overscan section is [1:2048,300:350] with mean=1353.399
+b1008.fits: Dec 12 15:17 Trim data section is [1:2048,1:300]
+b1008.fits: Dec 12 15:17 Overscan section is [1:2048,300:350] with mean=1535.368
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:45 12-Dec-2017
+  Reference image = blue_ref.fits, New image = tb1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tb1008[*,150]          19/19   19/19   -0.00184    -0.00213  -9.0E-7     7.28
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:46 12-Dec-2017
+  Reference image = tb1008.fits, New image = tb1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tb1008[*,140]          19/19   19/19    -0.0681     -0.0912  -2.2E-5     7.26
+tb1008[*,130]          19/19   19/19    -0.0358     -0.0506  -1.1E-5     7.27
+tb1008[*,120]          19/19   19/19    -0.0634      -0.084  -2.0E-5     7.29
+tb1008[*,110]          19/19   19/19    -0.0545     -0.0744  -1.6E-5     7.27
+tb1008[*,100]          19/19   19/19    -0.0577     -0.0787  -1.8E-5     7.26
+tb1008[*,90]           19/19   19/19    -0.0579     -0.0782  -1.7E-5     7.27
+tb1008[*,80]           19/19   19/19    -0.0912      -0.121  -2.9E-5     7.26
+tb1008[*,70]           19/19   19/19    -0.0672     -0.0913  -2.2E-5     7.26
+tb1008[*,60]           19/19   19/19    -0.0693     -0.0934  -2.2E-5     7.26
+tb1008[*,50]           19/19   19/19    -0.0232     -0.0392  -1.3E-5     7.28
+tb1008[*,40]           19/19   19/19    -0.0902       -0.12  -2.8E-5     7.28
+tb1008[*,30]           19/19   19/19    -0.0727     -0.0995  -2.3E-5     7.29
+tb1008[*,20]           19/19   19/19    -0.0922      -0.124  -2.9E-5     7.26
+tb1008[*,10]           19/19   19/19    -0.0753     -0.0919  -2.7E-5     7.26
+tb1008[*,160]          19/19   19/19     0.0469      0.0636  1.35E-5     7.28
+tb1008[*,170]          19/19   19/19     0.0574       0.077  1.83E-5     7.27
+tb1008[*,180]          19/19   19/19      0.063      0.0837  1.97E-5     7.28
+tb1008[*,190]          19/19   19/19     0.0483      0.0656  1.48E-5     7.28
+tb1008[*,200]          19/19   19/19     0.0607      0.0816  1.86E-5     7.29
+tb1008[*,210]          19/19   19/19     0.0594      0.0806  1.87E-5     7.28
+tb1008[*,220]          19/19   19/19     0.0513      0.0693  1.60E-5     7.26
+tb1008[*,230]          19/19   19/19     0.0671      0.0888  2.13E-5     7.28
+tb1008[*,240]          19/19   19/19     0.0667      0.0889  2.06E-5     7.29
+tb1008[*,250]          19/19   19/19     0.0404      0.0533  1.19E-5     7.27
+tb1008[*,260]          19/19   19/19     0.0595      0.0803  1.83E-5     7.28
+tb1008[*,270]          19/19   19/19     0.0373      0.0499  1.19E-5     7.27
+tb1008[*,280]          19/19   19/19     0.0431      0.0583  1.46E-5     7.28
+tb1008[*,290]          19/19   19/19     0.0531      0.0686  1.75E-5      7.3
+tb1008[*,300]          19/19   19/19     0.0488      0.0631  1.59E-5     7.29
+
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:46 12-Dec-2017
+  Longslit coordinate fit name is tb1008.
+  Longslit database is /home/msiebert/Documents/UCSC/Research/spectral_reduction/database.
+  Features from images:
+    tb1008
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 570
+  Mapping function = legendre
+    X order = 6
+    Y order = 4
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 3238.064  (2048, 1) = 6001.078
+    (1, 300) = 3234.245  (2048, 300) = 6000.84
+
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:47 12-Dec-2017
+  Transform sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.fits to sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+    tb1008
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      3234., x2 =      6001., dx =      1.352, nx = 2048, xlog = no
+    y1 =         1., y2 =       300., dy =         1., ny =  300, ylog = no
+Dec 12 15:17: DATABASE  - 1 apertures read for sn2017erp_kast_blue_2017-07-03T05:10:28.34_1 from database
+Dec 12 15:17: TRACE - 1 apertures traced in sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.
+Dec 12 15:17: DATABASE - 1 apertures for sn2017erp_kast_blue_2017-07-03T05:10:28.34_1 written to database
+Dec 12 15:17: EXTRACT: 18757 pixels rejected for profile from aperture 1
+Dec 12 15:17: EXTRACT: Aperture 1 variance spectrum bias factor is 0.9935951
+Dec 12 15:17: EXTRACT: 4256 pixels rejected from aperture 1
+Dec 12 15:17: EXTRACT - Aperture 1 from sn2017erp_kast_blue_2017-07-03T05:10:28.34_1 --> sn2017erp_kast_blue_2017-07-03T05:10:28.34_1_ex
+sn2017erp_kast_red_2017-07-03T05:10:42.69_1.fits: Dec 12 15:17 Trim data section is [45:355,1:2725]
+sn2017erp_kast_red_2017-07-03T05:10:42.69_1.fits: Dec 12 15:17 Overscan section is [355:405,1:2725] with mean=1047.7
+r1007.fits: Dec 12 15:17 Trim data section is [45:355,1:2725]
+r1007.fits: Dec 12 15:17 Overscan section is [355:405,1:2725] with mean=1044.184
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:51 12-Dec-2017
+  Reference image = red_ref.fits, New image = tr1007, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tr1007[156,*]          21/21   21/21    0.00126     0.00321  4.58E-7    0.131
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:51 12-Dec-2017
+  Reference image = tr1007.fits, New image = tr1007, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tr1007[146,*]          21/21   21/21     0.0363      0.0877  1.40E-5     0.14
+tr1007[136,*]          21/21   21/21     0.0329      0.0826  1.28E-5    0.131
+tr1007[126,*]          21/21   21/21     0.0283      0.0711  1.10E-5    0.118
+tr1007[116,*]          21/21   21/21     0.0355      0.0891  1.38E-5    0.111
+tr1007[106,*]          21/21   21/21       0.04       0.101  1.52E-5    0.112
+tr1007[96,*]           21/21   21/21     0.0493       0.124  1.90E-5    0.122
+tr1007[86,*]           21/21   21/21     0.0406       0.102  1.56E-5    0.115
+tr1007[76,*]           21/21   21/21     0.0425       0.107  1.61E-5    0.112
+tr1007[66,*]           21/21   21/21     0.0349       0.088  1.31E-5    0.137
+tr1007[56,*]           21/21   21/21      0.029       0.073  1.10E-5     0.12
+tr1007[46,*]           21/21   21/21     0.0208      0.0523  7.87E-6     0.13
+tr1007[36,*]           21/21   21/21     0.0303      0.0763  1.14E-5    0.118
+tr1007[26,*]           21/21   21/21    0.00653      0.0169  1.88E-6    0.107
+tr1007[16,*]           21/21   21/21    -0.0072     -0.0176  -3.4E-6   0.0927
+tr1007[6,*]            21/21   21/21     0.0249      0.0629  9.26E-6   0.0879
+tr1007[166,*]          21/21   21/21     -0.028     -0.0703  -1.1E-5    0.132
+tr1007[176,*]          21/21   21/21    -0.0343     -0.0858  -1.3E-5    0.121
+tr1007[186,*]          21/21   21/21    -0.0262     -0.0657  -1.0E-5    0.143
+tr1007[196,*]          21/21   21/21    -0.0292      -0.073  -1.2E-5    0.135
+tr1007[206,*]          21/21   21/21    -0.0342     -0.0857  -1.3E-5    0.145
+tr1007[216,*]          21/21   21/21    -0.0315     -0.0789  -1.2E-5    0.135
+tr1007[226,*]          21/21   21/21    -0.0313     -0.0784  -1.2E-5    0.122
+tr1007[236,*]          21/21   21/21    -0.0342     -0.0857  -1.3E-5    0.117
+tr1007[246,*]          21/21   21/21    -0.0274     -0.0686  -1.1E-5    0.139
+tr1007[256,*]          21/21   21/21    -0.0415      -0.104  -1.6E-5    0.119
+tr1007[266,*]          21/21   21/21    -0.0148     -0.0376  -5.5E-6   0.0989
+tr1007[276,*]          21/21   21/21    -0.0276      -0.069  -1.1E-5    0.105
+tr1007[286,*]          21/21   21/21    -0.0389     -0.0974  -1.5E-5    0.114
+tr1007[296,*]          21/21   21/21    -0.0314     -0.0785  -1.2E-5    0.118
+tr1007[306,*]          21/21   21/21    -0.0343      -0.086  -1.4E-5    0.122
+
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:52 12-Dec-2017
+  Longslit coordinate fit name is tr1007.
+  Longslit database is /home/msiebert/Documents/UCSC/Research/spectral_reduction/database.
+  Features from images:
+    tr1007
+  Map User coordinates for axis 2 using image features:
+  Number of feature coordnates = 651
+  Mapping function = legendre
+    X order = 6
+    Y order = 4
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 4599.9  (311, 1) = 4602.585
+    (1, 2725) = 11444.71  (311, 2725) = 11441.25
+
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:17:53 12-Dec-2017
+  Transform sn2017erp_kast_red_2017-07-03T05:10:42.69_1.fits to sn2017erp_kast_red_2017-07-03T05:10:42.69_1.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+    tr1007
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =         1., x2 =       311., dx =         1., nx =  311, xlog = no
+    y1 =      4600., y2 =     11445., dy =      2.513, ny = 2725, ylog = no
+Dec 12 15:17: DATABASE  - 1 apertures read for sn2017erp_kast_red_2017-07-03T05:10:42.69_1 from database
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 242.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 232.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 202.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 192.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 152.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 142.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 132.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 112.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 102.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 12.
+Dec 12 15:17: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 2.
+Dec 12 15:17: TRACE - 1 apertures traced in sn2017erp_kast_red_2017-07-03T05:10:42.69_1.
+Dec 12 15:17: DATABASE - 1 apertures for sn2017erp_kast_red_2017-07-03T05:10:42.69_1 written to database
+Dec 12 15:17: EXTRACT: 4264 pixels rejected for profile from aperture 1
+Dec 12 15:17: EXTRACT: Aperture 1 variance spectrum bias factor is 1.000675
+Dec 12 15:17: EXTRACT: 691 pixels rejected from aperture 1
+Dec 12 15:17: EXTRACT - Aperture 1 from sn2017erp_kast_red_2017-07-03T05:10:42.69_1 --> sn2017erp_kast_red_2017-07-03T05:10:42.69_1_ex
+sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.fits: Dec 12 15:18 Trim data section is [1:2048,1:300]
+sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.fits: Dec 12 15:18 Overscan section is [1:2048,300:350] with mean=1353.399
+b1008.fits: Dec 12 15:18 Trim data section is [1:2048,1:300]
+b1008.fits: Dec 12 15:18 Overscan section is [1:2048,300:350] with mean=1535.368
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:18:45 12-Dec-2017
+  Reference image = blue_ref.fits, New image = tb1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tb1008[*,150]          19/19   19/19   -0.00184    -0.00213  -9.0E-7     7.28
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:18:45 12-Dec-2017
+  Reference image = tb1008.fits, New image = tb1008, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tb1008[*,140]          19/19   19/19    -0.0681     -0.0912  -2.2E-5     7.26
+tb1008[*,130]          19/19   19/19    -0.0358     -0.0506  -1.1E-5     7.27
+tb1008[*,120]          19/19   19/19    -0.0634      -0.084  -2.0E-5     7.29
+tb1008[*,110]          19/19   19/19    -0.0545     -0.0744  -1.6E-5     7.27
+tb1008[*,100]          19/19   19/19    -0.0577     -0.0787  -1.8E-5     7.26
+tb1008[*,90]           19/19   19/19    -0.0579     -0.0782  -1.7E-5     7.27
+tb1008[*,80]           19/19   19/19    -0.0912      -0.121  -2.9E-5     7.26
+tb1008[*,70]           19/19   19/19    -0.0672     -0.0913  -2.2E-5     7.26
+tb1008[*,60]           19/19   19/19    -0.0693     -0.0934  -2.2E-5     7.26
+tb1008[*,50]           19/19   19/19    -0.0232     -0.0392  -1.3E-5     7.28
+tb1008[*,40]           19/19   19/19    -0.0902       -0.12  -2.8E-5     7.28
+tb1008[*,30]           19/19   19/19    -0.0727     -0.0995  -2.3E-5     7.29
+tb1008[*,20]           19/19   19/19    -0.0922      -0.124  -2.9E-5     7.26
+tb1008[*,10]           19/19   19/19    -0.0753     -0.0919  -2.7E-5     7.26
+tb1008[*,160]          19/19   19/19     0.0469      0.0636  1.35E-5     7.28
+tb1008[*,170]          19/19   19/19     0.0574       0.077  1.83E-5     7.27
+tb1008[*,180]          19/19   19/19      0.063      0.0837  1.97E-5     7.28
+tb1008[*,190]          19/19   19/19     0.0483      0.0656  1.48E-5     7.28
+tb1008[*,200]          19/19   19/19     0.0607      0.0816  1.86E-5     7.29
+tb1008[*,210]          19/19   19/19     0.0594      0.0806  1.87E-5     7.28
+tb1008[*,220]          19/19   19/19     0.0513      0.0693  1.60E-5     7.26
+tb1008[*,230]          19/19   19/19     0.0671      0.0888  2.13E-5     7.28
+tb1008[*,240]          19/19   19/19     0.0667      0.0889  2.06E-5     7.29
+tb1008[*,250]          19/19   19/19     0.0404      0.0533  1.19E-5     7.27
+tb1008[*,260]          19/19   19/19     0.0595      0.0803  1.83E-5     7.28
+tb1008[*,270]          19/19   19/19     0.0373      0.0499  1.19E-5     7.27
+tb1008[*,280]          19/19   19/19     0.0431      0.0583  1.46E-5     7.28
+tb1008[*,290]          19/19   19/19     0.0531      0.0686  1.75E-5      7.3
+tb1008[*,300]          19/19   19/19     0.0488      0.0631  1.59E-5     7.29
+
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:18:45 12-Dec-2017
+  Longslit coordinate fit name is tb1008.
+  Longslit database is /home/msiebert/Documents/UCSC/Research/spectral_reduction/database.
+  Features from images:
+    tb1008
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 570
+  Mapping function = legendre
+    X order = 6
+    Y order = 4
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 3238.064  (2048, 1) = 6001.078
+    (1, 300) = 3234.245  (2048, 300) = 6000.84
+
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:18:46 12-Dec-2017
+  Transform sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.fits to sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+    tb1008
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      3234., x2 =      6001., dx =      1.352, nx = 2048, xlog = no
+    y1 =         1., y2 =       300., dy =         1., ny =  300, ylog = no
+Dec 12 15:18: DATABASE  - 1 apertures read for sn2017erp_kast_blue_2017-07-03T05:10:28.34_1 from database
+Dec 12 15:18: TRACE - 1 apertures traced in sn2017erp_kast_blue_2017-07-03T05:10:28.34_1.
+Dec 12 15:18: DATABASE - 1 apertures for sn2017erp_kast_blue_2017-07-03T05:10:28.34_1 written to database
+Dec 12 15:18: EXTRACT: 18757 pixels rejected for profile from aperture 1
+Dec 12 15:18: EXTRACT: Aperture 1 variance spectrum bias factor is 0.9935951
+Dec 12 15:18: EXTRACT: 4256 pixels rejected from aperture 1
+Dec 12 15:18: EXTRACT - Aperture 1 from sn2017erp_kast_blue_2017-07-03T05:10:28.34_1 --> sn2017erp_kast_blue_2017-07-03T05:10:28.34_1_ex
+sn2017erp_kast_red_2017-07-03T05:10:42.69_1.fits: Dec 12 15:18 Trim data section is [45:355,1:2725]
+sn2017erp_kast_red_2017-07-03T05:10:42.69_1.fits: Dec 12 15:18 Overscan section is [355:405,1:2725] with mean=1047.7
+r1007.fits: Dec 12 15:18 Trim data section is [45:355,1:2725]
+r1007.fits: Dec 12 15:18 Overscan section is [355:405,1:2725] with mean=1044.184
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:18:50 12-Dec-2017
+  Reference image = red_ref.fits, New image = tr1007, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tr1007[156,*]          21/21   21/21    0.00126     0.00321  4.58E-7    0.131
+
+REIDENTIFY: NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:18:50 12-Dec-2017
+  Reference image = tr1007.fits, New image = tr1007, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+tr1007[146,*]          21/21   21/21     0.0363      0.0877  1.40E-5     0.14
+tr1007[136,*]          21/21   21/21     0.0329      0.0826  1.28E-5    0.131
+tr1007[126,*]          21/21   21/21     0.0283      0.0711  1.10E-5    0.118
+tr1007[116,*]          21/21   21/21     0.0355      0.0891  1.38E-5    0.111
+tr1007[106,*]          21/21   21/21       0.04       0.101  1.52E-5    0.112
+tr1007[96,*]           21/21   21/21     0.0493       0.124  1.90E-5    0.122
+tr1007[86,*]           21/21   21/21     0.0406       0.102  1.56E-5    0.115
+tr1007[76,*]           21/21   21/21     0.0425       0.107  1.61E-5    0.112
+tr1007[66,*]           21/21   21/21     0.0349       0.088  1.31E-5    0.137
+tr1007[56,*]           21/21   21/21      0.029       0.073  1.10E-5     0.12
+tr1007[46,*]           21/21   21/21     0.0208      0.0523  7.87E-6     0.13
+tr1007[36,*]           21/21   21/21     0.0303      0.0763  1.14E-5    0.118
+tr1007[26,*]           21/21   21/21    0.00653      0.0169  1.88E-6    0.107
+tr1007[16,*]           21/21   21/21    -0.0072     -0.0176  -3.4E-6   0.0927
+tr1007[6,*]            21/21   21/21     0.0249      0.0629  9.26E-6   0.0879
+tr1007[166,*]          21/21   21/21     -0.028     -0.0703  -1.1E-5    0.132
+tr1007[176,*]          21/21   21/21    -0.0343     -0.0858  -1.3E-5    0.121
+tr1007[186,*]          21/21   21/21    -0.0262     -0.0657  -1.0E-5    0.143
+tr1007[196,*]          21/21   21/21    -0.0292      -0.073  -1.2E-5    0.135
+tr1007[206,*]          21/21   21/21    -0.0342     -0.0857  -1.3E-5    0.145
+tr1007[216,*]          21/21   21/21    -0.0315     -0.0789  -1.2E-5    0.135
+tr1007[226,*]          21/21   21/21    -0.0313     -0.0784  -1.2E-5    0.122
+tr1007[236,*]          21/21   21/21    -0.0342     -0.0857  -1.3E-5    0.117
+tr1007[246,*]          21/21   21/21    -0.0274     -0.0686  -1.1E-5    0.139
+tr1007[256,*]          21/21   21/21    -0.0415      -0.104  -1.6E-5    0.119
+tr1007[266,*]          21/21   21/21    -0.0148     -0.0376  -5.5E-6   0.0989
+tr1007[276,*]          21/21   21/21    -0.0276      -0.069  -1.1E-5    0.105
+tr1007[286,*]          21/21   21/21    -0.0389     -0.0974  -1.5E-5    0.114
+tr1007[296,*]          21/21   21/21    -0.0314     -0.0785  -1.2E-5    0.118
+tr1007[306,*]          21/21   21/21    -0.0343      -0.086  -1.4E-5    0.122
+
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:18:51 12-Dec-2017
+  Longslit coordinate fit name is tr1007.
+  Longslit database is /home/msiebert/Documents/UCSC/Research/spectral_reduction/database.
+  Features from images:
+    tr1007
+  Map User coordinates for axis 2 using image features:
+  Number of feature coordnates = 651
+  Mapping function = legendre
+    X order = 6
+    Y order = 4
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 4599.9  (311, 1) = 4602.585
+    (1, 2725) = 11444.71  (311, 2725) = 11441.25
+
+NOAO/IRAF V2.16 msiebert@ubuntu Tue 15:18:52 12-Dec-2017
+  Transform sn2017erp_kast_red_2017-07-03T05:10:42.69_1.fits to sn2017erp_kast_red_2017-07-03T05:10:42.69_1.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+    tr1007
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =         1., x2 =       311., dx =         1., nx =  311, xlog = no
+    y1 =      4600., y2 =     11445., dy =      2.513, ny = 2725, ylog = no
+Dec 12 15:18: DATABASE  - 1 apertures read for sn2017erp_kast_red_2017-07-03T05:10:42.69_1 from database
+Dec 12 15:18: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 242.
+Dec 12 15:18: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 232.
+Dec 12 15:18: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 202.
+Dec 12 15:18: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 192.
+Dec 12 15:18: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 152.
+Dec 12 15:18: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 142.
+Dec 12 15:18: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 132.
+Dec 12 15:18: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 112.
+Dec 12 15:18: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 102.
+Dec 12 15:18: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 lost at line 12.
+Dec 12 15:18: TRACE - Trace of aperture 1 in sn2017erp_kast_red_2017-07-03T05:10:42.69_1 recovered at line 2.
+Dec 12 15:18: TRACE - 1 apertures traced in sn2017erp_kast_red_2017-07-03T05:10:42.69_1.
+Dec 12 15:18: DATABASE - 1 apertures for sn2017erp_kast_red_2017-07-03T05:10:42.69_1 written to database
+Dec 12 15:18: EXTRACT: 4264 pixels rejected for profile from aperture 1
+Dec 12 15:18: EXTRACT: Aperture 1 variance spectrum bias factor is 1.000675
+Dec 12 15:18: EXTRACT: 691 pixels rejected from aperture 1
+Dec 12 15:18: EXTRACT - Aperture 1 from sn2017erp_kast_red_2017-07-03T05:10:42.69_1 --> sn2017erp_kast_red_2017-07-03T05:10:42.69_1_ex
