@@ -105,7 +105,7 @@ def readhdr(img):
     except:
         import ntt
         try:
-            ntt.util.correctcard(img)
+            correctcard(img)
         except:
             import sys
 
@@ -465,12 +465,12 @@ def searcharc(img, listarc):
     import glob
     import numpy as np
 
-    # hdr = ntt.util.readhdr(img)
-    # JD = ntt.util.readkey3(hdr, 'JD')
-    # _instrume = ntt.util.readkey3(hdr, 'instrume')
-    # grism0 = ntt.util.readkey3(hdr, 'grism')
-    # filter0 = ntt.util.readkey3(hdr, 'filter')
-    # slit0 = ntt.util.readkey3(hdr, 'slit')
+    # hdr = readhdr(img)
+    # JD = readkey3(hdr, 'JD')
+    # _instrume = readkey3(hdr, 'instrume')
+    # grism0 = readkey3(hdr, 'grism')
+    # filter0 = readkey3(hdr, 'filter')
+    # slit0 = readkey3(hdr, 'slit')
     # if slit0 == 'slit5.0':
     #     slit0 = 'slit1.0'
     # if not listarc:
@@ -484,11 +484,11 @@ def searcharc(img, listarc):
     #     distance = []
     #     goodlist = []
     #     for arc in listarc:
-    #         hdra = ntt.util.readhdr(arc)
-    #         JDarc = ntt.util.readkey3(hdra, 'JD')
-    #         filter1 = ntt.util.readkey3(hdra, 'filter')
-    #         grism1 = ntt.util.readkey3(hdra, 'grism')
-    #         slit1 = ntt.util.readkey3(hdra, 'slit')
+    #         hdra = readhdr(arc)
+    #         JDarc = readkey3(hdra, 'JD')
+    #         filter1 = readkey3(hdra, 'filter')
+    #         grism1 = readkey3(hdra, 'grism')
+    #         slit1 = readkey3(hdra, 'slit')
     #         if filter0 == filter1 and slit0 == slit1 and grism0 == grism1:
     #             goodlist.append(arc)
     #             distance.append(np.abs(JD - JDarc))
@@ -516,11 +516,11 @@ def searchsens(img, listsens):
     # import glob
     # import numpy as np
 
-    # hdr = ntt.util.readhdr(img)
-    # JD = ntt.util.readkey3(hdr, 'JD')
-    # _instrume = ntt.util.readkey3(hdr, 'instrume')
-    # grism0 = ntt.util.readkey3(hdr, 'grism')
-    # filter0 = ntt.util.readkey3(hdr, 'filter')
+    # hdr = readhdr(img)
+    # JD = readkey3(hdr, 'JD')
+    # _instrume = readkey3(hdr, 'instrume')
+    # grism0 = readkey3(hdr, 'grism')
+    # filter0 = readkey3(hdr, 'filter')
     # if not listsens:
     #     directory = ntt.__path__[0] + '/archive/' + \
     #         str(_instrume) + '/sens/' + grism0 + '/' + filter0
@@ -532,12 +532,12 @@ def searchsens(img, listsens):
     #     distance = []
     #     goodlist = []
     #     for sens in listsens:
-    #         hdrs = ntt.util.readhdr(sens)
-    #         JDsens = ntt.util.readkey3(hdrs, 'JD')
-    #         filter1 = ntt.util.readkey3(hdrs, 'filter') \
-    #             if ntt.util.readkey3(hdrs, 'filter') else ntt.util.readkey3(hdrs, 'FILTER')
-    #         grism1 = ntt.util.readkey3(hdrs, 'grism') \
-    #             if ntt.util.readkey3(hdrs, 'grism') else ntt.util.readkey3(hdrs, 'GRISM')
+    #         hdrs = readhdr(sens)
+    #         JDsens = readkey3(hdrs, 'JD')
+    #         filter1 = readkey3(hdrs, 'filter') \
+    #             if readkey3(hdrs, 'filter') else readkey3(hdrs, 'FILTER')
+    #         grism1 = readkey3(hdrs, 'grism') \
+    #             if readkey3(hdrs, 'grism') else readkey3(hdrs, 'GRISM')
     #         if filter0 == filter1 and grism0 == grism1:
     #             goodlist.append(sens)
     #             distance.append(np.abs(JD - JDsens))
@@ -560,10 +560,10 @@ def searchflat(img, listflat):
     import glob
     import numpy as np
 
-    hdr = ntt.util.readhdr(img)
-    JD = ntt.util.readkey3(hdr, 'JD')
-    _instrume = ntt.util.readkey3(hdr, 'instrume')
-    filter0 = ntt.util.readkey3(hdr, 'filter')
+    hdr = readhdr(img)
+    JD = readkey3(hdr, 'JD')
+    _instrume = readkey3(hdr, 'instrume')
+    filter0 = readkey3(hdr, 'filter')
     if not listflat:
         directory = ntt.__path__[0] + '/archive/' + \
             str(_instrume) + '/flat/' + filter0
@@ -575,9 +575,9 @@ def searchflat(img, listflat):
         distance = []
         goodlist = []
         for flat in listflat:
-            hdrf = ntt.util.readhdr(flat)
-            JDflat = ntt.util.readkey3(hdrf, 'JD')
-            filter1 = ntt.util.readkey3(hdrf, 'filter')
+            hdrf = readhdr(flat)
+            JDflat = readkey3(hdrf, 'JD')
+            filter1 = readkey3(hdrf, 'filter')
             if filter0 == filter1:
                 goodlist.append(flat)
                 distance.append(np.abs(JD - JDflat))
@@ -597,13 +597,13 @@ def choseclosest(img0, listimg):
     import ntt
     import numpy as np
 
-    hdr0 = ntt.util.readhdr(img0)
-    JD0 = ntt.util.readkey3(hdr0, 'JD')
+    hdr0 = readhdr(img0)
+    JD0 = readkey3(hdr0, 'JD')
     if listimg:
         distance = []
         for img in listimg:
-            hdrf = ntt.util.readhdr(img)
-            JDimg = ntt.util.readkey3(hdrf, 'JD')
+            hdrf = readhdr(img)
+            JDimg = readkey3(hdrf, 'JD')
             distance.append(np.abs(JD0 - JDimg))
         if len(distance) >= 1:
             image = listimg[np.argmin(distance)]
@@ -799,7 +799,7 @@ def archivefile(img, overwrite=True):
     import os
     import ntt
 
-    outputfile = ntt.util.readkey3(ntt.util.readhdr(img), 'ARCFILE')
+    outputfile = readkey3(readhdr(img), 'ARCFILE')
     print outputfile
     if not overwrite and os.path.isfile(outputfile):
         answ = raw_input('overwrite file ' + outputfile + ' [[y]/n]? ')
@@ -822,14 +822,14 @@ def airmass(img, overwrite=True, _observatory='lasilla'):
     from pyraf import iraf
 
     iraf.astutil(_doprint=0)
-    hdr = ntt.util.readhdr(img)
+    hdr = readhdr(img)
     if readkey3(hdr, 'UTC'):
-        _UT = (ntt.util.readkey3(hdr, 'UTC') +
-               (ntt.util.readkey3(hdr, 'exptime') / 2)) / 3600
-        _date = ntt.util.readkey3(hdr, 'date-obs')
+        _UT = (readkey3(hdr, 'UTC') +
+               (readkey3(hdr, 'exptime') / 2)) / 3600
+        _date = readkey3(hdr, 'date-obs')
         _date = _date[0:4] + '-' + _date[4:6] + '-' + _date[6:8]
-        _RA = ntt.util.readkey3(hdr, 'RA') / 15
-        _DEC = ntt.util.readkey3(hdr, 'DEC')
+        _RA = readkey3(hdr, 'RA') / 15
+        _DEC = readkey3(hdr, 'DEC')
         f = file('airmass.txt', 'w')
         f.write('mst = mst ("' + str(_date) + '",' + str(_UT) +
                 ', obsdb ("' + str(_observatory) + '", "longitude"))\n')
@@ -842,9 +842,9 @@ def airmass(img, overwrite=True, _observatory='lasilla'):
             _air = float(_air)
         except:
             _air = 999
-        ntt.util.delete('airmass.txt')
+        delete('airmass.txt')
         if overwrite and _air < 99.:
-            ntt.util.updateheader(
+            updateheader(
                 img, 0, {'AIRMASS': [_air, 'mean airmass computed with astcalc']})
     else:
         _air = ''
@@ -877,7 +877,7 @@ def phase3header(img):
     import numpy as np
 
     img_data = pyfits.open(img)[0].data
-    hdr = ntt.util.readhdr(img)
+    hdr = readhdr(img)
 
     hedvec0 = {'DATAMIN': [float(min(img_data[np.isfinite(img_data)])), 'Minimal pixel value'],
                'DATAMAX': [float(max(img_data[np.isfinite(img_data)])), 'Maximum pixel value'],
@@ -886,19 +886,19 @@ def phase3header(img):
                'PI-COI': ['Smartt', 'PI-COI name'],
                'PROCSOFT': ['ntt_' + str(ntt.__version__), 'pipeline version']}
 
-    if ntt.util.readkey3(hdr, 'filter'):
-        hedvec0['FILTER'] = [ntt.util.readkey3(hdr, 'filter'), 'Filter name']
-    if ntt.util.readkey3(hdr, 'gain'):
-        hedvec0['GAIN'] = [ntt.util.readkey3(
+    if readkey3(hdr, 'filter'):
+        hedvec0['FILTER'] = [readkey3(hdr, 'filter'), 'Filter name']
+    if readkey3(hdr, 'gain'):
+        hedvec0['GAIN'] = [readkey3(
             hdr, 'gain'), 'Conversion from electrons to ADU']
-    if ntt.util.readkey3(hdr, 'esoid'):
+    if readkey3(hdr, 'esoid'):
         hedvec0['OBID1'] = [
-            int(str(ntt.util.readkey3(hdr, 'esoid'))), 'Observation block ID']
-    if ntt.util.readkey3(hdr, 'esoprog'):
-        hedvec0['PROG_ID'] = [ntt.util.readkey3(
+            int(str(readkey3(hdr, 'esoid'))), 'Observation block ID']
+    if readkey3(hdr, 'esoprog'):
+        hedvec0['PROG_ID'] = [readkey3(
             hdr, 'esoprog'), 'ESO program identification']
-    if ntt.util.readkey3(hdr, 'tech'):
-        hedvec0['OBSTECH'] = [ntt.util.readkey3(
+    if readkey3(hdr, 'tech'):
+        hedvec0['OBSTECH'] = [readkey3(
             hdr, 'tech'), 'Observation technique']
 
     # added for DR2
@@ -907,7 +907,7 @@ def phase3header(img):
     # while len(max([str(i) for i in hdr.values()],key=len)) > 68:
     #   keytochange=hdr.keys()[hdr.values().index(max([str(i) for i in hdr.values()],key=len))]
     #   hdr[keytochange]=[str(hdr[keytochange])[0:68]]
-    ntt.util.updateheader(img, 0, hedvec0)
+    updateheader(img, 0, hedvec0)
 
 
 ##########################################################################
@@ -919,12 +919,12 @@ def rangedata(lista):
 
     if len(lista) >= 1:
         JD, date = [], []
-        _instrume = ntt.util.readkey3(ntt.util.readhdr(lista[0]), 'instrume')
+        _instrume = readkey3(readhdr(lista[0]), 'instrume')
         for img in lista:
             try:
-                hdr = ntt.util.readhdr(img)
-                JD.append(ntt.util.readkey3(hdr, 'JD'))
-                date.append(ntt.util.readkey3(hdr, 'date-night'))
+                hdr = readhdr(img)
+                JD.append(readkey3(hdr, 'JD'))
+                date.append(readkey3(hdr, 'date-night'))
             except:
                 pass
         datemin = date[np.argmin(np.array(JD))]
@@ -945,7 +945,7 @@ def name_duplicate(img, nome, ext):
     import glob
     import ntt
 
-    dimg = ntt.util.readkey3(ntt.util.readhdr(img), 'DATE-OBS')
+    dimg = readkey3(readhdr(img), 'DATE-OBS')
     listafile = glob.glob(nome + '_?' + ext + '.fits') + \
         glob.glob(nome + '_??' + ext + '.fits')
     if len(listafile) == 0:
@@ -953,7 +953,7 @@ def name_duplicate(img, nome, ext):
     else:
         date = []
         for l in listafile:
-            date.append(ntt.util.readkey3(ntt.util.readhdr(l), 'DATE-OBS'))
+            date.append(readkey3(readhdr(l), 'DATE-OBS'))
         if dimg in date:
             nome = listafile[date.index(dimg)]
         #         if overwrite:
@@ -975,16 +975,16 @@ def correctobject(img, coordinatefile):
     import numpy as np
 
     scal = np.pi / 180.
-    std, rastd, decstd, magstd = ntt.util.readstandard(coordinatefile)
+    std, rastd, decstd, magstd = readstandard(coordinatefile)
     img = re.sub('\n', '', img)
-    ntt.util.correctcard(img)
-    hdr = ntt.util.readhdr(img)
-    _ra = ntt.util.readkey3(hdr, 'RA')
-    _dec = ntt.util.readkey3(hdr, 'DEC')
+    correctcard(img)
+    hdr = readhdr(img)
+    _ra = readkey3(hdr, 'RA')
+    _dec = readkey3(hdr, 'DEC')
     dd = np.arccos(np.sin(_dec * scal) * np.sin(decstd * scal) + np.cos(_dec * scal) * np.cos(decstd * scal) *
                    np.cos((_ra - rastd) * scal)) * ((180 / np.pi) * 3600)
     if min(dd) < 200:
-        ntt.util.updateheader(
+        updateheader(
             img, 0, {'OBJECT': [std[np.argmin(dd)], 'Original target.']})
         aa, bb, cc = rastd[np.argmin(dd)], decstd[np.argmin(dd)], std[
             np.argmin(dd)]
@@ -1006,7 +1006,7 @@ def archivingtar(outputlist, rawfile):
     for img in outputlist:
         stringa = stringa + img + ' '
     stringa = stringa + rawfile
-    ntt.util.delete(re.sub('raw.list', 'tar.gz', rawfile))
+    delete(re.sub('raw.list', 'tar.gz', rawfile))
     os.system('tar -zcf ' + re.sub('raw.list',
                                    'tar.gz', rawfile) + ' ' + stringa)
     print '\n### tar file: ' + re.sub('raw.list', 'tar.gz', rawfile)
@@ -1038,7 +1038,7 @@ def StoN(img, ran=50):
     import ntt
     import numpy as np
 
-    xx, yy = ntt.util.readspectrum(img)
+    xx, yy = readspectrum(img)
     sntot = []
     xxmed = []
     for j in range(2, int((xx[-1] - xx[0]) / ran) - 2):
@@ -1091,11 +1091,11 @@ def spectraresolution(img):
     # %(__file__)s" % globals()
     import ntt
 
-    hdr = ntt.util.readhdr(img)
-    _instrume = ntt.util.readkey3(hdr, 'instrume')
-    _slit = ntt.util.readkey3(hdr, 'slit')
-    _grism = ntt.util.readkey3(hdr, 'grism')
-    _filter = ntt.util.readkey3(hdr, 'filter')
+    hdr = readhdr(img)
+    _instrume = readkey3(hdr, 'instrume')
+    _slit = readkey3(hdr, 'slit')
+    _grism = readkey3(hdr, 'grism')
+    _filter = readkey3(hdr, 'filter')
     risoluzioni = {}
     risoluzioni['efosc'] = {}
     risoluzioni['sofi'] = {}
@@ -1133,9 +1133,9 @@ def spectraresolution2(img0, ww=25):
     id = 'database/id' + re.sub('.fits', '', img0)
     img = 't' + img0
     data, hdr = pyfits.getdata(img, 0, header=True)
-    crvals = ntt.util.readkey3(hdr, 'CRVAL2')
-    cds = ntt.util.readkey3(hdr, 'CD2_2')
-    ny = ntt.util.readkey3(hdr, 'NAXIS2')
+    crvals = readkey3(hdr, 'CRVAL2')
+    cds = readkey3(hdr, 'CD2_2')
+    ny = readkey3(hdr, 'NAXIS2')
     yy = data[:, int(ny / 2):int(ny / 2) + 10].mean(1)
     xx = np.arange(len(yy))
     zz = np.mean(yy)
@@ -1150,7 +1150,7 @@ def spectraresolution2(img0, ww=25):
 #    hdulist[0].header.update('CRVAL1', crvals)
 #    hdulist[0].header.update('CD1_1', cds)
 #
-    ntt.util.updateheader('new3.fits', 0, {'CRVAL1':[crvals,''],'CD1_1':[cds,'']})
+    updateheader('new3.fits', 0, {'CRVAL1':[crvals,''],'CD1_1':[cds,'']})
     hdulist.close()
     #   read identified lines from id file
     f = open(id, 'r')
@@ -1198,16 +1198,16 @@ def limmag(img):
     import os
     import numpy as np
 
-    hdr = ntt.util.readhdr(img)
-    _ZP = ntt.util.readkey3(hdr, 'PHOTZP')
-    _gain = ntt.util.readkey3(hdr, 'gain')
-    _exptime = ntt.util.readkey3(hdr, 'exptime')
-    _fwhm = ntt.util.readkey3(hdr, 'PSF_FWHM')
-    _mbkg = ntt.util.readkey3(hdr, 'MBKG')  # background from sextractor
-    _instrume = ntt.util.readkey3(hdr, 'instrume')
+    hdr = readhdr(img)
+    _ZP = readkey3(hdr, 'PHOTZP')
+    _gain = readkey3(hdr, 'gain')
+    _exptime = readkey3(hdr, 'exptime')
+    _fwhm = readkey3(hdr, 'PSF_FWHM')
+    _mbkg = readkey3(hdr, 'MBKG')  # background from sextractor
+    _instrume = readkey3(hdr, 'instrume')
 
     if 'NCOMBINE' in hdr:
-        _ncombine = ntt.util.readkey3(hdr, 'NCOMBINE')
+        _ncombine = readkey3(hdr, 'NCOMBINE')
     else:
         _ncombine = 1
 
@@ -1215,10 +1215,10 @@ def limmag(img):
     # here
     if _instrume == 'sofi':
         EFFRON = 12. * (math.sqrt(float(_ncombine)) /
-                        math.sqrt(float(ntt.util.readkey3(hdr, 'ndit'))))
+                        math.sqrt(float(readkey3(hdr, 'ndit'))))
     else:
         if 'FLATCOR' in hdr and os.path.isfile(hdr['FLATCOR']):
-            hdrn = ntt.util.readhdr(hdr['FLATCOR'])
+            hdrn = readhdr(hdr['FLATCOR'])
             if 'NCOMBINE' in hdrn:
                 nflat = hdrn['NCOMBINE']
             else:
@@ -1226,14 +1226,14 @@ def limmag(img):
         else:
             nflat = 1
         if 'ZEROCOR' in hdr and os.path.isfile(hdr['ZEROCOR']):
-            hdrb = ntt.util.readhdr(hdr['ZEROCOR'])
+            hdrb = readhdr(hdr['ZEROCOR'])
             if 'NCOMBINE' in hdrb:
                 nbias = hdrb['NCOMBINE']
             else:
                 nbias = 1
         else:
             nbias = 1
-        EFFRON = float(ntt.util.readkey3(hdr, 'ron')) * \
+        EFFRON = float(readkey3(hdr, 'ron')) * \
             math.sqrt(1. + 1. / float(nflat) + 1. / float(nbias))
 
     check = 1
@@ -1252,7 +1252,7 @@ def limmag(img):
             _mbkg = 1
     if check == 1:
         if _instrume == 'efosc':
-            ps = ntt.util.readkey3(hdr, 'binx') * .12
+            ps = readkey3(hdr, 'binx') * .12
         else:
             ps = 0.288
         npix = np.pi * (_fwhm / ps)
@@ -1294,9 +1294,9 @@ def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _t
 
     # dv = ntt.dvex()
     hdr = readhdr(img)
-    # _gain = ntt.util.readkey3(hdr, 'gain')
-    # _rdnoise = ntt.util.readkey3(hdr, 'ron')
-    # _grism = ntt.util.readkey3(hdr, 'grism')
+    # _gain = readkey3(hdr, 'gain')
+    # _rdnoise = readkey3(hdr, 'ron')
+    # _grism = readkey3(hdr, 'grism')
     iraf.specred.dispaxi = inst.get('dispaxis')
 
     imgex = re.sub('.fits', '_ex.fits', img)
@@ -1343,7 +1343,7 @@ def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _t
         if _dispersionline:
             question = 'yes'
             while question == 'yes':
-                _z1, _z2, goon = ntt.util.display_image(img, 1, '', '', False)
+                _z1, _z2, goon = display_image(img, 1, '', '', False)
                 dist = raw_input(
                     '\n### At which line do you want to extract the spectrum [' + str(dv['line'][_grism]) + '] ? ')
                 if not dist:
@@ -1376,7 +1376,7 @@ def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _t
             _trace = 'yes'
         if _new == 'no':
             if not os.path.isfile('database/ap' + re.sub('.fits', '', img)):
-                ntt.util.repstringinfile('database/ap' + re.sub('.fits', '', imgfast),
+                repstringinfile('database/ap' + re.sub('.fits', '', imgfast),
                                          'database/ap' +
                                          re.sub('.fits', '', img), re.sub(
                                              '.fits', '', imgfast),
@@ -1429,14 +1429,14 @@ def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _t
 
         # data, hdr = pyfits.getdata(imgex, 0, header=True)
         # xxex = np.arange(len(data[0][0]))
-        # aaex = ntt.util.readkey3(hdr, 'CRVAL1') + \
-        #     (xxex) * ntt.util.readkey3(hdr, 'CD1_1')
+        # aaex = readkey3(hdr, 'CRVAL1') + \
+        #     (xxex) * readkey3(hdr, 'CD1_1')
         # # add sky from original image  for sofi .....probably better to move
         # # out of this module
-        # _original = ntt.util.readkey3(hdr, 'ORIGFILE')
-        # _archive = ntt.util.readkey3(hdr, 'ARCFILE')
-        # _arc = ntt.util.readkey3(hdr, 'ARC')
-        # _instrume = ntt.util.readkey3(hdr, 'instrume')
+        # _original = readkey3(hdr, 'ORIGFILE')
+        # _archive = readkey3(hdr, 'ARCFILE')
+        # _arc = readkey3(hdr, 'ARC')
+        # _instrume = readkey3(hdr, 'instrume')
         # if _arc and _instrume != 'efosc':
         #     if os.path.isfile(_arc):
         #         if os.path.isfile(_archive):
@@ -1446,20 +1446,20 @@ def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _t
         #         else:
         #             imgstart = ''
         #         if imgstart:s
-        #             ntt.util.delete('_tmp.fits')
+        #             delete('_tmp.fits')
         #             iraf.specred.transform(input=imgstart, output='_tmp.fits', minput='',
         #                                    fitnames=re.sub('.fits', '', _arc), databas='database',
         #                                    x1='INDEF', x2='INDEF', y1='INDEF', y2='INDEF', flux='yes', mode='h',
         #                                    logfile='logfile')
         #             yysky = pyfits.open('_tmp.fits')[0].data[:, 10]
-        #             ntt.util.delete('_tmp.fits')
+        #             delete('_tmp.fits')
         #             data[2][0] = yysky
-        #             ntt.util.delete(imgex)
+        #             delete(imgex)
         #             pyfits.writeto(imgex, np.float32(data), hdr)
         #         else:
         #             print '\n### warning raw image for sky information not found'
                 ##########################################
-            #        ntt.util.updateheader(imgex,0,{'XMIN':[aaex[0],'min wavelength [Angstrom]'],'XMAX':[aaex[-1],'max wavelength [Angstrom]']})
+            #        updateheader(imgex,0,{'XMIN':[aaex[0],'min wavelength [Angstrom]'],'XMAX':[aaex[-1],'max wavelength [Angstrom]']})
     else:
         print '\n### skipping new extraction'
     return imgex

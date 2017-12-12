@@ -73,7 +73,7 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
             elif 'r' in i:
                 inst = instruments.kast_red
             array, header = cosmics.fromfits(i)
-            c = cosmics.cosmicsimage(array, gain=inst.get('gain'), readnoise=inst.get('read_noise'), sigclip = 5.0, sigfrac = 0.3, objlim = 5.0)
+            c = cosmics.cosmicsimage(array, gain=inst.get('gain'), readnoise=inst.get('read_noise'), sigclip = 4.5, sigfrac = 0.5, objlim = 1.0)
             c.run(maxiter = 4)
             cosmics.tofits('c' + i, c.cleanarray, header)
         for j in range(len(imglist)):
@@ -195,7 +195,7 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
         #     ntt.cosmics.lacos(img, output='', gain=_gain, readn=_ron, xorder=9, yorder=9, sigclip=4.5, sigfrac=0.5,
         #                       objlim=1, verbose=True, interactive=False)
         #     print '\n### cosmic rays rejections ........ done '
-
+        path_to_db = '/home/msiebert/Documents/UCSC/Research/spectral_reduction/database'
         if not arcfile:
             print '\n### warning no arcfile \n exit '
         else:
@@ -208,8 +208,8 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
             if arcref:
                 os.system('cp ' + arcref + ' .')
                 # arcref = string.split(arcref, '/')[-1]
-                if not os.path.isdir('database/'):
-                    os.mkdir('database/')
+                # if not os.path.isdir('database/'):
+                #     os.mkdir('database/')
                 # if os.path.isfile(util.searcharc(img, '')[1] + '/database/id' + re.sub('.fits', '', arcref)):
                 #     os.system('cp ' + util.searcharc(img, '')[1] + '/database/id' + re.sub('.fits', '',
                 #                                                                                arcref) + ' database/')
@@ -251,12 +251,12 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
             #                               interac='no', combine='yes', databas='database',
             #                               function='legendre', yorder=4, logfile='logfile', plotfil='', mode='h')
             qqq = iraf.longslit.fitcoords(images=re.sub('.fits', '', arcfile), fitname= re.sub('.fits', '', arcfile),
-                                          interac='no', combine='yes', databas='database',
+                                          interac='no', combine='yes', databas=path_to_db,
                                           function='legendre', yorder=4, logfile='logfile', plotfil='', mode='h')
 
             print img, arcfile, arcref
             iraf.specred.transform(input=img, output=img, minput='', fitnames=re.sub('.fits', '', arcfile),
-                                   databas='database',
+                                   databas=path_to_db,
                                    x1='INDEF', x2='INDEF', y1='INDEF', y2='INDEF', flux='yes', mode='h',
                                    logfile='logfile')
 
