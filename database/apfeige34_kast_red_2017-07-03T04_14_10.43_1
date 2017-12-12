@@ -1,0 +1,30 @@
+# Tue 11:02:58 12-Dec-2017
+begin	aperture feige34_kast_red_2017-07-03T04:14:10.43_1 1 149.6431 1362.
+	image	feige34_kast_red_2017-07-03T04:14:10.43_1
+	aperture	1
+	beam	1
+	center	149.6431 1362.
+	low	-5. -1361.
+	high	5. 1363.
+	background
+		xmin -25.
+		xmax 25.
+		function legendre
+		order 1
+		sample -25:-15,15:25
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	1
+	curve	8
+		2.
+		4.
+		2.
+		2722.
+		1.114708
+		0.8121782
+		2.484362
+		1.040585
+

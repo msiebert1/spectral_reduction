@@ -79,16 +79,17 @@ def combine_blue_red(blue_asci, red_asci, name):
 	flux = np.concatenate((blue_short[1], olap_arr[1], red_short[1]))
 	err = np.concatenate((blue_short[2], olap_arr[2], red_short[2]))
 
+
+	plt.plot(blue[0], blue[1])
+	plt.plot(red[0], red[1])
+	plt.show()
+	
 	plt.plot(blue_short[0], blue_short[1])
 	plt.plot(olap_arr[0], olap_arr[1])
 	plt.plot(red_short[0], red_short[1])
-	plt.show()
-	
-	plt.plot(blue[0], blue[1])
-	plt.plot(red[0], red[1])
 	plt.show()
 
 
 	return [wavelength, flux, err]
 
-# combine_blue_red('sn2017erp_kast_blue_2017-07-03T05:10:28.34_1_f.asci', 'sn2017erp_kast_red_2017-07-03T05:10:42.69_1_f.asci', 'sn2017erp')
+# combine_blue_red('feige34_kast_blue_2017-07-03T04:14:09.91_1_f.asci', 'feige34_kast_red_2017-07-03T04:14:10.43_1_f.asci', 'feige34')

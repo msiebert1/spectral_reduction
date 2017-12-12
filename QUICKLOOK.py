@@ -18,7 +18,7 @@ if __name__ == "__main__":
     parser.add_option("-s", "--sens", dest="sens", default='', type="str", help=' use sensitivity curve from this list')
     parser.add_option("-a", "--arc", dest="arc", default='', type="str", help=' use arc from this list ')
     parser.add_option("-i", "--interactive", dest="interactive", action="store_true")
-    parser.add_option("-C", "--cosmic", dest="cosmic", action="store_true")
+    parser.add_option("-c", "--cosmic", dest="cosmic", action="store_true")
 
     option, args = parser.parse_args()
     if len(args) < 1:

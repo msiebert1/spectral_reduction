@@ -1,6 +1,6 @@
 kast_blue = {'name': 'kast_blue',
-			 'read_noise': 2.1,#temp
-			 'gain': 5.4,#temp
+			 'read_noise': 3.7,
+			 'gain': 1.2,
 			 'grism': 'temp',
 			 'filter': 'temp',
 			 'slit': 'temp',
@@ -13,8 +13,8 @@ kast_blue = {'name': 'kast_blue',
 
 
 kast_red = { 'name': 'kast_red',
-             'read_noise': 2.1,#temp
-			 'gain': 5.4,#temp
+             'read_noise': 3.8,
+			 'gain': 1.9,
 			 'grism': 'temp',
 			 'filter': 'temp',
 			 'slit': 'temp',

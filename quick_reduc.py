@@ -2,6 +2,7 @@
 def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _interactive):
     # print "LOGX:: Entering `efoscfastredu` method/function in %(__file__)s"
     # % globals()
+
     import string
     import os
     import re
@@ -9,14 +10,15 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
     os.environ["PYRAF_BETA_STATUS"] = "1"
     try:      from astropy.io import fits as pyfits
     except:   import   pyfits
-    from ntt.util import readhdr, readkey3
-    import ntt
+    # from ntt.util import readhdr, readkey3
+    # import ntt
     import numpy as np
-
     import util
     import instruments
     import combine_sides as cs
-
+    import sys
+    sys.path.append("../cosmics.py_0.4/")
+    import cosmics
     dv = util.dvex()
     scal = np.pi / 180.
     if not _interactive:
@@ -27,12 +29,12 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
     from pyraf import iraf
 
     hdr0 = util.readhdr(imglist[0])
-    if readkey3(hdr0, 'VERSION') == 'kastb':
+    if util.readkey3(hdr0, 'VERSION') == 'kastb':
         inst = instruments.kast_blue
-    elif readkey3(hdr0, 'VERSION') == 'kastr':
+    elif util.readkey3(hdr0, 'VERSION') == 'kastr':
         inst = instruments.kast_red
     else:
-        print readkey3(hdr0, 'VERSION') + 'not in database'
+        print util.readkey3(hdr0, 'VERSION') + 'not in database'
         sys.exit()
 
     iraf.noao(_doprint=0)
@@ -58,16 +60,35 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
     iraf.specred.mode = 'h'
     iraf.noao.mode = 'h'
     iraf.ccdred.instrument = "ccddb$kpno/camera.dat"
-    iraf.set(direc=ntt.__path__[0] + '/')
+    # iraf.set(direc=ntt.__path__[0] + '/')
 
     asci_files = []
     newlist = [[],[]]
+
+    if _cosmic:
+        for i in imglist:
+            print i
+            if 'b' in i:
+                inst = instruments.kast_blue
+            elif 'r' in i:
+                inst = instruments.kast_red
+            array, header = cosmics.fromfits(i)
+            c = cosmics.cosmicsimage(array, gain=inst.get('gain'), readnoise=inst.get('read_noise'), sigclip = 5.0, sigfrac = 0.3, objlim = 5.0)
+            c.run(maxiter = 4)
+            cosmics.tofits('c' + i, c.cleanarray, header)
+        for j in range(len(imglist)):
+            imglist[j] = 'c' + imglist[j]
+
+    print imglist
+
     for img in imglist:
         if 'b' in img:
             newlist[0].append(img)
         elif 'r' in img:
             newlist[1].append(img)
 
+    if len(newlist[1]) < 1:
+        newlist = newlist[:-1]
     # for img in imglist:
     print newlist
     for imgs in newlist:
@@ -76,12 +97,12 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
         # _tech = util.readkey3(hdr, 'tech')
 
         # print hdr
-        if readkey3(hdr, 'VERSION') == 'kastb':
+        if util.readkey3(hdr, 'VERSION') == 'kastb':
             inst = instruments.kast_blue
-        elif readkey3(hdr, 'VERSION') == 'kastr':
+        elif util.readkey3(hdr, 'VERSION') == 'kastr':
             inst = instruments.kast_red
         else:
-            print readkey3(hdr, 'VERSION') + 'not in database'
+            print util.readkey3(hdr, 'VERSION') + 'not in database'
             sys.exit()
 
         iraf.specred.dispaxi = inst.get('dispaxis')
@@ -101,8 +122,8 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
         # _grism0 = inst.get('grism')
         # _filter0 = inst.get('filter')
         # _slit0 = inst.get('slit')
-        _object0 = readkey3(hdr, 'OBJECT')
-        _date0 = readkey3(hdr, 'DATE-OBS')
+        _object0 = util.readkey3(hdr, 'OBJECT')
+        _date0 = util.readkey3(hdr, 'DATE-OBS')
 
         # setup = (_grism0, _filter0, _slit0)
         #TODO: change these for different setups
@@ -169,11 +190,11 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                          readaxi='line', trimsec=str(_trimsec0), biassec=str(_biassec0), Stdout=1)
             arcfile = 't' + arcfile
 
-        if _cosmic:
-            # print cosmic rays rejection
-            ntt.cosmics.lacos(img, output='', gain=_gain, readn=_ron, xorder=9, yorder=9, sigclip=4.5, sigfrac=0.5,
-                              objlim=1, verbose=True, interactive=False)
-            print '\n### cosmic rays rejections ........ done '
+        # if _cosmic:
+        #     # print cosmic rays rejection
+        #     ntt.cosmics.lacos(img, output='', gain=_gain, readn=_ron, xorder=9, yorder=9, sigclip=4.5, sigfrac=0.5,
+        #                       objlim=1, verbose=True, interactive=False)
+        #     print '\n### cosmic rays rejections ........ done '
 
         if not arcfile:
             print '\n### warning no arcfile \n exit '
@@ -213,6 +234,7 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                 # raise TypeError
                 # arcref = re.sub('.fits', '', arcref)
                 # arcfile = re.sub('.fits', '', arcfile)
+                _inter='NO'
                 iraf.longslit.reidentify(referenc=arcref, images=arcfile, interac=_inter, section=inst.get('section'),
                                          coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', overrid='yes', step=0,
                                          newaps='no', nsum=5, nlost=2, mode='h', verbose='no')
@@ -266,7 +288,7 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
             result = []
             _type ='obj'
             if _type == 'obj':
-                _interactive = 'NO'
+                # _interactive = 'NO'
                 imgex = util.extractspectrum(
                     img, dv, inst, _ext_trace, _dispersionline, _interactive, _type)
                 # raise TypeError
@@ -298,8 +320,8 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                     _extinctdir = 'direc$standard/extinction/'
                     _extinction = 'extinction_lasilla.dat'
                     _observatory = 'lasilla'
-                    _exptime = readkey3(hdr, 'EXPTIME')
-                    _airmass = readkey3(hdr, 'AIRMASS')
+                    _exptime = util.readkey3(hdr, 'EXPTIME')
+                    _airmass = util.readkey3(hdr, 'AIRMASS')
                     util.delete(imgf)
                     # iraf.specred.calibrate(input=imgex, output=imgf, sensiti=sensfile, extinct='yes',
                     #                        flux='yes', ignorea='yes', extinction=_extinctdir + _extinction,
@@ -359,6 +381,6 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                 os.system('mv ' + img + ' ' + _object0 + '/')
 
 
-
-    final = cs.combine_blue_red(asci_files[0], asci_files[1], _object0)
+    if len(asci_files) > 1:
+        final = cs.combine_blue_red(asci_files[0], asci_files[1], _object0)
     return result
