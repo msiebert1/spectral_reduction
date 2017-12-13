@@ -171,7 +171,6 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                      trimsec=str(_trimsec0), biassec=str(_biassec0), Stdout=1)
         
         img = timg
-
         if _listarc:
             arcfile = util.searcharc(img, _listarc)[0]
         else:
@@ -200,13 +199,14 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
             print '\n### warning no arcfile \n exit '
         else:
             arcref = inst.get('QL_arc')
-            if arcfile[0] == '/':
-                os.system('cp ' + arcfile + ' ' +
-                          string.split(arcfile, '/')[-1])
-                arcfile = string.split(arcfile, '/')[-1]
+            # if arcfile[0] == '/':
+            #     os.system('cp ' + arcfile + ' ' +
+            #               string.split(arcfile, '/')[-1])
+            #     arcfile = string.split(arcfile, '/')[-1]
             # arcref = string.split(arcref, '/')[-1]
             if arcref:
                 os.system('cp ' + arcref + ' .')
+                arcref = string.split(arcref, '/')[-1]
                 # arcref = string.split(arcref, '/')[-1]
                 # if not os.path.isdir('database/'):
                 #     os.mkdir('database/')
@@ -237,16 +237,16 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                 _inter='NO'
                 iraf.longslit.reidentify(referenc=arcref, images=arcfile, interac=_inter, section=inst.get('section'),
                                          coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', overrid='yes', step=0,
-                                         newaps='no', nsum=5, nlost=2, mode='h', verbose='no')
+                                         newaps='no', nsum=5, nlost=2, mode='h', verbose='no', databas=path_to_db)
                 # raise TypeError
             else:
                 iraf.longslit.identify(images=arcfile, section=inst.get('section'),
                                        coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', nsum=10, fwidth=7,
-                                       order=3, mode='h')
+                                       order=3, mode='h', databas=path_to_db)
 
             iraf.longslit.reident(referenc=arcfile, images=arcfile, interac='NO', section=inst.get('section'),
                                   coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', overrid='yes', step=10,
-                                  newaps='yes', nsum=5, nlost=2, mode='h', verbose='no')
+                                  newaps='yes', nsum=5, nlost=2, mode='h', verbose='no', databas=path_to_db)
             # qqq = iraf.longslit.fitcoords(images=re.sub('.fits', '', arcfile), fitname= re.sub('.fits', '', arcfile),
             #                               interac='no', combine='yes', databas='database',
             #                               function='legendre', yorder=4, logfile='logfile', plotfil='', mode='h')
@@ -314,6 +314,8 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                 # result.append(imgex)
                 # raise TypeError
                 sensfile = inst.get('QL_sens')
+                os.system('cp ' + sensfile + ' .')
+                sensfile = string.split(sensfile, '/')[-1]
                 if sensfile:
                     print sensfile
                     imgf = re.sub('.fits', '_f.fits', img)
@@ -380,7 +382,9 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
             for img in result:
                 os.system('mv ' + img + ' ' + _object0 + '/')
 
-
+        util.delete(arcref)
+        util.delete(sensfile)
+        util.delete('logfile')
     if len(asci_files) > 1:
         final = cs.combine_blue_red(asci_files[0], asci_files[1], _object0)
     return result

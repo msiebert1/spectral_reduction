@@ -1,4 +1,4 @@
-#!/home/msiebert/anaconda2/bin/python2.7
+#!/usr/bin/env python
 
 import sys
 import ntt
