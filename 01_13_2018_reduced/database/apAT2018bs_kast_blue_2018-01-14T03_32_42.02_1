@@ -1,0 +1,30 @@
+# Sat 21:09:48 13-Jan-2018
+begin	aperture AT2018bs_kast_blue_2018-01-14T03:32:42.02_1 1 625. 155.7207
+	image	AT2018bs_kast_blue_2018-01-14T03:32:42.02_1
+	aperture	1
+	beam	1
+	center	625. 155.7207
+	low	-624. -5.
+	high	626. 5.
+	background
+		xmin -25.
+		xmax 25.
+		function legendre
+		order 1
+		sample -25:-15,15:25
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	8
+		2.
+		4.
+		5.
+		1245.
+		0.184777
+		-3.293292
+		0.6549485
+		-0.1143018
+
