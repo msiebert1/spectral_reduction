@@ -8,7 +8,7 @@ kast_blue = {'name': 'kast_blue',
 			 'dispaxis': 1,
 			 'biassec': '[1:2048,300:350]',
 			 # 'trimsec': '[1:2048,1:300]',
-			 'trimsec': '[355:1700,1:300]',
+			 'trimsec': '[355:1605,1:300]',
 			 'QL_arc': path_to_ref + 'blue_ref.fits',
 			 'QL_sens': path_to_ref + 'sens.blue.fits',
 			 'section': 'middle line'}

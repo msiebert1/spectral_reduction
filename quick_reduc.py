@@ -237,7 +237,7 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                 _inter='NO'
                 iraf.longslit.reidentify(referenc=arcref, images=arcfile, interac=_inter, section=inst.get('section'),
                                          coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', overrid='yes', step=0,
-                                         newaps='no', nsum=5, nlost=2, mode='h', verbose='no', databas=path_to_db)
+                                         newaps='no', nsum=5, nlost=2, mode='h', verbose='yes', databas=path_to_db)
                 # raise TypeError
             else:
                 iraf.longslit.identify(images=arcfile, section=inst.get('section'),
