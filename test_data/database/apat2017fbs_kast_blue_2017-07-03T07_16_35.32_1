@@ -1,0 +1,30 @@
+# Thu 11:26:41 14-Dec-2017
+begin	aperture at2017fbs_kast_blue_2017-07-03T07:16:35.32_1 1 673. 160.7379
+	image	at2017fbs_kast_blue_2017-07-03T07:16:35.32_1
+	aperture	1
+	beam	1
+	center	673. 160.7379
+	low	-672. -5.
+	high	673. 5.
+	background
+		xmin -25.
+		xmax 25.
+		function legendre
+		order 1
+		sample -25:-15,15:25
+		naverage -3
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	8
+		2.
+		4.
+		5.
+		1245.
+		0.3455575
+		-2.531622
+		0.4223343
+		-0.138075
+
