@@ -1462,6 +1462,152 @@ def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _t
             #        updateheader(imgex,0,{'XMIN':[aaex[0],'min wavelength [Angstrom]'],'XMAX':[aaex[-1],'max wavelength [Angstrom]']})
     else:
         print '\n### skipping new extraction'
+
+def extractarc(img, dv, inst, _ext_trace, _dispersionline, _interactive, _type, automaticex=False):
+    # print "LOGX:: Entering `extractspectrum` method/function in
+    # %(__file__)s" % globals()
+    import glob
+    import os
+    import string
+    import sys
+    import re
+    import ntt
+    import datetime
+    import numpy as np
+
+    MJDtoday = 55927 + (datetime.date.today() - datetime.date(2012, 01, 01)).days
+    from pyraf import iraf
+
+    iraf.noao(_doprint=0)
+    iraf.imred(_doprint=0)
+    iraf.specred(_doprint=0)
+    toforget = ['specred.apall', 'specred.transform']
+    for t in toforget:
+        iraf.unlearn(t)
+
+    # dv = ntt.dvex()
+    hdr = readhdr(img)
+    # _gain = readkey3(hdr, 'gain')
+    # _rdnoise = readkey3(hdr, 'ron')
+    # _grism = readkey3(hdr, 'grism')
+    iraf.specred.dispaxi = inst.get('dispaxis')
+
+    imgex = re.sub('.fits', '_ex.fits', img)
+    imgfast = re.sub(string.split(img, '_')[-2] + '_', '', img)
+    # imgfast=re.sub(str(MJDtoday)+'_','',img)
+    if not os.path.isfile(imgex) and not os.path.isfile(
+            'database/ap' + re.sub('.fits', '', img)) and not os.path.isfile(
+            'database/ap' + re.sub('.fits', '', imgfast)):
+        _new = 'yes'
+        _extract = 'yes'
+    else:
+        if automaticex:
+            if _interactive in ['Yes', 'yes', 'YES', 'y', 'Y']:
+                answ = 'x'
+                while answ not in ['o', 'n', 's']:
+                    answ = raw_input(
+                        '\n### New extraction [n], extraction with old parameters [o], skip extraction [s] ? [o]')
+                    if not answ:
+                        answ = 'o'
+                if answ == 'o':
+                    _new, _extract = 'no', 'yes'
+                elif answ == 'n':
+                    _new, _extract = 'yes', 'yes'
+                else:
+                    _new, _extract = 'yes', 'no'
+            else:
+                _new, _extract = 'no', 'yes'
+        else:
+            if _interactive in ['Yes', 'yes', 'YES', 'y', 'Y']:
+                answ = 'x'
+                while answ not in ['y', 'n']:
+                    answ = raw_input(
+                        '\n### do you want to extract again [[y]/n] ? ')
+                    if not answ:
+                        answ = 'y'
+                if answ == 'y':
+                    _new, _extract = 'yes', 'yes'
+                else:
+                    _new, _extract = 'yes', 'no'
+            else:
+                _new, _extract = 'yes', 'yes'
+    if _extract == 'yes':
+        delete(imgex)
+        if _dispersionline:
+            question = 'yes'
+            while question == 'yes':
+                _z1, _z2, goon = display_image(img, 1, '', '', False)
+                dist = raw_input(
+                    '\n### At which line do you want to extract the spectrum [' + str(dv['line'][_grism]) + '] ? ')
+                if not dist:
+                    dist = 400
+                try:
+                    dist = int(dist)
+                    question = 'no'
+                except:
+                    print '\n### input not valid, try again:'
+        else:
+            # dist = dv['line'][_grism]
+            dist = 200
+        if _ext_trace in ['yes', 'Yes', 'YES', True]:
+            lista = glob.glob('*ex.fits')
+            if lista:
+                for ii in lista:
+                    print ii
+                _reference = raw_input(
+                    '\### which object do you want to use for the trace [' + str(lista[0]) + '] ? ')
+                if not _reference:
+                    _reference = lista[0]
+                _reference = re.sub('_ex', '', _reference)
+                _fittrac = 'no'
+                _trace = 'no'
+            else:
+                sys.exit('\n### error: no extracted spectra in the directory')
+        else:
+            _reference = ''
+            _fittrac = 'yes'
+            _trace = 'yes'
+        if _new == 'no':
+            if not os.path.isfile('database/ap' + re.sub('.fits', '', img)):
+                repstringinfile('database/ap' + re.sub('.fits', '', imgfast),
+                                         'database/ap' +
+                                         re.sub('.fits', '', img), re.sub(
+                                             '.fits', '', imgfast),
+                                         re.sub('.fits', '', img))
+            _find = 'no'
+            _recenter = 'no'
+            _edit = 'no'
+            _trace = 'no'
+            _fittrac = 'no'
+            _mode = 'h'
+            _resize = 'no'
+            _review = 'no'
+            iraf.specred.mode = 'h'
+            _interactive = 'no'
+        else:
+            iraf.specred.mode = 'q'
+            _mode = 'q'
+            _find = 'yes'
+            _recenter = 'yes'
+            _edit = 'yes'
+            _review = 'yes'
+            _resize = dv[_type]['_resize']
+
+        # _interactive = False
+        _recenter = 'no'
+        _resize = 'no'
+        _edit = 'yes'
+        _trace = 'yes'
+        _fittrace = 'no'
+        _review = 'yes'
+
+        iraf.specred.apall(img, output=imgex, referen=_reference, trace=_trace, fittrac=_fittrac, find=_find,
+                           recenter=_recenter, edit=_edit,
+                           format='multispec', extras='yes',
+                           line='INDEF',interactive=_interactive, review=_review, mode=_mode)
+
+    else:
+        print '\n### skipping new extraction'
     return imgex
 
 ##########################################################################

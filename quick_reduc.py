@@ -44,6 +44,8 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
     iraf.longslit(_doprint=0)
     iraf.onedspec(_doprint=0)
     iraf.specred(_doprint=0)
+    iraf.disp(inlist='1', reference='1')
+    raise TypeError
     toforget = ['ccdproc', 'imcopy', 'specred.apall', 'longslit.identify', 'longslit.reidentify', 'specred.standard',
                 'longslit.fitcoords', 'onedspec.wspectext']
     for t in toforget:
@@ -234,10 +236,21 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                 # raise TypeError
                 # arcref = re.sub('.fits', '', arcref)
                 # arcfile = re.sub('.fits', '', arcfile)
-                _inter='NO'
-                iraf.longslit.reidentify(referenc=arcref, images=arcfile, interac=_inter, section=inst.get('section'),
-                                         coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', overrid='yes', step=0,
-                                         newaps='no', nsum=5, nlost=2, mode='h', verbose='yes', databas=path_to_db)
+                _inter='no'
+
+                imgex_foo=re.sub('.fits', '.ms.fits', arcfile)
+                # imgex_foo = re.sub('.fits', '_ex.fits', arcfile)
+                print imgex_foo
+                iraf.specred.apall(arcfile, output=imgex_foo, line = 'INDEF', nsum=10, interactive=_inter, find='yes', nfind=1, trace='no',back='no',recen='no')
+                _inter='no'
+
+                # iraf.longslit.identify(images=imgex_foo,coordli='/home/msiebert/Documents/UCSC/Research/spectral_reduction/Lines_He_Hg_Cd_HgA_Ne_KAST.dat', mode='h', databas=path_to_db)
+                iraf.longslit.reidentify(referenc='tb1003.ms', images=imgex_foo, interac=_inter, 
+                                         coordli='/home/msiebert/Documents/UCSC/Research/spectral_reduction/Lines_He_Hg_Cd_HgA_Ne_KAST.dat', 
+                                         mode='h', verbose='yes', databas=path_to_db)
+                # iraf.longslit.reidentify(referenc=arcref, images=arcfile, interac=_inter, section=inst.get('section'),
+                #                          coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', overrid='yes', step=0,
+                #                          newaps='no', nsum=5, nlost=2, mode='h', verbose='yes', databas=path_to_db)
                 # raise TypeError
             else:
                 iraf.longslit.identify(images=arcfile, section=inst.get('section'),
