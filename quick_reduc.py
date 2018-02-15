@@ -45,7 +45,7 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
     iraf.onedspec(_doprint=0)
     iraf.specred(_doprint=0)
     iraf.disp(inlist='1', reference='1')
-    raise TypeError
+
     toforget = ['ccdproc', 'imcopy', 'specred.apall', 'longslit.identify', 'longslit.reidentify', 'specred.standard',
                 'longslit.fitcoords', 'onedspec.wspectext']
     for t in toforget:
@@ -200,7 +200,8 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
         if not arcfile:
             print '\n### warning no arcfile \n exit '
         else:
-            arcref = inst.get('QL_arc')
+            # arcref = inst.get('QL_arc')
+            arcref = inst.get('QL_arc_ex')
             # if arcfile[0] == '/':
             #     os.system('cp ' + arcfile + ' ' +
             #               string.split(arcfile, '/')[-1])
@@ -238,14 +239,13 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                 # arcfile = re.sub('.fits', '', arcfile)
                 _inter='no'
 
-                imgex_foo=re.sub('.fits', '.ms.fits', arcfile)
-                # imgex_foo = re.sub('.fits', '_ex.fits', arcfile)
-                print imgex_foo
-                iraf.specred.apall(arcfile, output=imgex_foo, line = 'INDEF', nsum=10, interactive=_inter, find='yes', nfind=1, trace='no',back='no',recen='no')
-                _inter='no'
+                arc_ex=re.sub('.fits', '.ms.fits', arcfile)
+                print arc_ex
+                iraf.specred.apall(arcfile, output=arc_ex, line = 'INDEF', nsum=10, interactive=_inter, find='yes', nfind=1, trace='no',back='no',recen='no')
 
-                # iraf.longslit.identify(images=imgex_foo,coordli='/home/msiebert/Documents/UCSC/Research/spectral_reduction/Lines_He_Hg_Cd_HgA_Ne_KAST.dat', mode='h', databas=path_to_db)
-                iraf.longslit.reidentify(referenc='tb1003.ms', images=imgex_foo, interac=_inter, 
+                # iraf.longslit.identify(images=arc_ex,coordli='/home/msiebert/Documents/UCSC/Research/spectral_reduction/Lines_He_Hg_Cd_HgA_Ne_KAST.dat', mode='h', databas=path_to_db)
+                # raise TypeError
+                iraf.longslit.reidentify(referenc=arcref, images=arc_ex, interac=_inter, 
                                          coordli='/home/msiebert/Documents/UCSC/Research/spectral_reduction/Lines_He_Hg_Cd_HgA_Ne_KAST.dat', 
                                          mode='h', verbose='yes', databas=path_to_db)
                 # iraf.longslit.reidentify(referenc=arcref, images=arcfile, interac=_inter, section=inst.get('section'),
@@ -257,21 +257,21 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                                        coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', nsum=10, fwidth=7,
                                        order=3, mode='h', databas=path_to_db)
 
-            iraf.longslit.reident(referenc=arcfile, images=arcfile, interac='NO', section=inst.get('section'),
-                                  coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', overrid='yes', step=10,
-                                  newaps='yes', nsum=5, nlost=2, mode='h', verbose='no', databas=path_to_db)
+            # iraf.longslit.reidentify(referenc=arcfile, images=arcfile, interac='NO', section=inst.get('section'),
+            #                       coordli='direc$standard/ident/Lines_HgCdHeNeAr600.dat', overrid='yes', step=10,
+            #                       newaps='yes', nsum=5, nlost=2, mode='h', verbose='no', databas=path_to_db)
             # qqq = iraf.longslit.fitcoords(images=re.sub('.fits', '', arcfile), fitname= re.sub('.fits', '', arcfile),
             #                               interac='no', combine='yes', databas='database',
             #                               function='legendre', yorder=4, logfile='logfile', plotfil='', mode='h')
-            qqq = iraf.longslit.fitcoords(images=re.sub('.fits', '', arcfile), fitname= re.sub('.fits', '', arcfile),
-                                          interac='no', combine='yes', databas=path_to_db,
-                                          function='legendre', yorder=4, logfile='logfile', plotfil='', mode='h')
+            # qqq = iraf.longslit.fitcoords(images=re.sub('.fits', '', arcfile), fitname= re.sub('.fits', '', arcfile),
+            #                               interac='no', combine='yes', databas=path_to_db,
+            #                               function='legendre', yorder=4, logfile='logfile', plotfil='', mode='h')
 
-            print img, arcfile, arcref
-            iraf.specred.transform(input=img, output=img, minput='', fitnames=re.sub('.fits', '', arcfile),
-                                   databas=path_to_db,
-                                   x1='INDEF', x2='INDEF', y1='INDEF', y2='INDEF', flux='yes', mode='h',
-                                   logfile='logfile')
+            # print img, arcfile, arcref
+            # iraf.specred.transform(input=img, output=img, minput='', fitnames=re.sub('.fits', '', arcfile),
+            #                        databas=path_to_db,
+            #                        x1='INDEF', x2='INDEF', y1='INDEF', y2='INDEF', flux='yes', mode='h',
+            #                        logfile='logfile')
 
             # raise TypeError
             # ######################  check wavelength calibration ############
@@ -304,6 +304,9 @@ def reduce(imglist, _listsens, _listarc, _ext_trace, _dispersionline, _cosmic, _
                 # _interactive = 'NO'
                 imgex = util.extractspectrum(
                     img, dv, inst, _ext_trace, _dispersionline, _interactive, _type)
+
+                iraf.disp(inlist=imgex, reference=arc_ex)   
+
                 # raise TypeError
                 #TEST STANDARD STAR
                 # standardfile = imgex
