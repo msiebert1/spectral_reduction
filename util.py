@@ -20,7 +20,6 @@ def ReadAscii2(ascifile):
 # ########################################################################
 def readlist(listfile):
 
-    from ntt.util import correctcard
     import string
     import sys
     import re
@@ -103,7 +102,6 @@ def readhdr(img):
     try:
         hdr = pyfits.open(img)[0].header
     except:
-        import ntt
         try:
             correctcard(img)
         except:
@@ -119,139 +117,7 @@ def readkey3(hdr, keyword):
 
     value = hdr.get(keyword)
     return value
-    
-    # import sys
-    # import re
-    # import string
-    # try:
-    #     if int( re.sub('\.', '', str(pyfits.__version__))[:2] ) <= 30:
-    #         aa = 'HIERARCH '
-    #     else:
-    #         aa = ''
-    # except:
-    #     aa = ''
 
-    # try:
-    #     _instrume = hdr.get('INSTRUME').lower()
-    # except:
-    #     _instrume = 'none'
-    # if _instrume == 'efosc':
-    #     useful_keys = {'object': 'OBJECT',
-    #                    'date-obs': 'DATE-OBS',
-    #                    'ut': 'DATE-OBS',
-    #                    'RA': 'RA',
-    #                    'DEC': 'DEC',
-    #                    'datamin': -100,
-    #                    'datamax': 60000,
-    #                    'observer': 'OBSERVER',
-    #                    'exptime': 'EXPTIME',
-    #                    'instrume': 'INSTRUME',
-    #                    'JD': 'MJD-OBS',
-    #                    'lamp': 'LMP_ID',
-    #                    'esoprog': aa + 'ESO OBS PROG ID',
-    #                    'filter': aa + 'ESO INS FILT1 NAME',
-    #                    'grism': aa + 'ESO INS GRIS1 NAME',
-    #                    'catg': aa + 'ESO DPR CATG',
-    #                    'tech': aa + 'ESO DPR TECH',
-    #                    'type': aa + 'ESO DPR TYPE',
-    #                    'gain': aa + 'ESO DET OUT1 GAIN',
-    #                    'ron': aa + 'ESO DET OUT1 RON',
-    #                    'esoid': aa + 'ESO OBS ID',
-    #                    'binx': aa + 'ESO DET WIN1 BINX',
-    #                    'speed': aa + 'ESO DET READ SPEED',
-    #                    'posang': aa + 'ESO ADA POSANG',
-    #                    'airmass': aa + 'ESO TEL AIRM START',
-    #                    'airmass1': aa + 'ESO TEL AIRM END',
-    #                    'slit': aa + 'ESO INS SLIT1 NAME',
-    #                    'obsmode': aa + 'ESO DPR CATG',
-    #                    'telescop': 'TELESCOP'}
-    # elif _instrume == 'sofi':
-    #     useful_keys = {'object': 'OBJECT',
-    #                    'date-obs': 'DATE-OBS',
-    #                    'ut': 'DATE-OBS',
-    #                    'RA': 'RA',
-    #                    'DEC': 'DEC',
-    #                    'exptime': 'EXPTIME',
-    #                    'observer': 'OBSERVER',
-    #                    'gain': 5.4,
-    #                    'ron': 2.1,
-    #                    'instrume': 'INSTRUME',
-    #                    'JD': 'MJD-OBS',
-    #                    'lamp': 'LMP_ID',
-    #                    'posang': aa + 'ESO ADA POSANG',
-    #                    'esoprog': aa + 'ESO OBS PROG ID',
-    #                    'esotplid': aa + 'ESO TPL ID',
-    #                    'filter': aa + 'ESO INS FILT1 NAME',
-    #                    'grism': aa + 'ESO INS OPTI2 NAME',
-    #                    'catg': aa + 'ESO DPR CATG',
-    #                    'tech': aa + 'ESO DPR TECH',
-    #                    'type': aa + 'ESO DPR TYPE',
-    #                    'dit': aa + 'ESO DET DIT',
-    #                    'ndit': aa + 'ESO DET NDIT',
-    #                    'nexp': aa + 'ESO TPL NEXP',
-    #                    'esoid': aa + 'ESO OBS ID',
-    #                    'airmass': aa + 'ESO TEL AIRM START',
-    #                    'lamp1': aa + 'ESO INS LAMP1 NAME',
-    #                    'lamp3': aa + 'ESO INS LAMP3 NAME',
-    #                    'slit': aa + 'ESO INS OPTI1 NAME',
-    #                    'xcum': aa + 'ESO SEQ CUMOFFSETX',
-    #                    'ycum': aa + 'ESO SEQ CUMOFFSETY',
-    #                    'obsmode': aa + 'ESO DPR CATG',
-    #                    'telescop': 'TELESCOP'}
-    # else:
-    #     useful_keys = {'object': 'OBJECT',
-    #                    'date-obs': 'DATE-OBS'}
-    # if keyword in useful_keys:
-    #     if type(useful_keys[keyword]) == float:
-    #         value = useful_keys[keyword]
-    #     else:
-    #         value = hdr.get(useful_keys[keyword])
-    #         if keyword == 'date-obs':
-    #             import string
-    #             import re
-
-    #             try:
-    #                 value = re.sub('-', '', string.split(value, 'T')[0])
-    #             except:
-    #                 pass
-    #         elif keyword == 'ut':
-    #             import string
-    #             import re
-
-    #             try:
-    #                 value = string.split(value, 'T')[1]
-    #             except:
-    #                 pass
-    #         elif keyword == 'JD':
-    #             value = value + 0.5
-    #         elif keyword == 'instrume':
-    #             value = value.lower()
-    #     if type(value) == str:
-    #         value = re.sub('\#', '', value)
-    # else:
-    #     if keyword == 'date-night':
-    #         import datetime
-
-    #         _date = readkey3(hdr, 'DATE-OBS')
-    #         a = (datetime.datetime.strptime(string.split(_date, '.')[0], "20%y-%m-%dT%H:%M:%S") - datetime.timedelta(
-    #             .5)).isoformat()
-    #         value = re.sub('-', '', string.split(a, 'T')[0])
-    #     else:
-    #         try:
-    #             value = hdr.get(keyword)
-    #         except:
-    #             sys.exit('Warning: keyword not valid')
-    #     #    if type(value) == str:    value=re.sub('\#','',value)
-    # return value
-
-
-#######################################################
-def writeinthelog(text, logfile):
-    # print "LOGX:: Entering `writeinthelog` method/function in %(__file__)s"
-    # % globals()
-    f = open(logfile, 'a')
-    f.write(text)
-    f.close()
 
 
 ################################################
@@ -350,7 +216,6 @@ def updateheader(image, dimension, headerdict):
             imm.flush()
             imm.close()
         except:
-            from ntt.util import correctcard
             print 'warning: problem to update header, try to correct header format ....'
             correctcard(image)
             try:
@@ -458,204 +323,6 @@ def display_image(img, frame, _z1, _z2, scale, _xcen=0.5, _ycen=0.5, _xsize=1, _
 
 
 ###########################################################################
-def searcharc(img, listarc):
-    # print "LOGX:: Entering `searcharc` method/function in %(__file__)s" %
-    # globals()
-    # import ntt
-    import glob
-    import numpy as np
-
-    # hdr = readhdr(img)
-    # JD = readkey3(hdr, 'JD')
-    # _instrume = readkey3(hdr, 'instrume')
-    # grism0 = readkey3(hdr, 'grism')
-    # filter0 = readkey3(hdr, 'filter')
-    # slit0 = readkey3(hdr, 'slit')
-    # if slit0 == 'slit5.0':
-    #     slit0 = 'slit1.0'
-    # if not listarc:
-    #     directory = ntt.__path__[
-    #         0] + '/archive/' + str(_instrume) + '/arc/' + grism0 + '/' + filter0 + '/' + slit0
-    #     listarc = glob.glob(directory + '/*fits')
-    # else:
-    #     directory = ''
-    # if listarc:
-    #     arcfile = ''
-    #     distance = []
-    #     goodlist = []
-    #     for arc in listarc:
-    #         hdra = readhdr(arc)
-    #         JDarc = readkey3(hdra, 'JD')
-    #         filter1 = readkey3(hdra, 'filter')
-    #         grism1 = readkey3(hdra, 'grism')
-    #         slit1 = readkey3(hdra, 'slit')
-    #         if filter0 == filter1 and slit0 == slit1 and grism0 == grism1:
-    #             goodlist.append(arc)
-    #             distance.append(np.abs(JD - JDarc))
-    #     if len(distance) >= 1:
-    #         arcfile = goodlist[np.argmin(distance)]
-    #     else:
-    #         arcfile = ''
-    # else:
-    #     arcfile = ''
-
-    # arcfile = 'dr1007.ms.fits'
-    # arcfile = 'r1007rot.fits'
-    arcfile = 'b1008.fits'
-    # arcfile = 'arc_20120825_Gr13_Free_slit1.0_56442_1.fits'
-    directory = '/home/msiebert/Documents/UCSC/Research/spectral_reduction'
-    return arcfile, directory
-    # return arcfile, directory
-
-
-###########################################################################
-def searchsens(img, listsens):
-    # print "LOGX:: Entering `searchsens` method/function in %(__file__)s" %
-    # globals()
-    # import ntt
-    # import glob
-    # import numpy as np
-
-    # hdr = readhdr(img)
-    # JD = readkey3(hdr, 'JD')
-    # _instrume = readkey3(hdr, 'instrume')
-    # grism0 = readkey3(hdr, 'grism')
-    # filter0 = readkey3(hdr, 'filter')
-    # if not listsens:
-    #     directory = ntt.__path__[0] + '/archive/' + \
-    #         str(_instrume) + '/sens/' + grism0 + '/' + filter0
-    #     listsens = glob.glob(directory + '/*fits')
-    # else:
-    #     directory = ''
-    # if listsens:
-    #     sensfile = ''
-    #     distance = []
-    #     goodlist = []
-    #     for sens in listsens:
-    #         hdrs = readhdr(sens)
-    #         JDsens = readkey3(hdrs, 'JD')
-    #         filter1 = readkey3(hdrs, 'filter') \
-    #             if readkey3(hdrs, 'filter') else readkey3(hdrs, 'FILTER')
-    #         grism1 = readkey3(hdrs, 'grism') \
-    #             if readkey3(hdrs, 'grism') else readkey3(hdrs, 'GRISM')
-    #         if filter0 == filter1 and grism0 == grism1:
-    #             goodlist.append(sens)
-    #             distance.append(np.abs(JD - JDsens))
-    #     if len(distance) >= 1:
-    #         sensfile = goodlist[np.argmin(distance)]
-    #     else:
-    #         sensfile = ''
-    # else:
-    #     sensfile = ''
-    sensfile = 'sens.blue.fits'
-    directory = '/home/msiebert/Documents/UCSC/Research/spectral_reduction'
-    return sensfile, directory
-
-
-###########################################################################
-def searchflat(img, listflat):
-    # print "LOGX:: Entering `searchflat` method/function in %(__file__)s" %
-    # globals()
-    import ntt
-    import glob
-    import numpy as np
-
-    hdr = readhdr(img)
-    JD = readkey3(hdr, 'JD')
-    _instrume = readkey3(hdr, 'instrume')
-    filter0 = readkey3(hdr, 'filter')
-    if not listflat:
-        directory = ntt.__path__[0] + '/archive/' + \
-            str(_instrume) + '/flat/' + filter0
-        listflat = glob.glob(directory + '/*fits')
-    else:
-        directory = ''
-    if listflat:
-        faltfile = ''
-        distance = []
-        goodlist = []
-        for flat in listflat:
-            hdrf = readhdr(flat)
-            JDflat = readkey3(hdrf, 'JD')
-            filter1 = readkey3(hdrf, 'filter')
-            if filter0 == filter1:
-                goodlist.append(flat)
-                distance.append(np.abs(JD - JDflat))
-        if len(distance) >= 1:
-            flatfile = goodlist[np.argmin(distance)]
-        else:
-            flatfile = ''
-    else:
-        flatfile = ''
-    return flatfile, directory
-
-
-###########################################################################
-def choseclosest(img0, listimg):
-    # print "LOGX:: Entering `choseclosest` method/function in %(__file__)s" %
-    # globals()
-    import ntt
-    import numpy as np
-
-    hdr0 = readhdr(img0)
-    JD0 = readkey3(hdr0, 'JD')
-    if listimg:
-        distance = []
-        for img in listimg:
-            hdrf = readhdr(img)
-            JDimg = readkey3(hdrf, 'JD')
-            distance.append(np.abs(JD0 - JDimg))
-        if len(distance) >= 1:
-            image = listimg[np.argmin(distance)]
-        else:
-            image = ''
-    else:
-        image = ''
-    return image
-
-###########################################################################
-
-
-def readstandard(standardfile):
-    # print "LOGX:: Entering `readstandard` method/function in %(__file__)s" %
-    # globals()
-    import ntt
-    import numpy as np
-    import string
-    import os
-
-    if os.path.isfile(standardfile):
-        listastandard = standardfile
-    elif standardfile[0] == '/':
-        listastandard = standardfile
-    else:
-        listastandard = ntt.__path__[0] + '/standard/stdlist/' + standardfile
-    f = open(listastandard, 'r')
-    liststd = f.readlines()
-    f.close()
-    star, ra, dec = [], [], []
-    magnitude = []
-    for i in liststd:
-        if i[0] != '#':
-            star.append(string.split(i)[0])
-            _ra = string.split(string.split(i)[1], ':')
-            _dec = string.split(string.split(i)[2], ':')
-            ra.append(
-                (float(_ra[0]) + ((float(_ra[1]) + (float(_ra[2]) / 60.)) / 60.)) * 15)
-            if '-' in str(_dec[0]):
-                dec.append(
-                    (-1) * (np.abs(float(_dec[0])) + ((float(_dec[1]) + (float(_dec[2]) / 60.)) / 60.)))
-            else:
-                dec.append(
-                    float(_dec[0]) + ((float(_dec[1]) + (float(_dec[2]) / 60.)) / 60.))
-            try:
-                magnitude.append(string.split(i)[3])
-            except:
-                magnitude.append(999)
-    return np.array(star), np.array(ra), np.array(dec), np.array(magnitude)
-
-##########################################################################
-
 
 def readspectrum(img):
     # print "LOGX:: Entering `readspectrum` method/function in %(__file__)s" %
@@ -722,141 +389,13 @@ def residual(p, y, x):
     return err
 
 
-#########################################################################
-def defsex(namefile):
-    # print "LOGX:: Entering `defsex` method/function in %(__file__)s" %
-    # globals()
-    import ntt
-    import string
-
-    sexfile = ntt.__path__[0] + '/standard/sex/default.sex'
-    f = open(sexfile, 'r')
-    ss = f.readlines()
-    f.close()
-    ff = open(namefile, 'w')
-    for i in ss:
-        if string.count(i, 'PARAMETERS_NAME') == 1:
-            ff.write('PARAMETERS_NAME  "' +
-                     ntt.__path__[0] + '/standard/sex/default.param"\n')
-        elif string.count(i, 'FILTER_NAME') == 1:
-            ff.write('FILTER_NAME  "' +
-                     ntt.__path__[0] + '/standard/sex/default.conv"\n')
-        elif string.count(i, 'STARNNW_NAME') == 1:
-            ff.write('STARNNW_NAME "' +
-                     ntt.__path__[0] + '/standard/sex/default.nnw"\n')
-        else:
-            ff.write(i)
-    ff.close()
-    return namefile
-
-
-############################################################
-
-def defswarp(namefile, imgname, _combine, gain=''):
-    # print "LOGX:: Entering `defswarp` method/function in %(__file__)s" %
-    # globals()
-    import ntt
-    import string
-    import re
-
-    if _combine.lower() in ['median']:
-        _combine = 'MEDIAN'
-    elif _combine.lower() in ['average']:
-        _combine = 'AVERAGE'
-    elif _combine.lower() in ['sum']:
-        _combine = 'SUM'
-    swarpfile = ntt.__path__[0] + '/standard/sex/default.swarp'
-    f = open(swarpfile, 'r')
-    ss = f.readlines()
-    f.close()
-    ff = open(namefile, 'w')
-    for i in ss:
-        if string.count(i, 'IMAGEOUT_NAME') == 1:
-            ff.write('IMAGEOUT_NAME    ' + str(imgname) +
-                     '  # Output filename \n')
-        elif string.count(i, 'WEIGHTOUT_NAME') == 1:
-            ff.write('WEIGHTOUT_NAME   ' + str(
-                re.sub('.fits', '.weight.fits', imgname)) + '  # Output weight-map filename  \n')
-        elif string.count(i, 'COMBINE_TYPE') == 1:
-            ff.write('COMBINE_TYPE    ' + str(_combine) +
-                     '  # MEDIAN,AVERAGE,MIN,MAX,WEIGHTED,CHI2 \n')
-        elif string.count(i, 'GAIN_DEFAULT') == 1:
-            if gain:
-                ff.write('GAIN_DEFAULT    ' + str(gain) +
-                         '  # Default gain if no FITS keyword found \n')
-            else:
-                ff.write(i)
-        else:
-            ff.write(i)
-    ff.close()
-    return namefile
-
-
-##########################################################################
-def archivefile(img, overwrite=True):
-    # print "LOGX:: Entering `archivefile` method/function in %(__file__)s" %
-    # globals()
-    import os
-    import ntt
-
-    outputfile = readkey3(readhdr(img), 'ARCFILE')
-    print outputfile
-    if not overwrite and os.path.isfile(outputfile):
-        answ = raw_input('overwrite file ' + outputfile + ' [[y]/n]? ')
-        if not answ:
-            answ = 'y'
-    else:
-        answ = 'y'
-    if answ.lower() in ['yes', 'y']:
-        os.system('cp ' + img + ' ' + outputfile)
-    else:
-        outputfile = ''
-    return outputfile
-
-
-##########################################################################
-def airmass(img, overwrite=True, _observatory='lasilla'):
-    # print "LOGX:: Entering `airmass` method/function in %(__file__)s" %
-    # globals()
-    import ntt
-    from pyraf import iraf
-
-    iraf.astutil(_doprint=0)
-    hdr = readhdr(img)
-    if readkey3(hdr, 'UTC'):
-        _UT = (readkey3(hdr, 'UTC') +
-               (readkey3(hdr, 'exptime') / 2)) / 3600
-        _date = readkey3(hdr, 'date-obs')
-        _date = _date[0:4] + '-' + _date[4:6] + '-' + _date[6:8]
-        _RA = readkey3(hdr, 'RA') / 15
-        _DEC = readkey3(hdr, 'DEC')
-        f = file('airmass.txt', 'w')
-        f.write('mst = mst ("' + str(_date) + '",' + str(_UT) +
-                ', obsdb ("' + str(_observatory) + '", "longitude"))\n')
-        f.write(
-            'air = airmass (' + str(_RA) + ',' + str(_DEC) + ',mst, obsdb ("' + str(_observatory) + '", "latitude"))\n')
-        f.write('print(air)\n')
-        f.close()
-        _air = iraf.astcalc(image=img, command="airmass.txt", Stdout=1)[0]
-        try:
-            _air = float(_air)
-        except:
-            _air = 999
-        delete('airmass.txt')
-        if overwrite and _air < 99.:
-            updateheader(
-                img, 0, {'AIRMASS': [_air, 'mean airmass computed with astcalc']})
-    else:
-        _air = ''
-    return _air
-
 
 ##########################################################################
 def dvex():
     # print "LOGX:: Entering `dvex` method/function in %(__file__)s" %
     # globals()
     dv = {}
-    dv['line'] = {'Gr16': 300, 'Gr11': 430, 'Gr13': 200, 'GR': 150, 'GB': 430}
+    #dv['line'] = {'Gr16': 300, 'Gr11': 430, 'Gr13': 200, 'GR': 150, 'GB': 430}
     dv['std'] = {'_t_order': 6, '_t_niter': 50, '_t_sample': '*', '_t_nlost': 20, '_width': 10, '_radius': 10,
                  '_weights': 'variance',
                  '_nsum': 30, '_t_step': 10, '_t_nsum': 10, '_lower': -10, '_upper': 10, '_b_sample': '-40:-20,20:40',
@@ -868,148 +407,8 @@ def dvex():
     return dv
 
 
-##########################################################################
-
-def phase3header(img):
-    # print "LOGX:: Entering `phase3header` method/function in %(__file__)s" %
-    # globals()
-    import ntt
-    import numpy as np
-
-    img_data = pyfits.open(img)[0].data
-    hdr = readhdr(img)
-
-    hedvec0 = {'DATAMIN': [float(min(img_data[np.isfinite(img_data)])), 'Minimal pixel value'],
-               'DATAMAX': [float(max(img_data[np.isfinite(img_data)])), 'Maximum pixel value'],
-               'REFERENC': ['Smartt et al 2014', 'Bibliographic reference'],
-               'ORIGIN': ['ESO', 'European Southern Observatory'],
-               'PI-COI': ['Smartt', 'PI-COI name'],
-               'PROCSOFT': ['ntt_' + str(ntt.__version__), 'pipeline version']}
-
-    if readkey3(hdr, 'filter'):
-        hedvec0['FILTER'] = [readkey3(hdr, 'filter'), 'Filter name']
-    if readkey3(hdr, 'gain'):
-        hedvec0['GAIN'] = [readkey3(
-            hdr, 'gain'), 'Conversion from electrons to ADU']
-    if readkey3(hdr, 'esoid'):
-        hedvec0['OBID1'] = [
-            int(str(readkey3(hdr, 'esoid'))), 'Observation block ID']
-    if readkey3(hdr, 'esoprog'):
-        hedvec0['PROG_ID'] = [readkey3(
-            hdr, 'esoprog'), 'ESO program identification']
-    if readkey3(hdr, 'tech'):
-        hedvec0['OBSTECH'] = [readkey3(
-            hdr, 'tech'), 'Observation technique']
-
-    # added for DR2
-    # check longest value in the dictionary header
-    # hedvec0['LONGSTRN']=[True,'TRUE if header values longer than 68 character']
-    # while len(max([str(i) for i in hdr.values()],key=len)) > 68:
-    #   keytochange=hdr.keys()[hdr.values().index(max([str(i) for i in hdr.values()],key=len))]
-    #   hdr[keytochange]=[str(hdr[keytochange])[0:68]]
-    updateheader(img, 0, hedvec0)
-
-
-##########################################################################
-def rangedata(lista):
-    # print "LOGX:: Entering `rangedata` method/function in %(__file__)s" %
-    # globals()
-    import ntt
-    import numpy as np
-
-    if len(lista) >= 1:
-        JD, date = [], []
-        _instrume = readkey3(readhdr(lista[0]), 'instrume')
-        for img in lista:
-            try:
-                hdr = readhdr(img)
-                JD.append(readkey3(hdr, 'JD'))
-                date.append(readkey3(hdr, 'date-night'))
-            except:
-                pass
-        datemin = date[np.argmin(np.array(JD))]
-        month = {'01': 'jan', '02': 'feb', '03': 'mar', '04': 'apr', '05': 'may', '06': 'jun', '07': 'jul', '08': 'aug',
-                 '09': 'sep', '10': 'oct', '11': 'nov', '12': 'dec'}
-        datemax = date[np.argmax(np.array(JD))]
-        stringa = month[datemin[4:6]] + datemin[2:4] + '_d' + str(datemin[-2:]) + 'to' + str(
-            datemax[-2:]) + '_' + _instrume
-    else:
-        stringa = ''
-    return stringa
-
-
-##########################################################################
-def name_duplicate(img, nome, ext):
-    # print "LOGX:: Entering `name_duplicate` method/function in %(__file__)s"
-    # % globals()
-    import glob
-    import ntt
-
-    dimg = readkey3(readhdr(img), 'DATE-OBS')
-    listafile = glob.glob(nome + '_?' + ext + '.fits') + \
-        glob.glob(nome + '_??' + ext + '.fits')
-    if len(listafile) == 0:
-        nome = nome + "_1" + ext + '.fits'
-    else:
-        date = []
-        for l in listafile:
-            date.append(readkey3(readhdr(l), 'DATE-OBS'))
-        if dimg in date:
-            nome = listafile[date.index(dimg)]
-        #         if overwrite:
-        #            delete(nome)
-        else:
-            n = 1
-            while nome + '_' + str(n) + str(ext) + '.fits' in listafile:
-                n = n + 1
-            nome = nome + '_' + str(n) + str(ext) + '.fits'
-    return nome
-
 
 ###############################################################################
-def correctobject(img, coordinatefile):
-    # print "LOGX:: Entering `correctobject` method/function in %(__file__)s"
-    # % globals()
-    import re
-    import ntt
-    import numpy as np
-
-    scal = np.pi / 180.
-    std, rastd, decstd, magstd = readstandard(coordinatefile)
-    img = re.sub('\n', '', img)
-    correctcard(img)
-    hdr = readhdr(img)
-    _ra = readkey3(hdr, 'RA')
-    _dec = readkey3(hdr, 'DEC')
-    dd = np.arccos(np.sin(_dec * scal) * np.sin(decstd * scal) + np.cos(_dec * scal) * np.cos(decstd * scal) *
-                   np.cos((_ra - rastd) * scal)) * ((180 / np.pi) * 3600)
-    if min(dd) < 200:
-        updateheader(
-            img, 0, {'OBJECT': [std[np.argmin(dd)], 'Original target.']})
-        aa, bb, cc = rastd[np.argmin(dd)], decstd[np.argmin(dd)], std[
-            np.argmin(dd)]
-    else:
-        aa, bb, cc = '', '', ''
-    return aa, bb, cc
-
-
-##########################################################################
-def archivingtar(outputlist, rawfile):
-    # print "LOGX:: Entering `archivingtar` method/function in %(__file__)s" %
-    # globals()
-    import os
-    import re
-    import ntt
-
-    print '\n### making a tar with pre-reduced frames ........ please wait'
-    stringa = ''
-    for img in outputlist:
-        stringa = stringa + img + ' '
-    stringa = stringa + rawfile
-    delete(re.sub('raw.list', 'tar.gz', rawfile))
-    os.system('tar -zcf ' + re.sub('raw.list',
-                                   'tar.gz', rawfile) + ' ' + stringa)
-    print '\n### tar file: ' + re.sub('raw.list', 'tar.gz', rawfile)
 
 
 #################################################################
@@ -1031,35 +430,6 @@ def repstringinfile(filein, fileout, string1, string2):
 
 
 ###################################################
-
-def StoN(img, ran=50):
-    # print "LOGX:: Entering `StoN` method/function in %(__file__)s" %
-    # globals()
-    import ntt
-    import numpy as np
-
-    xx, yy = readspectrum(img)
-    sntot = []
-    xxmed = []
-    for j in range(2, int((xx[-1] - xx[0]) / ran) - 2):
-        #      aa,bb=xx[0]+j*ran-25,xx[0]+j*ran+25
-        aa, bb = xx[0] + j * ran - \
-            int(ran / 2.), xx[0] + j * ran + int(ran / 2.)
-        ww = np.asarray([i for i in range(len(xx))
-                         if ((xx[i] >= aa) & (xx[i] < bb))])
-        snr = np.average(
-            yy[ww]) / np.sqrt((sum(((yy[ww] - np.average(yy[ww]))) ** 2)) / (len(ww) - 1))
-        sntot.append(snr)
-        xxmed.append(xx[0] + j * ran)
-    #   from pylab import ion,plot,show
-    #   ion()
-    #   plot(xxmed,sntot,'-r')
-    #   raw_input('dd')
-    #   show()
-    #   plot(xx,yy,'-b')
-    #   show()
-    return np.mean(sntot)
-
 
 def StoN2(img, show=False):
     # print "LOGX:: Entering `StoN2` method/function in %(__file__)s" %
@@ -1084,193 +454,10 @@ def StoN2(img, show=False):
         pl.ylabel('StoN')
     return np.median(sntot)
 
-
-################################################
-def spectraresolution(img):
-    # print "LOGX:: Entering `spectraresolution` method/function in
-    # %(__file__)s" % globals()
-    import ntt
-
-    hdr = readhdr(img)
-    _instrume = readkey3(hdr, 'instrume')
-    _slit = readkey3(hdr, 'slit')
-    _grism = readkey3(hdr, 'grism')
-    _filter = readkey3(hdr, 'filter')
-    risoluzioni = {}
-    risoluzioni['efosc'] = {}
-    risoluzioni['sofi'] = {}
-    risoluzioni['efosc']['GG495', 'Gr13', 'slit1.5'] = 29.
-    risoluzioni['efosc']['GG495', 'Gr13', 'slit1.0'] = 19.
-    risoluzioni['efosc']['Free', 'Gr13', 'slit1.5'] = 29.
-    risoluzioni['efosc']['Free', 'Gr13', 'slit1.0'] = 19.
-    risoluzioni['efosc']['Free', 'Gr11', 'slit1.5'] = 22.
-    risoluzioni['efosc']['Free', 'Gr11', 'slit1.0'] = 14.
-    risoluzioni['efosc']['OG530', 'Gr16', 'slit1.5'] = 22.
-    risoluzioni['efosc']['OG530', 'Gr16', 'slit1.0'] = 16.
-    risoluzioni['sofi']['GBF', 'GB', 'long_slit_1'] = 27.
-    risoluzioni['sofi']['GBF', 'GB', 'long_slit_2'] = 35.
-    risoluzioni['sofi']['GBR', 'GR', 'long_slit_1'] = 30.
-    risoluzioni['sofi']['GBR', 'GR', 'long_slit_2'] = 38.
-    if _instrume in risoluzioni.keys():
-        if (_filter, _grism, _slit) in risoluzioni[_instrume].keys():
-            return risoluzioni[_instrume][_filter, _grism, _slit]
-        else:
-            return ''
-    else:
-        return ''
-
 ################################################
 
 
-def spectraresolution2(img0, ww=25):
-    # print "LOGX:: Entering `spectraresolution2` method/function in
-    # %(__file__)s" % globals()
-    import string
-    import re
-    import ntt
-    import numpy as np
-
-    id = 'database/id' + re.sub('.fits', '', img0)
-    img = 't' + img0
-    data, hdr = pyfits.getdata(img, 0, header=True)
-    crvals = readkey3(hdr, 'CRVAL2')
-    cds = readkey3(hdr, 'CD2_2')
-    ny = readkey3(hdr, 'NAXIS2')
-    yy = data[:, int(ny / 2):int(ny / 2) + 10].mean(1)
-    xx = np.arange(len(yy))
-    zz = np.mean(yy)
-    aa = crvals + (xx) * cds
-    ntt.delete('new3.fits')
-    hdu = pyfits.PrimaryHDU(yy)
-    hdulist = pyfits.HDUList([hdu])
-    hdulist.writeto('new3.fits')
-########################################
-#   use updateheader definition to make astropy compatible
-#
-#    hdulist[0].header.update('CRVAL1', crvals)
-#    hdulist[0].header.update('CD1_1', cds)
-#
-    updateheader('new3.fits', 0, {'CRVAL1':[crvals,''],'CD1_1':[cds,'']})
-    hdulist.close()
-    #   read identified lines from id file
-    f = open(id, 'r')
-    ss = f.readlines()
-    f.close()
-    indices = [i for i, x in enumerate(ss) if "begin" in x]
-    dd = ss[indices[1]:indices[2]]
-    start = [i for i, x in enumerate(dd) if "features" in x][0] + 1
-    stop = [i for i, x in enumerate(dd) if "function" in x][0]
-    ff = dd[start:stop]
-    lines = []
-    for i in ff:
-        lines.append(float(string.split(i)[2]))
-    lines = np.compress((aa[0] < np.array(lines)) & (
-        np.array(lines) < aa[-1]), np.array(lines))
-    cursor = ''
-    yym = np.interp(lines - ww, aa, yy)
-    yyp = np.interp(lines + ww, aa, yy)
-    for i in range(0, len(lines)):
-        cursor = cursor + str(lines[i] - ww) + '  ' + str(yym[i]) + '  1   k\n'
-        cursor = cursor + str(lines[i] + ww) + '  ' + str(yyp[i]) + '  1   k\n'
-    cursor = cursor + str(lines[i] + ww) + '  ' + str(yyp[i]) + '  1   q\n'
-    ff = open('_cursor', 'w')
-    ff.write(cursor)
-    ff.close()
-    from pyraf import iraf
-
-    aaa = iraf.noao.onedspec.bplot(
-        'new3.fits', cursor='_cursor', spec2='', new_ima='', overwri='yes', Stdout=1)
-    fw = []
-    for i in aaa[1:]:
-        fw.append(float(string.split(string.split(i, '=')[-1], 'k')[0]))
-    ntt.delete('new3.fits,_cursor')
-    # return mean(fw)
-    return (aa[0] + ((aa[-1] - aa[0]) / 2)) / np.mean(fw)
-
-
-##################################################
-
-def limmag(img):
-    # print "LOGX:: Entering `limmag` method/function in %(__file__)s" %
-    # globals()
-    import ntt
-    import math
-    import os
-    import numpy as np
-
-    hdr = readhdr(img)
-    _ZP = readkey3(hdr, 'PHOTZP')
-    _gain = readkey3(hdr, 'gain')
-    _exptime = readkey3(hdr, 'exptime')
-    _fwhm = readkey3(hdr, 'PSF_FWHM')
-    _mbkg = readkey3(hdr, 'MBKG')  # background from sextractor
-    _instrume = readkey3(hdr, 'instrume')
-
-    if 'NCOMBINE' in hdr:
-        _ncombine = readkey3(hdr, 'NCOMBINE')
-    else:
-        _ncombine = 1
-
-    # CHANGE for DR2, EFRONN is defined after lim mag, need to compute again
-    # here
-    if _instrume == 'sofi':
-        EFFRON = 12. * (math.sqrt(float(_ncombine)) /
-                        math.sqrt(float(readkey3(hdr, 'ndit'))))
-    else:
-        if 'FLATCOR' in hdr and os.path.isfile(hdr['FLATCOR']):
-            hdrn = readhdr(hdr['FLATCOR'])
-            if 'NCOMBINE' in hdrn:
-                nflat = hdrn['NCOMBINE']
-            else:
-                nflat = 1
-        else:
-            nflat = 1
-        if 'ZEROCOR' in hdr and os.path.isfile(hdr['ZEROCOR']):
-            hdrb = readhdr(hdr['ZEROCOR'])
-            if 'NCOMBINE' in hdrb:
-                nbias = hdrb['NCOMBINE']
-            else:
-                nbias = 1
-        else:
-            nbias = 1
-        EFFRON = float(readkey3(hdr, 'ron')) * \
-            math.sqrt(1. + 1. / float(nflat) + 1. / float(nbias))
-
-    check = 1
-    if not _ZP:
-        check = 0
-    elif _ZP == 9999:
-        check = 0
-    if not _gain:
-        check = 0
-    if not _fwhm:
-        check = 0
-    if not _mbkg:
-        check = 0
-    else:
-        if float(_mbkg) <= 0:
-            _mbkg = 1
-    if check == 1:
-        if _instrume == 'efosc':
-            ps = readkey3(hdr, 'binx') * .12
-        else:
-            ps = 0.288
-        npix = np.pi * (_fwhm / ps)
-        _sn = 5  # signal to noise
-        maglim = _ZP - 2.5 * np.log10(
-            _sn / (_gain * _exptime) * (npix * (_mbkg * _gain) + (EFFRON ** 2) * npix) ** (1. / 2.))
-        return maglim
-    else:
-        return ''
-
-    # formula from McLean 1997)
-#      n=pi*((_fwhm/ps)**2)
-#      maglim=_ZP -2.5 * log10(sn * (1/_gain) * ((n*_mbkg/_exptime)**(.5)) )
-
-####################################################################
-
-
-def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _type, automaticex=False):
+def extractspectrum(img, dv, inst, _interactive, _type, automaticex=False):
     # print "LOGX:: Entering `extractspectrum` method/function in
     # %(__file__)s" % globals()
     import glob
@@ -1278,7 +465,6 @@ def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _t
     import string
     import sys
     import re
-    import ntt
     import datetime
     import numpy as np
 
@@ -1292,16 +478,11 @@ def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _t
     for t in toforget:
         iraf.unlearn(t)
 
-    # dv = ntt.dvex()
     hdr = readhdr(img)
-    # _gain = readkey3(hdr, 'gain')
-    # _rdnoise = readkey3(hdr, 'ron')
-    # _grism = readkey3(hdr, 'grism')
     iraf.specred.dispaxi = inst.get('dispaxis')
 
     imgex = re.sub('.fits', '_ex.fits', img)
     imgfast = re.sub(string.split(img, '_')[-2] + '_', '', img)
-    # imgfast=re.sub(str(MJDtoday)+'_','',img)
     if not os.path.isfile(imgex) and not os.path.isfile(
             'database/ap' + re.sub('.fits', '', img)) and not os.path.isfile(
             'database/ap' + re.sub('.fits', '', imgfast)):
@@ -1340,40 +521,10 @@ def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _t
                 _new, _extract = 'yes', 'yes'
     if _extract == 'yes':
         delete(imgex)
-        if _dispersionline:
-            question = 'yes'
-            while question == 'yes':
-                _z1, _z2, goon = display_image(img, 1, '', '', False)
-                dist = raw_input(
-                    '\n### At which line do you want to extract the spectrum [' + str(dv['line'][_grism]) + '] ? ')
-                if not dist:
-                    dist = 400
-                try:
-                    dist = int(dist)
-                    question = 'no'
-                except:
-                    print '\n### input not valid, try again:'
-        else:
-            # dist = dv['line'][_grism]
-            dist = 200
-        if _ext_trace in ['yes', 'Yes', 'YES', True]:
-            lista = glob.glob('*ex.fits')
-            if lista:
-                for ii in lista:
-                    print ii
-                _reference = raw_input(
-                    '\### which object do you want to use for the trace [' + str(lista[0]) + '] ? ')
-                if not _reference:
-                    _reference = lista[0]
-                _reference = re.sub('_ex', '', _reference)
-                _fittrac = 'no'
-                _trace = 'no'
-            else:
-                sys.exit('\n### error: no extracted spectra in the directory')
-        else:
-            _reference = ''
-            _fittrac = 'yes'
-            _trace = 'yes'
+        dist = 200
+        _reference = ''
+        _fittrac = 'yes'
+        _trace = 'yes'
         if _new == 'no':
             if not os.path.isfile('database/ap' + re.sub('.fits', '', img)):
                 repstringinfile('database/ap' + re.sub('.fits', '', imgfast),
@@ -1423,191 +574,147 @@ def extractspectrum(img, dv, inst, _ext_trace, _dispersionline, _interactive, _t
                                _type]['_t_sample'], resize=_resize,
                            t_order=dv[_type]['_t_order'],
                            weights=dv[_type]['_weights'], interactive=_interactive, review=_review, mode=_mode)
-
-        # repstringinfile('database/ap' + re.sub('.fits', '', img), 'database/ap' + re.sub('.fits', '', imgfast),
-        #                          re.sub('.fits', '', img), re.sub('.fits', '', imgfast))
-
-        # data, hdr = pyfits.getdata(imgex, 0, header=True)
-        # xxex = np.arange(len(data[0][0]))
-        # aaex = readkey3(hdr, 'CRVAL1') + \
-        #     (xxex) * readkey3(hdr, 'CD1_1')
-        # # add sky from original image  for sofi .....probably better to move
-        # # out of this module
-        # _original = readkey3(hdr, 'ORIGFILE')
-        # _archive = readkey3(hdr, 'ARCFILE')
-        # _arc = readkey3(hdr, 'ARC')
-        # _instrume = readkey3(hdr, 'instrume')
-        # if _arc and _instrume != 'efosc':
-        #     if os.path.isfile(_arc):
-        #         if os.path.isfile(_archive):
-        #             imgstart = _archive
-        #         elif os.path.isfile(_original):
-        #             imgstart = _original
-        #         else:
-        #             imgstart = ''
-        #         if imgstart:s
-        #             delete('_tmp.fits')
-        #             iraf.specred.transform(input=imgstart, output='_tmp.fits', minput='',
-        #                                    fitnames=re.sub('.fits', '', _arc), databas='database',
-        #                                    x1='INDEF', x2='INDEF', y1='INDEF', y2='INDEF', flux='yes', mode='h',
-        #                                    logfile='logfile')
-        #             yysky = pyfits.open('_tmp.fits')[0].data[:, 10]
-        #             delete('_tmp.fits')
-        #             data[2][0] = yysky
-        #             delete(imgex)
-        #             pyfits.writeto(imgex, np.float32(data), hdr)
-        #         else:
-        #             print '\n### warning raw image for sky information not found'
-                ##########################################
-            #        updateheader(imgex,0,{'XMIN':[aaex[0],'min wavelength [Angstrom]'],'XMAX':[aaex[-1],'max wavelength [Angstrom]']})
-    else:
-        print '\n### skipping new extraction'
-
-def extractarc(img, dv, inst, _ext_trace, _dispersionline, _interactive, _type, automaticex=False):
-    # print "LOGX:: Entering `extractspectrum` method/function in
-    # %(__file__)s" % globals()
-    import glob
-    import os
-    import string
-    import sys
-    import re
-    import ntt
-    import datetime
-    import numpy as np
-
-    MJDtoday = 55927 + (datetime.date.today() - datetime.date(2012, 01, 01)).days
-    from pyraf import iraf
-
-    iraf.noao(_doprint=0)
-    iraf.imred(_doprint=0)
-    iraf.specred(_doprint=0)
-    toforget = ['specred.apall', 'specred.transform']
-    for t in toforget:
-        iraf.unlearn(t)
-
-    # dv = ntt.dvex()
-    hdr = readhdr(img)
-    # _gain = readkey3(hdr, 'gain')
-    # _rdnoise = readkey3(hdr, 'ron')
-    # _grism = readkey3(hdr, 'grism')
-    iraf.specred.dispaxi = inst.get('dispaxis')
-
-    imgex = re.sub('.fits', '_ex.fits', img)
-    imgfast = re.sub(string.split(img, '_')[-2] + '_', '', img)
-    # imgfast=re.sub(str(MJDtoday)+'_','',img)
-    if not os.path.isfile(imgex) and not os.path.isfile(
-            'database/ap' + re.sub('.fits', '', img)) and not os.path.isfile(
-            'database/ap' + re.sub('.fits', '', imgfast)):
-        _new = 'yes'
-        _extract = 'yes'
-    else:
-        if automaticex:
-            if _interactive in ['Yes', 'yes', 'YES', 'y', 'Y']:
-                answ = 'x'
-                while answ not in ['o', 'n', 's']:
-                    answ = raw_input(
-                        '\n### New extraction [n], extraction with old parameters [o], skip extraction [s] ? [o]')
-                    if not answ:
-                        answ = 'o'
-                if answ == 'o':
-                    _new, _extract = 'no', 'yes'
-                elif answ == 'n':
-                    _new, _extract = 'yes', 'yes'
-                else:
-                    _new, _extract = 'yes', 'no'
-            else:
-                _new, _extract = 'no', 'yes'
-        else:
-            if _interactive in ['Yes', 'yes', 'YES', 'y', 'Y']:
-                answ = 'x'
-                while answ not in ['y', 'n']:
-                    answ = raw_input(
-                        '\n### do you want to extract again [[y]/n] ? ')
-                    if not answ:
-                        answ = 'y'
-                if answ == 'y':
-                    _new, _extract = 'yes', 'yes'
-                else:
-                    _new, _extract = 'yes', 'no'
-            else:
-                _new, _extract = 'yes', 'yes'
-    if _extract == 'yes':
-        delete(imgex)
-        if _dispersionline:
-            question = 'yes'
-            while question == 'yes':
-                _z1, _z2, goon = display_image(img, 1, '', '', False)
-                dist = raw_input(
-                    '\n### At which line do you want to extract the spectrum [' + str(dv['line'][_grism]) + '] ? ')
-                if not dist:
-                    dist = 400
-                try:
-                    dist = int(dist)
-                    question = 'no'
-                except:
-                    print '\n### input not valid, try again:'
-        else:
-            # dist = dv['line'][_grism]
-            dist = 200
-        if _ext_trace in ['yes', 'Yes', 'YES', True]:
-            lista = glob.glob('*ex.fits')
-            if lista:
-                for ii in lista:
-                    print ii
-                _reference = raw_input(
-                    '\### which object do you want to use for the trace [' + str(lista[0]) + '] ? ')
-                if not _reference:
-                    _reference = lista[0]
-                _reference = re.sub('_ex', '', _reference)
-                _fittrac = 'no'
-                _trace = 'no'
-            else:
-                sys.exit('\n### error: no extracted spectra in the directory')
-        else:
-            _reference = ''
-            _fittrac = 'yes'
-            _trace = 'yes'
-        if _new == 'no':
-            if not os.path.isfile('database/ap' + re.sub('.fits', '', img)):
-                repstringinfile('database/ap' + re.sub('.fits', '', imgfast),
-                                         'database/ap' +
-                                         re.sub('.fits', '', img), re.sub(
-                                             '.fits', '', imgfast),
-                                         re.sub('.fits', '', img))
-            _find = 'no'
-            _recenter = 'no'
-            _edit = 'no'
-            _trace = 'no'
-            _fittrac = 'no'
-            _mode = 'h'
-            _resize = 'no'
-            _review = 'no'
-            iraf.specred.mode = 'h'
-            _interactive = 'no'
-        else:
-            iraf.specred.mode = 'q'
-            _mode = 'q'
-            _find = 'yes'
-            _recenter = 'yes'
-            _edit = 'yes'
-            _review = 'yes'
-            _resize = dv[_type]['_resize']
-
-        # _interactive = False
-        _recenter = 'no'
-        _resize = 'no'
-        _edit = 'yes'
-        _trace = 'yes'
-        _fittrace = 'no'
-        _review = 'yes'
-
-        iraf.specred.apall(img, output=imgex, referen=_reference, trace=_trace, fittrac=_fittrac, find=_find,
-                           recenter=_recenter, edit=_edit,
-                           format='multispec', extras='yes',
-                           line='INDEF',interactive=_interactive, review=_review, mode=_mode)
-
     else:
         print '\n### skipping new extraction'
     return imgex
 
+def skyfrom2d(fitsfile, skyfile, interac=True):
+
+    from astropy.io import fits as pyfits
+    import numpy as np
+
+    hdulist = pyfits.open(fitsfile)
+    scidata = hdulist[0].data[:,0]
+    scidata_fits=scidata[3,:]
+
+    #yy1 = pyfits.open(fitsfile)[0].data[:, :].mean(1)
+
+    yy1 = scidata_fits
+
+    #print yy1
+    crval2 = pyfits.open(fitsfile)[0].header.get('CRVAL1')
+    cd2 = pyfits.open(fitsfile)[0].header.get('CD1_1')
+
+    #hdulist = pyfits.open(fitsfile)
+    #scidata = hdulist[0].data[:,0]
+    #crval2=hdulist[0].header['CRVAL1']
+    #cd2=hdulist[0].header['CD1_1']
+    #scidata_fits=scidata[3,:]
+
+    delete('new3.fits')
+    hdu = pyfits.PrimaryHDU(yy1)
+    hdulist = pyfits.HDUList([hdu])
+#    hdulist[0].header.update('CRVAL1', crval2)
+#    hdulist[0].header.update('CD1_1', cd2)
+    hdulist[0].header['CRVAL1']= crval2
+    hdulist[0].header['CD1_1'] = cd2
+    hdulist.writeto('new3.fits')
+    hdulist.close()
+
+    fitsfile = continumsub('new3.fits', 6, 1)
+    yy1 = pyfits.open(fitsfile)[0].data
+    xx1 = np.arange(len(yy1))
+    aa1 = crval2 + (xx1) * cd2
+    delete('new3.fits')
+
+    skyff = pyfits.open(skyfile)[0].data
+    #print 'here',skyff[100],yy1[100]
+    crval1 = pyfits.open(skyfile)[0].header.get('CRVAL1')
+    cd1 = pyfits.open(skyfile)[0].header.get('CDELT1')
+    skyxx = np.arange(len(skyff))
+    skyaa = crval1 + (skyxx) * cd1
+    shift = checkwavelength_arc(
+        aa1, yy1, skyaa, skyff, 5500, 6500, interac)
+    return shift
+
+def continumsub(imagefile, _order1, _order2):
+    # print "LOGX:: Entering `continumsub` method/function in %(__file__)s" %
+    # globals()
+    from pyraf import iraf
+    iraf.noao(_doprint=0)
+    iraf.imred(_doprint=0)
+    iraf.specred(_doprint=0)
+    toforget = ['specred.continuum']
+    for t in toforget:
+        iraf.unlearn(t)
+    delete('tsky.fits')
+    iraf.specred.continuum(imagefile, output='tsky.fits', type='difference',
+                           interact='no', function='legendre', niterat=300, low_rej=3, high_re=2, sample='*',
+                           order=_order1, ask='YES')
+    delete(imagefile)
+    iraf.continuum('tsky.fits', output=imagefile, type='difference',
+                   interact='no', function='spline1', overrid='yes', niterat=10, low_rej=3, high_re=1, sample='*',
+                   order=_order2, ask='YES')
+    delete('tsky.fits')
+    return imagefile
+
+def checkwavelength_arc(xx1, yy1, xx2, yy2, xmin, xmax, inter=True):
+    # print "LOGX:: Entering `checkwavelength_arc` method/function in
+    # %(__file__)s" % globals()
+    import numpy as np
+
+    minimo = max(min(xx1), min(xx2)) + 50
+    massimo = min(max(xx1), max(xx2)) - 50
+    yy1 = [0 if e < 0 else e for e in np.array(yy1)]
+    yy2 = [0 if e < 0 else e for e in np.array(yy2)]
+    _shift, integral = [], []
+    for shift in range(-500, 500, 1):
+        xxnew = xx1 + shift / 10.
+        yy2interp = np.interp(xxnew, xx2, yy2)
+        yy2timesyy = yy2interp * yy1
+        xxcut = np.compress((np.array(xxnew) >= minimo) & (
+            np.array(xxnew) <= massimo), np.array(xxnew))
+        yycut = np.compress((np.array(xxnew) >= minimo) & (
+            np.array(xxnew) <= massimo), np.array(yy2timesyy))
+        integrale = np.trapz(yycut, xxcut)
+        integral.append(integrale)
+        _shift.append(shift / 10.)
+    result = _shift[integral.index(max(integral))]
+    if inter:
+        import matplotlib.pyplot as mpl
+        #mpl.use("TKAgg")
+        #import pylab as pl
+        #pl.ion()
+        #pl.clf()
+        ratio = np.trapz(yy1, xx1) / np.trapz(yy2, xx2)
+        yy3 = np.array(yy2) * float(ratio)
+        xx4 = xx1 + result
+        fig = mpl.figure()
+        mpl.plot(xx1, yy1, label='spectrum')
+        mpl.plot(xx2, yy3, label='reference sky')
+        mpl.plot(xx4, yy1, label='shifted spectrum')
+        mpl.legend(numpoints=1, markerscale=1.5)
+        mpl.xlim(xmin, xmax)
+        mpl.ylim(0,100)
+        #if xmin != '' and xmax != '':
+        #    mpl.xlim(xmin, xmax)
+        #mpl.show()
+        fig.savefig('_shift.png')
+        mpl.close(fig)
+    return result
 ##########################################################################
+def name_duplicate(img, nome, ext):
+    # print "LOGX:: Entering `name_duplicate` method/function in %(__file__)s"
+    # % globals()
+    import glob
+
+    dimg = readkey3(readhdr(img), 'DATE-OBS')
+    listafile = glob.glob(nome + '_?' + ext + '.fits') + \
+        glob.glob(nome + '_??' + ext + '.fits')
+    if len(listafile) == 0:
+        nome = nome + "_1" + ext + '.fits'
+    else:
+        date = []
+        for l in listafile:
+            date.append(readkey3(readhdr(l), 'DATE-OBS'))
+        if dimg in date:
+            nome = listafile[date.index(dimg)]
+        #         if overwrite:
+        #            delete(nome)
+        else:
+            n = 1
+            while nome + '_' + str(n) + str(ext) + '.fits' in listafile:
+                n = n + 1
+            nome = nome + '_' + str(n) + str(ext) + '.fits'
+    return nome
+

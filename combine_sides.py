@@ -30,19 +30,37 @@ def sq_residuals(s,blue,red):
     return np.sum(w_res)
 
 def combine_blue_red(blue_asci, red_asci, name):
+	
+	#plt.rcParams['backend']="qt4agg"
+	#plt.rcParams['backend.qt4']="PySide"
+
 	blue = np.transpose(np.genfromtxt(name + '/' + blue_asci))
 	red = np.transpose(np.genfromtxt(name + '/' + red_asci))
 
 	# blue = np.transpose(np.genfromtxt(blue_asci))
 	# red = np.transpose(np.genfromtxt(red_asci))
 
-	#cut noisy part of red spectrum
-	valid_range = np.where(red[0]>5440.)
-	red = [red[0][valid_range], red[1][valid_range], red[2][valid_range]]
+	#cut noisy part of red spectrum (matt)
+	#trim spectra from very blue to very red
 
-	plt.plot(blue[0], blue[1])
-	plt.plot(red[0], red[1])
-	plt.show()
+	#valid_range_red = np.where(red[0]>5440. and red[0]<9500.)
+	valid_range_red = np.where(np.logical_and(red[0]>5440.,red[0]<9500.))
+	red = [red[0][valid_range_red], red[1][valid_range_red], red[2][valid_range_red]]
+
+	#valid_range_blue = np.where(blue[0]>3500. and blue[0]<5500.)
+	valid_range_blue=np.where(np.logical_and(blue[0]>3500.,blue[0]<5500.))
+	blue = [blue[0][valid_range_blue], blue[1][valid_range_blue], blue[2][valid_range_blue]]
+
+	#fig = plt.figure()
+	#plt.plot(blue[0], blue[1])
+	#plt.plot(red[0], red[1])
+	#plt.ylabel('Flux')
+	#plt.xlabel('Obs wavelength')
+	#plt.axis([5340, 5600, 0, 20])
+	#plt.xlim([5340,5600])
+	#plt.show()
+	#fig.savefig(name+'_overlap_region.png')
+	#plt.close(fig)
 
 	#Create red and blue spectra in overlap region
 	red_olap = np.where(red[0]<blue[0][-1])
@@ -60,7 +78,7 @@ def combine_blue_red(blue_asci, red_asci, name):
 	#scale blue in overlap region
 	scale = optimize_scales(blue_resampled,red_olap_spec)[0]
 	blue_olap_rescaled = [blue_resampled[0], scale*blue_resampled[1], scale*blue_resampled[2]]
-	print scale
+	print 'I scaled the blue with : ',scale
 
 
 	#inverse variance weighted average in overlap region
@@ -72,10 +90,13 @@ def combine_blue_red(blue_asci, red_asci, name):
 	# olap_err = np.average([blue_olap_rescaled[2], red_olap_spec[2]], axis = 0)
 	olap_arr = [red_olap_spec[0], olap_flux, olap_err]
 
-	plt.plot(blue_olap_rescaled[0], blue_olap_rescaled[1])
-	plt.plot(red[0], red[1])
-	plt.plot(olap_arr[0], olap_arr[1])
-	plt.show()
+	#fig = plt.figure()
+	#plt.plot(blue_olap_rescaled[0], blue_olap_rescaled[1])
+	#plt.plot(red[0], red[1])
+	#plt.plot(olap_arr[0], olap_arr[1])
+	#plt.show()
+	#fig.savefig('foo2.png')
+	#plt.close(fig)
 
 	#Exclude overlap region from original spectra
 	blue_cut = np.where(blue[0]<=red[0][0])
@@ -97,17 +118,17 @@ def combine_blue_red(blue_asci, red_asci, name):
 
 
 	
-	
+	fig = plt.figure()
 	plt.plot(blue_short[0], blue_short[1])
 	plt.plot(olap_arr[0], olap_arr[1])
 	plt.plot(red_short[0], red_short[1])
-	plt.show()
+	plt.xlim([3000,10000])
+	plt.ylabel('Flux')
+	plt.xlabel('Obs wavelength')
+	#plt.show()
+	fig.savefig(name+'_merged_spectrum.png')
+	plt.close(fig)
 
-	np.savetxt(name + '/' + name + '_combined.asci', np.transpose([wavelength, flux, err]))
+	np.savetxt(name + '/' + name + '_merged.asci', np.transpose([wavelength, flux, err]))
 
 	return [wavelength, flux, err]
-
-# path_to_files = '/home/msiebert/Documents/UCSC/Research/test_data/at2017fbs/'
-# combine_blue_red(path_to_files + 'at2017fbs_kast_blue_2017-07-03T07:16:35.32_1_f.asci', 
-# 	             path_to_files + 'at2017fbs_kast_red_2017-07-03T07:16:41.07_1_f.asci', 
-# 	             'at2017fbs')
